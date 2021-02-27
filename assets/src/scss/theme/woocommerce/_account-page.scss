@@ -1,0 +1,121 @@
+.woocommerce-account {
+  &.logged-in {
+    .entry-header {
+      .entry-title {
+        text-align: left;
+        padding-top: 10px;
+      }
+    }
+    .entry-content {
+      .woocommerce {
+        .woocommerce-MyAccount-navigation {
+          @include mq(md) {
+            width: 20%;
+          }
+          ul {
+            display: flex;
+            flex-wrap: wrap;
+            @include mq(600) {
+              flex-wrap: nowrap;
+              justify-content: space-between;
+            }
+            @include mq(md) {
+              flex-direction: column;
+            }
+            .woocommerce-MyAccount-navigation-link {
+              position: relative;
+              margin-bottom: 15px;
+              margin: 20px;
+              transition: all 0.3s;
+              &:hover {
+                a {
+                  color: $dark-red;
+                }
+              }
+              @include mq(600) {
+                margin: unset;
+                margin-bottom: 15px;
+              }
+              &:before {
+                content: "";
+                position: absolute;
+                left: 0;
+                width: 22px;
+                height: 22px;
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+              }
+              a {
+                color: $text-dark;
+                text-transform: uppercase;
+                letter-spacing: -0.14px;
+                font-family: $text-font;
+                font-size: 14px;
+                line-height: 23px;
+                margin-left: 40px;
+              }
+              &.is-active {
+                a {
+                  color: $dark-red;
+                }
+              }
+              &.woocommerce-MyAccount-navigation-link--dashboard {
+                &:before {
+                  background-image: url("../images/svg/myaccount-grey.svg");
+                }
+              }
+              &.woocommerce-MyAccount-navigation-link--orders {
+                &:before {
+                  background-image: url("../images/svg/order.svg");
+                }
+              }
+              &.woocommerce-MyAccount-navigation-link--edit-address {
+                &:before {
+                  background-image: url("../images/svg/addresses.svg");
+                }
+              }
+              &.woocommerce-MyAccount-navigation-link--edit-account {
+                &:before {
+                  background-image: url("../images/svg/settings.svg");
+                }
+              }
+              &.woocommerce-MyAccount-navigation-link--customer-logout {
+                &:before {
+                  background-image: url("../images/svg/logout.svg");
+                }
+              }
+            }
+          }
+        }
+        .woocommerce-MyAccount-content {
+          @include mq(md) {
+            width: 78%;
+          }
+          p {
+            letter-spacing: -0.16px;
+            color: $text-dark;
+            font-size: 16px;
+            line-height: 24px;
+            font-family: $main-font;
+            margin-bottom: 20px;
+            &:last-of-type {
+              margin-bottom: unset;
+            }
+            strong {
+              font-weight: 600;
+            }
+            a {
+              color: $text-dark;
+              text-decoration: underline;
+              transition: all 0.3s;
+              &:hover {
+                color: $dark-red;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

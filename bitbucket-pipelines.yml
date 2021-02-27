@@ -1,0 +1,20 @@
+# This is a sample build configuration for JavaScript.
+# Check our guides at https://confluence.atlassian.com/x/14UWN for more examples.
+# Only use spaces to indent your .yml configuration.
+# -----
+# You can specify a custom docker image from Docker Hub as your build environment.
+
+pipelines:
+  branches:
+      master:
+          - step:
+              name: Test
+              image: php:7.1.29
+              script:
+                - apt-get update && apt-get install -y unzip git
+                - export PHPCS_DIR=/tmp/phpcs
+                - export SNIFFS_DIR=/tmp/sniffs
+                - git clone -b master --depth 1 https://github.com/squizlabs/PHP_CodeSniffer.git $PHPCS_DIR
+                - git clone -b master --depth 1 https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards.git $SNIFFS_DIR
+                - $PHPCS_DIR/bin/phpcs --config-set installed_paths $SNIFFS_DIR
+                - $PHPCS_DIR/bin/phpcs -p . --standard=WordPress --extensions=php --ignore=*/woocommerce/* --runtime-set ignore_warnings_on_exit 1

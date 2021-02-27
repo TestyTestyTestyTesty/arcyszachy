@@ -1,0 +1,39 @@
+.woocommerce-notices-wrapper{
+    .woocommerce-error{
+        background:$dark-red;
+        border:none;
+        color:$white;
+        font-size:16px;
+        letter-spacing: -0.16px;
+        font-family:$text-font;
+        padding:15px 70px 15px 70px;
+        line-height: 32px;
+        @include mq(md) {
+            padding:15px 70px;
+        }
+        a{
+            color:$white;
+            text-decoration: underline;
+            background:none;
+            border:2px solid $white;
+            border-radius:4px;
+            transition: all 0.3s;
+            text-decoration: underline;
+            &:hover,&:focus{
+                background:$white;
+                color:$green;
+                outline:$white;
+            }
+        }
+        &:before{
+            content:'';
+            background:url("../images/svg/error.svg");
+            height:26px;
+            width:26px;
+            top: 22%;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+        }
+    }
+}

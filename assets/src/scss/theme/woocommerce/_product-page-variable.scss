@@ -1,0 +1,256 @@
+.single-product {
+  .product-type-variable {
+    .onsale {
+      width: 87px;
+      height: 23px;
+      top: 23px;
+      left: 7px;
+      background: #d90018;
+      border-radius: 0px 4px 4px 0px;
+      font-size: 11px;
+      font-family: $text-font;
+      letter-spacing: -0.28px;
+      color: $white;
+      width: 87px;
+      height: 23px;
+      text-transform: uppercase;
+    }
+    &.sale {
+      .price-wrapper {
+        width: 140px;
+        height: 140px;
+        position: relative;
+        background: #d90018;
+        width: 140px;
+        height: 140px;
+        border-radius: 5000%;
+        p.price{
+          top: 50%;
+          transform: translateY(-18%);
+        }
+        .price {
+          background: none;
+          position: absolute;
+          display: block;
+          
+          text-align: center;
+          margin: 0;
+          .price-from {
+            clear: both;
+            display: inherit;
+            margin-bottom: 5px;
+          }
+          .amount {
+            margin: 0;
+          }
+          del {
+            display: block;
+            margin-bottom: 5px;
+          }
+          ins {
+            font-weight: 400;
+            display: inline-block;
+            text-decoration: none;
+            .amount {
+              margin-right: 0;
+            }
+          }
+        }
+      }
+    }
+    .summary {
+      .product_title {
+        letter-spacing: -0.95px;
+        color: $text-dark;
+        font-size: 38px;
+        font-family: $text-font;
+        font-weight: 500;
+        margin-bottom: 20px;
+        padding: 10px 0 !important;
+        border-top: 1px solid #e8e8e8;
+        border-bottom: 1px solid #e8e8e8;
+      }
+      .price {
+        background: $dark-red;
+        width: 140px;
+        height: 140px;
+        border-radius: 5000%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: $white !important;
+        font-family: $text-font;
+        font-size: 18px;
+        .amount {
+          margin: 0 5px;
+        }
+      }
+      .woocommerce-product-details__short-description {
+        margin: 5px 0 20px;
+        .single-product-short-description__title {
+          font-size: $text-dark;
+          letter-spacing: -0.55px;
+          font-size: 22px;
+          font-family: $text-font;
+          font-weight: 500;
+          margin-bottom: 15px;
+        }
+        p {
+          letter-spacing: -0.16px;
+          color: #616161;
+          font-family: $main-font;
+          font-size: 16px;
+          max-width: 445px;
+          line-height: 24px;
+        }
+      }
+      .variations {
+        margin-bottom: 0 !important;
+        .label {
+          font-size: 22px;
+          font-family: $text-font;
+          letter-spacing: -0.55px;
+          color: $text-dark;
+          font-weight: 600;
+        }
+        .woo-variation-items-wrapper {
+          .variable-items-wrapper {
+            padding: 10px 0;
+            border-top: 1px solid #e8e8e8;
+            border-bottom: 1px solid #e8e8e8;
+            .variable-item {
+              font-size: 14px;
+              font-family: $text-font;
+              letter-spacing: -0.35px;
+              color: #969696;
+              width: 82px;
+              height: 40px;
+              text-transform: uppercase;
+              border-radius: 4px;
+              margin-right: 9px;
+              .variable-item-span {
+              }
+              &.selected {
+                color: $white;
+                background: $text-dark;
+              }
+            }
+          }
+        }
+        .reset_variations {
+          font-size: 16px !important;
+          font-family: $text-font;
+          letter-spacing: -0.4px;
+          color: #141414;
+          text-decoration: underline;
+          transition: all 0.3s;
+          &:hover {
+            color: $dark-red;
+          }
+        }
+      }
+      .single_variation_wrap {
+        position: relative;
+        .stock {
+          position: relative;
+          margin-left: 90px;
+          padding: 5px 0 10px;
+          color: #969696;
+          text-transform: uppercase;
+          letter-spacing: -0.14px;
+          font-size: 14px;
+          font-family: $text-font;
+          &:before {
+            content: "NA STANIE";
+            position: absolute;
+            text-align: left;
+            font-size: 14px;
+            font-family: $text-font;
+            font-weight: 500;
+            letter-spacing: -0.14px;
+            color: $text-dark;
+            text-transform: uppercase;
+            left: -70px;
+          }
+          &:after {
+            content: "";
+            position: absolute;
+            text-align: left;
+            width: 15px;
+            height: 15px;
+            border-radius: 500%;
+            background: $green;
+            left: -90px;
+          }
+        }
+        .woocommerce-variation-add-to-cart {
+          display: flex;
+          align-items: center;
+          .single_add_to_cart_button {
+            margin-right: 10px;
+            background: $dark-red;
+            border-radius: 4px;
+            font-size: 14px;
+            font-family: $text-font;
+            letter-spacing: 0.4px;
+            color: $white;
+            text-transform: uppercase;
+            padding: 10px 35px;
+            display: flex;
+            align-items: center;
+            @include mq(sm) {
+              margin-right: 30px;
+              padding: 10px 45px;
+            }
+            img {
+              margin-right: 12px;
+            }
+          }
+          .quantity {
+            .qty {
+              height: 50px;
+              font-size: 23px;
+              font-family: $text-font;
+            }
+          }
+        }
+      }
+    }
+    .product-details-switcher {
+      clear: both;
+      display: flex;
+      justify-content: center;
+      border-top: 1px solid #e8e8e8;
+      border-bottom: 1px solid #e8e8e8;
+      margin-bottom: 40px;
+      margin-top: 40px;
+      @include mq(md) {
+        margin-top: 110px;
+      }
+      &__item {
+        text-align: left;
+        font-size: 16px;
+        line-height: 60px;
+        font-family: $text-font;
+        letter-spacing: -0.4px;
+        color: $text-dark;
+        font-weight: 500;
+        margin: 0 21px;
+        cursor: pointer;
+        transition: all 0.3s;
+        &:hover {
+          color: $dark-red;
+        }
+        &--active {
+          color: $dark-red;
+        }
+      }
+    }
+    .product-tab {
+      display: none;
+      &__visible {
+        display: block;
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+.logo {
+  &--header {
+    max-width: 140px;
+    height: auto;
+    @include mq(sm) {
+      max-width: 227px;
+      height: 61px;
+    }
+  }
+  &--footer {
+    max-width: 227px;
+    height: 61px;
+    @include mq(md) {
+      margin-right: 28px;
+    }
+  }
+}

@@ -1,0 +1,111 @@
+.faq {
+  padding: 0 0 80px;
+  @include mq(lg) {
+    padding: 84px 0 100px;
+  }
+  &__title {
+    color: $text-dark;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 26px;
+    line-height: 50px;
+    font-family: $text-font;
+    margin-bottom: 36px;
+    letter-spacing: -0.58px;
+  }
+  &-fields{
+    &__single{
+      position: relative;
+      border-collapse: collapse;
+      padding: 20px;
+      border:1px solid #E2E1E1B3;
+      @include mq(lg){
+        padding: 20px 42px;
+      }
+      cursor: pointer;
+      &--active{
+        transition: all 0.3s;
+        .faq-fields__title{
+          color:$dark-red;
+          transition: all 0.3s;
+          margin-bottom:34px
+        }
+        .faq-fields__description{
+          max-height: 2000px;
+          transition: all 0.3s;
+          opacity:1;
+          margin-bottom:30px;
+        }
+      }
+    }
+    &__title{
+      line-height:60px;
+      font-family:$text-font;
+      font-size:22px;
+      letter-spacing: -0.55px;
+      color: $text-dark;
+      transition: all 0.3s;
+      position: relative;
+      &--active{
+        color:$dark-red;
+      }
+    }
+    &__description{
+      line-height:24px;
+      font-family:$main-font;
+      font-size:16px;
+      letter-spacing: -0.16px;
+      color: $text-light;
+      max-height:0;
+      opacity: 0;
+      transition: all 0.3s;
+    }
+    &__toggler{
+      position:absolute;
+      height:20px;
+      width:20px;
+      right: 20px;
+      top: 42px;
+      transition: all 0.3s;
+      @include mq(lg){
+        right: 42px;
+        top: 42px;
+      }
+      &::after{
+        content: " ";
+        position: absolute;
+        display: block;
+        background-color: #141414;
+        height: 100%;
+        width: 4px;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1;
+        margin: auto;
+        transition: all 0.3s;
+      }
+      &::before{
+        content: " ";
+        position: absolute;
+        display: block;
+        background-color: #141414;
+        width: 100%;
+        height: 4px;
+        top: 0;
+        bottom:0;
+        left: 0;
+        right: 0;
+        z-index: 1;
+        margin: auto;
+      }
+      &--close{
+        transition: all 0.3s;
+        &::after{
+          transition: all 0.3s;
+          opacity:0;
+        }
+      }
+    }
+  }
+}

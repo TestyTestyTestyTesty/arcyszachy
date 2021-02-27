@@ -1,0 +1,65 @@
+{
+  "browsersync": {
+    "open": "external",
+    "host": "localhost",
+    "proxy": "http://localhost/arcyszachy/",
+    "port": 8080
+  },
+  "production": false,
+  "paths": {
+    "css": {
+      "theme": {
+        "src": [
+          "assets/src/scss/theme/*.scss"
+        ]
+      },
+      "vendor": {
+        "src": [
+          "assets/src/scss/vendor/*.scss",
+          "assets/src/scss/vendor/*.css"
+        ]
+      },
+      "dist": "assets/dist/css/"
+    },
+    "js": {
+      "theme": {
+        "src": [
+          "assets/src/js/theme/*.js"
+        ]
+      },
+      "vendor": {
+        "src": [
+          "node_modules/jquery/dist/jquery.js",
+          "node_modules/select2/dist/js/i18n/pl.js",
+          "assets/src/js/vendor/*.js"
+
+        ]
+      },
+      "dist": "assets/dist/js/"
+    },
+    "images": {
+      "src": "assets/src/images/**/*",
+      "dist": "assets/dist/images/"
+    },
+    "fonts": {
+      "src": [
+        "assets/src/fonts/*"
+      ],
+      "dist": "assets/dist/fonts/"
+    },
+    "php": "",
+    "watch": {
+      "css": {
+        "theme": "assets/src/scss/theme/**/*.scss",
+        "vendor": "assets/src/scss/vendor/**/*.scss"
+      },
+      "js": {
+        "theme": "assets/src/js/theme/**/*.js",
+        "vendor": "assets/src/js/vendor/**/*.js"
+      },
+      "fonts": "assets/src/fonts/**/*.js",
+      "images": "assets/src/images/*",
+      "php": "**/*.php"
+    }
+  }
+}

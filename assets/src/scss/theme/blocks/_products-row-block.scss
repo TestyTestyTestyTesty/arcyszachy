@@ -1,0 +1,14 @@
+.products-row-block{
+  .products{
+    .product{
+      &:last-of-type{
+        @include mq(md){
+          display: none;
+        }
+        @include mq(xl){
+          display: flex;
+        }
+      }
+    }
+  }
+}

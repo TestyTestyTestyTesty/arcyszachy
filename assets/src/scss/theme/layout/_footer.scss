@@ -1,0 +1,125 @@
+.footer {
+  background: transparent linear-gradient(276deg, #860A11 0%, $dark-red 100%) 0% 0% no-repeat padding-box;
+  padding: 20px 0 0;
+  margin-top:auto;
+  @include mq(lg) {
+    width: 100%;
+    padding: 0;
+    height: 129px;
+  }
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 100%;
+    align-items: center;
+  }
+  &__top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @include mq(lg) {
+      width: 100%;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+  &__bottom {
+    display: flex;
+    margin-bottom: 11px;
+    justify-content: center;
+    @include mq(lg) {
+      width: 100%;
+      justify-content: flex-end;
+    }
+  }
+  .navigation {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    flex-direction: column;
+    margin: 20px 0;
+    @include mq(md) {
+      margin: 0;
+      justify-content: space-between;
+      flex-direction: row;
+    }
+  }
+  &__menu {
+    &--left {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      @include mq(sm) {
+        justify-content: flex-start;
+        flex-direction: row;
+      }
+      .menu-item {
+        margin:10px 0;
+        @include mq(sm) {
+          margin-right: 52px;
+        }
+        &:last-of-type {
+          margin-right: 0;
+        }
+
+        a {
+          font-family: $text-font;
+          letter-spacing: -0.1px;
+          color: $white;
+          font-size: 16px;
+          line-height: 24px;
+          &:hover{
+            border-bottom:1px solid $white;
+          }
+        }
+      }
+    }
+    &--right {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      @include mq(sm) {
+        justify-content: flex-start;
+        flex-direction: row;
+      }
+      @include mq(md) {
+        margin-left: 52px;
+      }
+      @include mq(lg) {
+        margin-left: 52px;
+      }
+      .menu-item {
+        margin:10px 0;
+        @include mq(sm) {
+          margin-right: 24px;
+        }
+        &:last-of-type {
+          margin-right: 0;
+        }
+        a {
+          font-family: $text-font;
+          letter-spacing: -0.1px;
+          color: $white;
+          font-size: 16px;
+          line-height: 24px;
+          &:hover{
+            border-bottom:1px solid $white;
+          }
+        }
+      }
+    }
+  }
+  &__copyright {
+    letter-spacing: -0.07px;
+    color: #efe2e3;
+    font-family: $main-font;
+    font-size: 12px;
+    line-height: 24px;
+    text-align: center;
+    @include mq(md){
+      text-align: right;
+    }
+  }
+}

@@ -1,0 +1,115 @@
+.woocommerce-account {
+  &.logged-in {
+    .entry-content {
+      .woocommerce {
+        .woocommerce-MyAccount-content {
+          .woocommerce-message {
+            background: $blue;
+            border: none;
+            color: $white;
+            font-size: 16px;
+            letter-spacing: -0.16px;
+            font-family: $text-font;
+            padding: 15px 30px 15px 70px;
+            line-height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            flex-direction: column-reverse;
+            @include mq(600) {
+              flex-direction: row-reverse;
+            }
+            @include mq(md) {
+              padding: 15px 70px;
+            }
+            a {
+              color: $white;
+              text-decoration: underline;
+              background: none;
+              border: 2px solid $white;
+              border-radius: 4px;
+              transition: all 0.3s;
+              text-decoration: underline;
+              &:hover,
+              &:focus {
+                background: $white;
+                color: $blue;
+                outline: $white;
+              }
+              &.restore-item {
+                padding: 5px 20px;
+                margin: 10px 0;
+                @include mq(md) {
+                  margin: unset;
+                }
+              }
+            }
+            &:after {
+              content: none;
+            }
+            &:before {
+              content: none
+            }
+          }
+          .woocommerce-MyAccount-orders {
+            background: $white;
+            padding: 28px 35px 0;
+            box-shadow: 0px 3px 6px #25252529;
+            border-radius: 8px;
+            border: none;
+            thead {
+              tr {
+                color: $text-dark;
+                font-size: 16px;
+                line-height: 16px;
+                letter-spacing: -0.16px;
+                font-weight: 500;
+                font-family: $text-font;
+                th {
+                  padding-bottom: 30px;
+                  span {
+                  }
+                }
+              }
+            }
+            tbody {
+              tr {
+                font-family: $main-font;
+                color: $text-dark;
+                line-height: 26px;
+                font-size: 14px;
+                border-bottom: 2px solid $text-dark;
+                &:last-of-type {
+                  border-bottom: unset;
+                }
+                @include mq(md) {
+                }
+                td {
+                  background: $white;
+                  padding: 22px 4px;
+                  a {
+                    color: $text-dark;
+                    transition: all 0.3s;
+                    &:hover{
+                      color:$dark-red;
+                    }
+                    &.woocommerce-button {
+                      border: 1px solid $text-dark;
+                      font-family: $text-font;
+                      background: $white;
+                      padding: 12px 27px;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,137 @@
+.woocommerce-account {
+  &.woocommerce-view-order {
+    .entry-content {
+      .woocommerce {
+        .woocommerce-MyAccount-content {
+          p {
+            letter-spacing: -0.16px;
+            color: $text-dark;
+            font-size: 16px;
+            line-height: 24px;
+            margin:30px 0;
+            @include mq(md){
+              margin:unset;
+            }
+            mark {
+              background: none;
+              text-decoration: underline;
+              font-weight: 600;
+            }
+          }
+          .woocommerce-order-details {
+            margin-bottom:40px;
+            .woocommerce-order-details__title {
+              letter-spacing: -0.58px;
+              color: $text-dark;
+              font-family: $text-font;
+              font-weight: 500;
+              line-height: 50px;
+              font-size: 26px;
+              margin: 10px 0 30px;
+            }
+            .woocommerce-table {
+              background: $white;
+              box-shadow: 0px 3px 6px #25252529;
+              border-radius: 8px;
+              border: none;
+              thead {
+                tr {
+                  color: $text-dark;
+                  font-size: 16px;
+                  line-height: 16px;
+                  letter-spacing: -0.16px;
+                  font-weight: 500;
+                  font-family: $text-font;
+                  th {
+                    padding: 28px 35px 30px;
+                    @include mq(md){
+                    padding: 28px 35px 30px 125px;
+                    }
+                    span {
+                    }
+                  }
+                }
+              }
+              tbody {
+                tr {
+                  td {
+                    color: $text-dark;
+                    font-size: 14px;
+                    line-height: 26px;
+                    letter-spacing: -0.14px;
+                    font-family: $main-font;
+                    padding: 22px 35px 22px;
+                    @include mq(md){
+                      padding: 22px 35px 22px 125px;
+
+                    }
+                    a {
+                      color: $text-dark;
+                    }
+                    strong {
+                    }
+                  }
+                }
+              }
+              tfoot {
+                tr {
+                  color: $text-dark;
+                  font-size: 16px;
+                  line-height: 16px;
+                  letter-spacing: -0.16px;
+                  font-weight: 500;
+                  font-family: $text-font;
+                  th,td {
+                    padding: 22px 35px 22px;
+                    @include mq(md){
+                      padding: 22px 35px 22px 125px;
+                    }
+                  }
+                }
+              }
+            }
+
+          }
+          .woocommerce-customer-details{
+            .woocommerce-column__title{
+              letter-spacing: -0.16px;
+              color: $text-dark;
+              font-family: $text-font;
+              font-weight: 500;
+              font-size: 16px;
+              margin: 0 0 18px;
+            }
+            address{
+              background: $white;
+              box-shadow: 0px 3px 6px #25252529;
+              border-radius: 8px;
+              border: none;
+              text-align: center;
+              padding:33px 0;
+              color:$text-dark;
+              font-size:16px;
+              letter-spacing: -0.16px;
+              line-height: 34px;
+              font-family: $text-font;
+              font-weight: 500;
+              
+              p{
+                color:$text-dark;
+                font-size:16px;
+                letter-spacing: -0.16px;
+                line-height: 34px;
+                font-family: $text-font;
+                font-weight: 500;
+                padding:0;
+                margin:0;
+                &:before{
+                  content:none;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,85 @@
+.woocommerce-account {
+  &.woocommerce-edit-account {
+    .entry-content {
+      .woocommerce {
+        .woocommerce-MyAccount-content {
+          .woocommerce-EditAccountForm {
+            .woocommerce-address-fields__field-wrapper {
+              margin-bottom: 20px;
+            }
+            .form-row {
+              padding: 0;
+              margin: 0;
+              label {
+                letter-spacing: 0px;
+                color: $text-light;
+                font-size: 11px;
+                line-height: 14px;
+                font-family: $main-font;
+                position: relative;
+                left: 10px;
+                bottom: -5px;
+                z-index: 1;
+                padding: 2px 10px;
+                background: $site-bg;
+                max-width: 100%;
+                display: inline;
+              }
+              .input-text {
+                border-radius: 6px;
+                border: 1px solid $gray;
+                padding: 10px;
+                font-family: $main-font;
+                color: $text-light;
+                width: 100%;
+                z-index: 6000;
+                margin-bottom: 20px;
+                background: $site-bg;
+              }
+              .address-field {
+                margin-bottom: 20px;
+                select {
+                  margin-bottom: 20px;
+                }
+              }
+            }
+            fieldset {
+              legend {
+                letter-spacing: -0.14px;
+                color: $text-dark;
+                text-transform: uppercase;
+                font-family: $text-font;
+                font-size: 14px;
+              }
+              label{
+                z-index:6001 !important;
+                bottom:-10px !important;
+              }
+              .show-password-input {
+                z-index: 7001;
+              }
+            }
+            .button {
+              text-align: center;
+              width: 190px;
+              background: $dark-red;
+              border-radius: 6px;
+              height: 47px;
+              color: $white;
+              font-family: $text-font;
+              letter-spacing: 0.4px;
+              font-weight: 600;
+              font-size: 14px;
+              text-transform: uppercase;
+              cursor: pointer;
+              transition: all 0.3s;
+              &:hover{
+                background:$button-hover;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

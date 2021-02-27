@@ -1,0 +1,54 @@
+.woocommerce-account {
+  .entry-header {
+    .entry-title {
+      padding-top: 0;
+      letter-spacing: -0.95px;
+      color: $text-dark;
+      font-family: $text-font;
+      font-weight: 500;
+      font-size: 38px;
+      line-height: 60px;
+      text-align: center;
+      margin-bottom: 24px;
+    }
+  }
+  .entry-content {
+    padding-bottom: 50px;
+    @include mq(lg) {
+      padding-bottom: 113px;
+    }
+    .u-columns {
+      .u-column1 {
+        margin-bottom: 30px;
+        @include mq(md) {
+          margin: unset;
+        }
+      }
+      .u-column1,
+      .u-column2 {
+        border-radius: 4px;
+        box-shadow: 0px 3px 6px #00000029;
+        padding: 42px 10px 59px;
+        @include mq(sm) {
+          padding: 42px 45px 59px;
+        }
+        @include mq(md) {
+          padding: 42px 15px 59px;
+        }
+        @include mq(lg) {
+          padding: 42px 65px 59px;
+        }
+      }
+      .woocommerce-account__form-title {
+        letter-spacing: -0.58px;
+        color: $text-dark;
+        font-family: $text-font;
+        font-weight: 500;
+        font-size: 26px;
+        line-height: 50px;
+        text-align: center;
+        margin-bottom: 24px;
+      }
+    }
+  }
+}

@@ -1,0 +1,68 @@
+.generic-content {
+  padding: 80px 0;
+  @include mq(lg) {
+    padding: 55px 0 150px;
+  }
+  &__title {
+    letter-spacing: -0.95px;
+    color: $text-dark;
+    font-weight: 500;
+    font-size: 38px;
+    line-height: 60px;
+    font-family: $text-font;
+    margin-bottom: 11px;
+    position: relative;
+    margin-bottom:86px;
+    &:after {
+      content: "";
+      position: absolute;
+      bottom: -30px;
+      left: 0;
+      margin:auto;
+      width: 100px;
+      height: 4px;
+      background: $dark_red;
+    }
+  }
+  &__content{
+    h1,h2,h3,h4,h5,h6{
+      color:$text-dark;
+      font-family:$text-font;
+      letter-spacing: -0.58px;
+      margin-bottom:20px;
+      font-weight: 500;
+    }
+    h1{
+      font-size: 38px;
+      line-height: 60px;
+    }
+    h2{
+      font-size:26px;
+      line-height: 50px;
+    }
+    h3{
+      font-size:22px;
+      line-height: 40px;
+    }
+    h4{
+      font-size:20px;
+      line-height: 35px;
+    }
+    h5{
+      font-size:18px;
+      line-height: 30px;
+    }
+    h6{
+      font-size:16px;
+      line-height: 24px;
+    }
+    p{
+      letter-spacing: -0.16px;
+      color:$text-light;
+      font-size:16px;
+      line-height: 24px;
+      font-family:$main-font;
+      margin-bottom:20px;
+    }
+  }
+}

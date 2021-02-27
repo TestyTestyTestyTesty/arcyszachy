@@ -1,0 +1,125 @@
+.contact-form {
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    @include mq(sm) {
+        margin-bottom: 20px;
+        flex-direction: row;
+    }
+    .wpcf7-form-control-wrap {
+        
+      input {
+        border-radius: 6px;
+        border: 1px solid $gray;
+        padding: 10px;
+        font-family: $main-font;
+        color: $text-light;
+        width: 100%;
+        z-index: 6000;
+        margin-bottom:20px;
+        @include mq(sm) {
+            margin-bottom:unset;
+        }
+      }
+      .wpcf7-not-valid-tip {
+        padding: 10px 0;
+        letter-spacing: 0px;
+        color: $dark-red;
+        font-size: 11px;
+        line-height: 14px;
+        font-family: $main-font;
+      }
+    }
+  }
+  &__single-input {
+    width: 100%;
+    @include mq(sm) {
+        width: 48%;
+
+    }
+    label {
+      letter-spacing: 0px;
+      color: $text-light;
+      font-size: 11px;
+      line-height: 14px;
+      font-family: $main-font;
+      position: relative;
+      left: 10px;
+      bottom: -5px;
+      z-index: 5000;
+      padding: 2px 10px;
+      background: $white;
+    }
+  }
+  &__textarea {
+    width: 100%;
+    label {
+      letter-spacing: 0px;
+      color: $text-light;
+      font-size: 11px;
+      line-height: 14px;
+      font-family: $main-font;
+      position: relative;
+      left: 10px;
+      bottom: -5px;
+      z-index: 5000;
+      padding: 2px 10px;
+      background: $white;
+    }
+    .wpcf7-form-control-wrap {
+      textarea {
+        border-radius: 6px;
+        border: 1px solid $gray;
+        padding: 10px;
+        font-family: $main-font;
+        color: $text-light;
+        width: 100%;
+        z-index: 6000;
+      }
+    }
+  }
+  &__send {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    input {
+      text-align: center;
+      width: 100%;
+      background: $dark-red;
+      border-radius: 6px;
+      height: 47px;
+      color: $white;
+      font-family: $text-font;
+      letter-spacing: 0.4px;
+      font-weight: 600;
+      font-size: 14px;
+      text-transform: uppercase;
+      border: 1px solid $text-dark;
+      cursor: pointer;
+      transition: all 0.3s;
+      &:hover {
+        background: $button-hover;
+      }
+    }
+    .ajax-loader {
+      position: absolute;
+      right: -20px;
+    }
+  }
+
+}
+.contact__form{
+    .invalid, .failed{
+        .wpcf7-response-output{
+            padding:10px;
+            text-align: center;
+            letter-spacing: 0px;
+            color: $text-light;
+            font-size: 14px;
+            line-height: 14px;
+            font-family:$main-font;
+        }
+    }
+}

@@ -1,0 +1,50 @@
+.cookie-consent {
+  margin: 10px 0;
+  .container--medium {
+    display: flex;
+    flex-direction: column;
+    @include mq(md) {
+      align-items: center;
+      justify-content: space-between;
+      flex-direction: row;
+    }
+  }
+  &__text {
+    background: $text-dark;
+    color: $white;
+    font-size: 13px;
+    letter-spacing: -0.13px;
+    line-height: 24px;
+    font-family: $main-font;
+    max-width: 855px;
+    text-align: center;
+    @include mq(md) {
+      text-align: left;
+    }
+  }
+  &__button {
+    margin-top: 10px;
+    @include mq(md) {
+      margin-top: unset;
+      margin-left: 30px;
+    }
+    a {
+      letter-spacing: -0.35px;
+      color: $white;
+      font-family: $text-font;
+      font-size: 14px;
+      font-weight: 500;
+      width: 146px;
+      border: 1px solid white;
+      border-radius: 6px;
+      margin: 0;
+      transition: all 0.3s;
+      padding: 12px 50px;
+      &:focus,
+      &:hover {
+        outline: $dark-red;
+        background: $dark-red !important;
+      }
+    }
+  }
+}
