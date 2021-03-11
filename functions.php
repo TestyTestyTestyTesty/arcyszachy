@@ -113,37 +113,8 @@ function replace_variation_single_price() {
 	</script>
 	<?php
 }
-function get_template_name() {
-	foreach ( debug_backtrace() as $called_file ) {
-		foreach ( $called_file as $index ) {
-			if ( ! is_array( $index[0] ) and strstr( $index[0], '/themes/' ) and ! strstr( $index[0], 'footer.php' ) ) {
-				$template_file = $index[0];
-			}
-		}
-	}
-	$template_contents = file_get_contents( $template_file );
-	preg_match_all( "Template Name:(.*)\n)siU", $template_contents, $template_name );
-	$template_name = trim( $template_name[1][0] );
-	if ( ! $template_name ) {
-		$template_name = '(default)'; }
-	$template_file = array_pop( explode( '/themes/', basename( $template_file ) ) );
-	return $template_file . ' > ' . $template_name;
-}
-function downloads_widgets_init() {
 
-	register_sidebar(
-		array(
-			'name'          => 'Download widget',
-			'id'            => 'download-widget',
-			'before_widget' => '<div>',
-			'after_widget'  => '</div>',
-			'before_title'  => '<h2 class="rounded">',
-			'after_title'   => '</h2>',
-		)
-	);
 
-}
-add_action( 'widgets_init', 'downloads_widgets_init' );
 function default_taxonomy_term( $post_id, $post ) {
 	if ( 'publish' === $post->post_status ) {
 		$defaults   = array(
@@ -159,17 +130,7 @@ function default_taxonomy_term( $post_id, $post ) {
 	}
 }
 add_action( 'save_post', 'default_taxonomy_term', 100, 2 );
-if ( function_exists( 'acf_add_options_page' ) ) {
 
-	acf_add_options_sub_page(
-		array(
-			'page_title'  => 'Ogłoszenia',
-			'menu_title'  => 'Dodatkowe pola',
-			'parent_slug' => 'edit.php?post_type=noticeboard',
-		)
-	);
-
-}
 add_filter( 'usp_meta_box_post_types', 'usp_meta_box_custom_post_types' );
 function get_current_template( $echo = false ) {
 	if ( ! isset( $GLOBALS['current_theme_template'] ) ) {
@@ -194,11 +155,7 @@ function cc_mime_types( $mimes ) {
 }
 add_filter( 'upload_mimes', 'cc_mime_types' );
 
-function mytheme_add_woocommerce_support() {
-	add_theme_support( 'woocommerce' );
-}
 
-add_action( 'after_setup_theme', 'mytheme_add_woocommerce_support' );
 // turn variation dropdowns into radios
 function variation_radio_buttons( $html, $args ) {
 	$args = wp_parse_args(
@@ -278,6 +235,27 @@ if ( ! function_exists( 'solaris_setup' ) ) :
 	 * as indicating support for post thumbnails.
 	 */
 	function solaris_setup() {
+		if ( function_exists( 'acf_add_options_page' ) ) {
+
+			acf_add_options_page(
+				array(
+					'page_title' => 'Theme General Settings',
+					'menu_title' => 'Theme Settings',
+					'menu_slug'  => 'theme-general-settings',
+					'capability' => 'edit_posts',
+					'redirect'   => false,
+				)
+			);
+
+			acf_add_options_sub_page(
+				array(
+					'page_title'  => 'Theme Footer Settings',
+					'menu_title'  => 'Footer',
+					'parent_slug' => 'theme-general-settings',
+				)
+			);
+
+		}
 		/*
 		 * Make theme available for translation.
 		 * Translations can be filed in the /languages/ directory.
@@ -288,7 +266,7 @@ if ( ! function_exists( 'solaris_setup' ) ) :
 
 		// Add default posts and comments RSS feed links to head.
 		add_theme_support( 'automatic-feed-links' );
-
+		add_theme_support( 'woocommerce' );
 		/*
 		 * Let WordPress manage the document title.
 		 * By adding theme support, we declare that this theme does not use a

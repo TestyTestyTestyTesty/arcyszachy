@@ -13,33 +13,161 @@
 
 	<footer id="colophon" class="footer">
 		<div class="container">
-			<div class="container--medium footer__top">
-				<a href="<?php echo get_home_url(); ?>" class="logo logo--footer">
-					<img src="<?php echo get_template_directory_uri(); ?>/assets/dist/images/svg/logo-white.svg" alt="inDevice logo - home" />
-				</a>
-				<div class="navigation">
-					<nav class="navigation__left">
-						<?php wp_nav_menu(
-								array(
-									'theme_location' => 'footer-menu',
-									'menu_class'     => 'footer__menu--left',
-								)
-							); ?>
-					</nav>
-					<nav class="navigation__right">
-							<?php wp_nav_menu(
-								array(
-									'theme_location' => 'officials-menu',
-									'menu_class'     => 'footer__menu--right',
-								)
-							); ?>
-						
-					</nav>
+			<div class="container--medium">
+				<div class="footer-menus">
+					<div class="footer-menu">
+						<?php if ( get_field( 'footer_menu-1-title', 'options' ) ) : ?>
+							<h2 class="footer-menu__title"><?php the_field( 'footer_menu-1-title', 'options' ); ?></h2>
+						<?php endif; ?>
+						<?php if ( have_rows( 'footer_menu-1', 'options' ) ) : ?>
+							<ul class="footer-menu__list">
+								<?php
+								while ( have_rows( 'footer_menu-1', 'options' ) ) :
+									the_row();
+									?>
+								<li class="list-item">
+									<?php
+									$link = get_sub_field( 'link' );
+									if ( $link ) :
+										$link_url    = $link['url'];
+										$link_title  = $link['title'];
+										$link_target = $link['target'] ? $link['target'] : '_self';
+										?>
+									<a class="list-item__link" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
+									<?php endif; ?>
+								</li>
+								<?php endwhile; ?>
+							</ul>
+							<?php
+						else :
+		endif;
+						?>
+					</div>
+					<div class="footer-menu">
+						<?php if ( get_field( 'footer_menu-2-title', 'options' ) ) : ?>
+							<h2 class="footer-menu__title"><?php the_field( 'footer_menu-2-title', 'options' ); ?></h2>
+						<?php endif; ?>
+						<?php if ( have_rows( 'footer_menu-2', 'options' ) ) : ?>
+							<ul class="footer-menu__list">
+								<?php
+								while ( have_rows( 'footer_menu-2', 'options' ) ) :
+									the_row();
+									?>
+								<li class="list-item">
+									<?php
+									$link = get_sub_field( 'link' );
+									if ( $link ) :
+										$link_url    = $link['url'];
+										$link_title  = $link['title'];
+										$link_target = $link['target'] ? $link['target'] : '_self';
+										?>
+									<a class="list-item__link" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
+									<?php endif; ?>
+								</li>
+								<?php endwhile; ?>
+							</ul>
+							<?php
+						else :
+		endif;
+						?>
+					</div>
+					<div class="footer-menu">
+						<?php if ( get_field( 'footer_menu-3-title', 'options' ) ) : ?>
+							<h2 class="footer-menu__title"><?php the_field( 'footer_menu-3-title', 'options' ); ?></h2>
+						<?php endif; ?>
+						<?php if ( have_rows( 'footer_menu-3', 'options' ) ) : ?>
+							<ul class="footer-menu__list">
+								<?php
+								while ( have_rows( 'footer_menu-3', 'options' ) ) :
+									the_row();
+									?>
+								<li class="list-item">
+									<?php
+									$link = get_sub_field( 'link' );
+									if ( $link ) :
+										$link_url    = $link['url'];
+										$link_title  = $link['title'];
+										$link_target = $link['target'] ? $link['target'] : '_self';
+										?>
+									<a class="list-item__link" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
+									<?php endif; ?>
+								</li>
+								<?php endwhile; ?>
+							</ul>
+							<?php
+						else :
+		endif;
+						?>
+					</div>
+					<div class="footer-menu">
+						<?php if ( get_field( 'footer_menu-4-title', 'options' ) ) : ?>
+							<h2 class="footer-menu__title"><?php the_field( 'footer_menu-4-title', 'options' ); ?></h2>
+						<?php endif; ?>
+						<?php if ( have_rows( 'footer_menu-4', 'options' ) ) : ?>
+							<ul class="footer-menu__list">
+								<?php
+								while ( have_rows( 'footer_menu-4', 'options' ) ) :
+									the_row();
+									?>
+								<li class="list-item">
+									<?php
+									$link = get_sub_field( 'link' );
+									if ( $link ) :
+										$link_url    = $link['url'];
+										$link_title  = $link['title'];
+										$link_target = $link['target'] ? $link['target'] : '_self';
+										?>
+									<a class="list-item__link" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
+									<?php endif; ?>
+								</li>
+								<?php endwhile; ?>
+							</ul>
+							<?php
+						else :
+		endif;
+						?>
+					</div>
 				</div>
-			</div>
-			<div class="container--medium footer__bottom">
-				<span class="footer__copyright">&copy; Copyright <?php echo date("Y"); ?> Agencja Reklamowa Brandbay.pl</span>
-			</div>
+				<div class="footer-details">
+					<?php
+					$image = get_field( 'footer-logo', 'options' );
+					if ( ! empty( $image ) ) :
+						?>
+						<img class="footer__logo" loading="lazy" src="<?php echo esc_url( $image['url'] ); ?>" alt="<?php echo esc_attr( $image['alt'] ); ?>" />
+					<?php endif; ?>
+					<?php if ( get_field( 'footer_copyright-text', 'options' ) ) : ?>
+							<small class="footer__copyright"><?php the_field( 'footer_copyright-text', 'options' ); ?></small>
+					<?php endif; ?>
+					<?php if ( have_rows( 'footer_icons-repeater', 'options' ) ) : ?>
+						<ul class="footer__icons">
+							<?php
+							while ( have_rows( 'footer_icons-repeater', 'options' ) ) :
+								the_row();
+								?>
+							<li class="list-item">
+								<?php
+								$link = get_sub_field( 'link' );
+								if ( $link ) :
+									$link_url    = $link['url'];
+									$link_target = $link['target'] ? $link['target'] : '_self';
+									?>
+								<a class="list-item__link" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
+									<?php
+									$image = get_sub_field( 'icon', 'options' );
+									if ( ! empty( $image ) ) :
+										?>
+										<img class="list-item__icon" loading="lazy" width="24px" height="24px" src="<?php echo esc_url( $image['url'] ); ?>" alt="<?php echo esc_attr( $image['alt'] ); ?>" />
+									<?php endif; ?>
+								</a>
+								<?php endif; ?>
+							</li>
+							<?php endwhile; ?>
+						</ul>
+						<?php
+					else :
+	endif;
+					?>
+				</div>
 		</div>
 	</footer>
 </div>

@@ -16,10 +16,6 @@ get_header();
 ?>
 
 	<main class="site-main">
-		<?php get_template_part( 'template-parts/hero' ); ?>
-		<?php get_template_part( 'template-parts/features' ); ?>
-		<?php get_template_part( 'template-parts/two-columns-image' ); ?>
-		<?php get_template_part( 'template-parts/profits' ); ?>
 		<?php get_template_part( 'template-parts/products-row' ); ?>
 	</main><!-- #main -->
 

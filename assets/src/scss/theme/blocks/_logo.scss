@@ -1,10 +1,9 @@
 .logo {
   &--header {
-    max-width: 140px;
+    max-width: 195px;
     height: auto;
     @include mq(sm) {
-      max-width: 227px;
-      height: 61px;
+      max-width: 195px;
     }
   }
   &--footer {

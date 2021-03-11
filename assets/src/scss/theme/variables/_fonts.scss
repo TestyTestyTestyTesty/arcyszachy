@@ -1,6 +1,17 @@
 /* Fonts */
 $font: 'OpenSans', sans-serif;
 $font-alt: "Futura", sans-serif;
+$futura:'futuraMedium';
+
+@font-face {
+    font-family: $futura;
+    src:  url('../fonts/FuturaPTMedium.woff2') format('woff2'),
+}
+@font-face {
+    font-family: 'futuraBook';
+    src:  url('../fonts/FuturaPTBook.woff2') format('woff2'),
+}
+
 
 $light: 300;
 $regular: 400;

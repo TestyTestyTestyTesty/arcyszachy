@@ -99,7 +99,8 @@ gulp.task("images", function () {
 // task to copy fonts into assets
 // add to below object all fonts you want include into website
 gulp.task("fonts", function () {
-  gulp.src(config.paths.fonts.src).pipe(gulp.dest(config.paths.fonts.dist));
+  gulp.src(config.paths.fonts.src)
+  .pipe(gulp.dest(config.paths.fonts.dist));
 });
 
 // watch scss files

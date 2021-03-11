@@ -34,39 +34,39 @@
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'in-device' ); ?></a>
 	<div id="pixel-to-watch"></div>
 	<header id="header-desktop" class="header-desktop">
-		<div class="container">
-			<div class="container--big">
+		<div class="container--medium">
 			<?php
 				$custom_logo_id  = get_theme_mod( 'custom_logo' );
 				$custom_logo_url = wp_get_attachment_image_url( $custom_logo_id, 'full' );
 			?>
-				<a href="<?php echo get_home_url(); ?>" class="logo logo--header">
-					<img src="<?php echo $custom_logo_url; ?>" alt="inDevice logo - home" />
-				</a>
-				<div class="navigation">
-					<nav class="navigation__left">
-						<?php
-							wp_nav_menu(
-								array(
-									'theme_location' => 'primary-menu',
-									'menu_class'     => 'header-desktop__menu',
-								)
-							);
-							?>
-					</nav>
-					<nav class="navigation__right">
-						<a class="navigation__link navigation__account" href="<?php echo get_permalink( get_option( 'woocommerce_myaccount_page_id' ) ); ?>" title="Konto użytkownika">
-							<img src="<?php echo get_template_directory_uri(); ?>/assets/dist/images/svg/myaccount.svg" alt="Strona konta klienta" width="22px" height="26px">
-						</a>
-						<?php $cartUrl = wc_get_cart_url(); ?>
-						<a class="navigation__link navigation__cart" href="<?php echo $cartUrl; ?>" title="Koszyk">
-							<img src="<?php echo get_template_directory_uri(); ?>/assets/dist/images/svg/cart.svg" alt="Strona koszyka" width="22px" height="26px">
-							<span class="navigation__cart-number"><?php echo WC()->cart->get_cart_contents_count(); ?></span>
-						</a>
-						
-					</nav>
-				</div>
+			<a href="<?php echo get_home_url(); ?>" class="logo logo--header">
+				<img src="<?php echo $custom_logo_url; ?>" alt="inDevice logo - home" />
+			</a>
+			<div class="navigation">
+				<?php get_search_form(); ?>
+				<nav class="navigation__woocommerce">
+					<a class="navigation__link navigation__account" href="<?php echo get_permalink( get_option( 'woocommerce_myaccount_page_id' ) ); ?>" title="Konto użytkownika">
+						<img src="<?php echo get_template_directory_uri(); ?>/assets/dist/images/svg/myaccount.svg" alt="Strona konta klienta" width="22px" height="26px">
+					</a>
+					<?php $cartUrl = wc_get_cart_url(); ?>
+					<a class="navigation__link navigation__cart" href="<?php echo $cartUrl; ?>" title="Koszyk">
+						<img src="<?php echo get_template_directory_uri(); ?>/assets/dist/images/svg/cart.svg" alt="Strona koszyka" width="22px" height="26px">
+						<span class="navigation__cart-number"><?php echo WC()->cart->get_cart_contents_count(); ?></span>
+					</a>
+				</nav>
 			</div>
+		</div>
+		<div class="container--medium">
+			<nav class="header-desktop__menu">
+							<?php
+								wp_nav_menu(
+									array(
+										'theme_location' => 'primary-menu',
+										'menu_class'     => 'menu',
+									)
+								);
+								?>
+			</nav>
 		</div>
 	</header>
 	<header id="header-mobile" class="header-mobile">
