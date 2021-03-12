@@ -60,12 +60,12 @@ gulp.task("css_vendor", function () {
 gulp.task("js_theme", function () {
   gulp
     .src(config.paths.js.theme.src)
-    //.pipe(gulpif(config.development, sourcemaps.init()))
+    .pipe(gulpif(config.development, sourcemaps.init()))
     .pipe(uglifyjs().on('error', console.error))
-    //.pipe(concat("theme.js"))
-    //.pipe(gulpif(config.development, sourcemaps.write()))
+    .pipe(concat("theme.js"))
+    .pipe(gulpif(config.development, sourcemaps.write()))
     .pipe(gulp.dest(config.paths.js.dist))
-    //.pipe(browsersync.stream());
+    .pipe(browsersync.stream());
 });
 
 gulp.task("js_vendor", function () {

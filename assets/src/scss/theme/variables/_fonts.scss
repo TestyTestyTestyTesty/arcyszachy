@@ -2,7 +2,12 @@
 $font: 'OpenSans', sans-serif;
 $font-alt: "Futura", sans-serif;
 $futura:'futuraMedium';
+$futuraLight:'futuraLight';
 
+@font-face {
+    font-family: $futuraLight;
+    src:  url('../fonts/FuturaPTLight.woff2') format('woff2'),
+}
 @font-face {
     font-family: $futura;
     src:  url('../fonts/FuturaPTMedium.woff2') format('woff2'),

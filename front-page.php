@@ -16,7 +16,7 @@ get_header();
 ?>
 
 	<main class="site-main">
-		<?php get_template_part( 'template-parts/products-row' ); ?>
+		<?php get_template_part( 'template-parts/hero-slider' ); ?>
 	</main><!-- #main -->
 
 <?php

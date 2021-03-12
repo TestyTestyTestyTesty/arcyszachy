@@ -1,6 +1,7 @@
 jQuery(function () {
   hamburgerMenu();
   updateCart();
+  heroSlider();
 });
 function hamburgerMenu() {
   const hamburger = document.querySelector(".hamburger");
@@ -28,4 +29,19 @@ function updateCart() {
       }, 500); // 1 second delay, half a second (500) seems comfortable too
     });
   });
+}
+function heroSlider() {
+  $(".hero-slider .slider-wrapper").slick({
+    infinite: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: false
+  });
+  $('.slider-arrow__wrapper--left').click(function(){
+    $('.hero-slider .slider-wrapper').slick('slickPrev');
+  })
+  
+  $('.slider-arrow__wrapper--right').click(function(){
+    $('.hero-slider .slider-wrapper').slick('slickNext');
+  })
 }
