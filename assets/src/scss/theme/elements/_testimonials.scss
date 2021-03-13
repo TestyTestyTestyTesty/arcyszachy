@@ -1,0 +1,120 @@
+.testimonials {
+  .container {
+    &--medium {
+      padding:22px 0 137px;
+    }
+  }
+  &__title {
+    font-size: 34px;
+    line-height: 46px;
+    font-family: $futura;
+    letter-spacing: -0.76px;
+    color: $black;
+    margin: 0 0 69px;
+  }
+  .testimonials-slider {
+    position: relative;
+    width: 100%;
+    .slider-arrow__wrapper{
+      background:$textLight;
+      height:32px;
+      width:32px !important;
+      border-radius:500px;
+      box-shadow: 0px 3px 6px #00000029;
+      position: absolute;
+      z-index:2;
+      top:0;
+      bottom:0;
+      margin:auto;
+      cursor:pointer;
+      box-shadow: 0px 3px 6px #00000029;
+      transition: all 0.3s;
+
+      &:hover{
+        background:$lightGrey;
+      }
+      &--left{
+        left:-16px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img{
+          width:7px;
+          transform: rotate(180deg);
+        }
+      }
+      &--right{
+        right:-16px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img{
+          width:7px;
+        }
+      }
+    }
+    .slider-wrapper {
+      .slick-list {
+        .slick-track {
+        }
+      }
+      .slick-dots{
+        display: flex;
+        justify-content: center;
+        margin: 72px 0 0;
+        align-items: center;
+        li{
+          width:8px;
+          height:8px;
+          background:$lightGrey;
+          border-radius:5000px;
+          margin-right:6px;
+          cursor:pointer;
+          transition: all 0.3s;
+          &:last-of-type{
+            margin-right:unset;
+          }
+          button{
+            width:0;
+            height:0;
+            display:none;
+          }
+          &.slick-active{
+            width:12px;
+            height:12px;
+            background:$dark-red;
+          }
+        }
+      }
+    }
+    .slide {
+      position: relative;
+      display: flex;
+      &__person {
+        border-radius: 5000px;
+        margin-right: 30px;
+        object-fit: cover;
+      }
+      &__content {
+        max-width: 370px;
+      }
+      &__symbol {
+      }
+      &__text {
+        font-size: 16px;
+        line-height: 24px;
+        font-family: $futura;
+        letter-spacing: 0.32px;
+        color: $darkGrey;
+        margin:23px 0 21px;
+      }
+      &__person {
+        font-size: 20px;
+        line-height: 26px;
+        font-family: $futura;
+        letter-spacing: -0.2px;
+        color: $black;
+      }
+    }
+  }
+}

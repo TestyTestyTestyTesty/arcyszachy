@@ -1,7 +1,6 @@
 <?php
 
 function theme_enqueue_style() {
-	wp_enqueue_style( 'css-vendor', get_template_directory_uri() . '/assets/dist/css/vendor.css', array(), false );
 	wp_enqueue_style( 'css-theme', get_template_directory_uri() . '/assets/dist/css/theme.css', array(), false );
 }
 add_action( 'wp_enqueue_scripts', 'theme_enqueue_style' );

@@ -44,6 +44,18 @@
 							</div>
 						<?php endwhile; ?>
 					</div>
+					<?php $numOfSlides = count( get_field( 'slide_repeater' ) ); ?>
+					<div data-slides="<?php echo $numOfSlides; ?>" class="numberOfSlides"></div>
+					<div class="slider-titles">
+						<?php
+						while ( have_rows( 'slide_repeater' ) ) :
+							the_row();
+							?>
+							<?php if ( get_sub_field( 'title' ) ) : ?>
+								<h2 class="slider-titles-title"><?php the_sub_field( 'title' ); ?></h2>
+							<?php endif; ?>
+						<?php endwhile; ?>
+					</div>
 				</div>
 				<?php
 			else :

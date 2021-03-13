@@ -2,6 +2,7 @@ jQuery(function () {
   hamburgerMenu();
   updateCart();
   heroSlider();
+  testimonialsSlider();
 });
 function hamburgerMenu() {
   const hamburger = document.querySelector(".hamburger");
@@ -31,17 +32,47 @@ function updateCart() {
   });
 }
 function heroSlider() {
+  const numOfSlides = document.querySelector(".numberOfSlides").dataset.slides;
   $(".hero-slider .slider-wrapper").slick({
     infinite: true,
     slidesToShow: 1,
     slidesToScroll: 1,
-    arrows: false
+    arrows: false,
+    fade: true,
+    asNavFor: ".slider-titles",
   });
-  $('.slider-arrow__wrapper--left').click(function(){
-    $('.hero-slider .slider-wrapper').slick('slickPrev');
-  })
-  
-  $('.slider-arrow__wrapper--right').click(function(){
-    $('.hero-slider .slider-wrapper').slick('slickNext');
-  })
+  $(".slider-titles").slick({
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    asNavFor: ".hero-slider .slider-wrapper",
+    focusOnSelect: true,
+    infinite: true,
+  });
+  $(".hero-slider .slider-arrow__wrapper--left").click(function () {
+    $(".hero-slider .slider-wrapper").slick("slickPrev");
+  });
+
+  $(".hero-slider .slider-arrow__wrapper--right").click(function () {
+    $(".hero-slider .slider-wrapper").slick("slickNext");
+  });
+}
+function testimonialsSlider() {
+  $(".testimonials-slider .slider-wrapper").slick({
+    arrows: false,
+    autoplay: false,
+    autoplaySpeed: 4500,
+    infinite: true,
+    dots: true,
+    pauseOnFocus: false,
+    pauseOnHover: false,
+    slidesToShow: 2,
+    slidesToScroll: 1,
+  });
+  $(".testimonials-slider .slider-arrow__wrapper--left").click(function () {
+    $(".testimonials-slider .slider-wrapper").slick("slickPrev");
+  });
+
+  $(".testimonials-slider .slider-arrow__wrapper--right").click(function () {
+    $(".testimonials-slider .slider-wrapper").slick("slickNext");
+  });
 }

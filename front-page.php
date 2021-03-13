@@ -17,6 +17,9 @@ get_header();
 
 	<main class="site-main">
 		<?php get_template_part( 'template-parts/hero-slider' ); ?>
+		<?php get_template_part( 'template-parts/hot-offers' ); ?>
+		<?php get_template_part( 'template-parts/testimonials' ); ?>
+		<?php get_template_part( 'template-parts/newsletter' ); ?>
 	</main><!-- #main -->
 
 <?php
