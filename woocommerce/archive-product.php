@@ -33,98 +33,79 @@ do_action( 'woocommerce_before_main_content' );
 	<div class="container">
 		<div class="container--medium">
 			<header class="woocommerce-products-header">
-				<?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
-					<h1 class="woocommerce-products-header__title page-title"><?php woocommerce_page_title(); ?></h1>
-				<?php endif; ?>
-				<?php
-				/**
-				 * Hook: woocommerce_archive_description.
-				 *
-				 * @hooked woocommerce_taxonomy_archive_description - 10
-				 * @hooked woocommerce_product_archive_description - 10
-				 */
-				do_action( 'woocommerce_archive_description' );
-				?>
-			</header>
-			<ul class="archive-menu">
-			<?php
-			foreach ( get_terms( array( 'taxonomy' => 'product_cat' ) ) as $category ) :
-				$products_loop = new WP_Query(
-					array(
-						'post_type'  => 'product',
-						'showposts'  => -1,
-						'tax_query'  => array_merge(
-							array(
-								'relation' => 'AND',
-								array(
-									'taxonomy' => 'product_cat',
-									'terms'    => array( $category->term_id ),
-									'field'    => 'term_id',
-								),
-							),
-							WC()->query->get_tax_query()
-						),
-						'meta_query' => array_merge(
-							array(),
-							WC()->query->get_meta_query()
-						),
-					)
-				);
-				?>
-				<li data-menu-category="<?php echo $category->slug; ?>" class="archive-menu__item archive-menu__item-<?php echo $category->slug; ?>"><?php echo $category->name; ?></li>
-				<?php endforeach; ?>
-			</ul>
-			<?php
-			foreach ( get_terms( array( 'taxonomy' => 'product_cat' ) ) as $category ) :
-				$products_loop = new WP_Query(
-					array(
-						'post_type'  => 'product',
-						'showposts'  => -1,
-						'tax_query'  => array_merge(
-							array(
-								'relation' => 'AND',
-								array(
-									'taxonomy' => 'product_cat',
-									'terms'    => array( $category->term_id ),
-									'field'    => 'term_id',
-								),
-							),
-							WC()->query->get_tax_query()
-						),
+			<?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
+				<h1 class="woocommerce-products-header__title page-title"><?php woocommerce_page_title(); ?></h1>
+			<?php endif; ?>
 
-						'meta_query' => array_merge(
-							array(
+	<?php
+	/**
+	 * Hook: woocommerce_archive_description.
+	 *
+	 * @hooked woocommerce_taxonomy_archive_description - 10
+	 * @hooked woocommerce_product_archive_description - 10
+	 */
+	do_action( 'woocommerce_archive_description' );
+	?>
+</header>
+<?php
+if ( woocommerce_product_loop() ) {
 
-								// You can optionally add extra meta queries here
+	/**
+	 * Hook: woocommerce_before_shop_loop.
+	 *
+	 * @hooked woocommerce_output_all_notices - 10
+	 * @hooked woocommerce_result_count - 20
+	 * @hooked woocommerce_catalog_ordering - 30
+	 */
+	do_action( 'woocommerce_before_shop_loop' );
 
-							),
-							WC()->query->get_meta_query()
-						),
-					)
-				);
+	woocommerce_product_loop_start();
 
-				?>
-					<h2 id="products-<?php echo $category->slug; ?>" class="category-title"><?php echo $category->name; ?></h2>
-					<ul class="products">
+	if ( wc_get_loop_prop( 'total' ) ) {
+		while ( have_posts() ) {
+			the_post();
 
-					<?php
-					while ( $products_loop->have_posts() ) {
-						$products_loop->the_post();
-						/**
-						 * woocommerce_shop_loop hook.
-						 *
-						 * @hooked WC_Structured_Data::generate_product_data() - 10
-						 */
+			/**
+			 * Hook: woocommerce_shop_loop.
+			 */
+			do_action( 'woocommerce_shop_loop' );
 
-						wc_get_template_part( 'content', 'product' );
-					}
-					wp_reset_postdata();
-					?>
-					</ul>
-					<?php endforeach; ?>
+			wc_get_template_part( 'content', 'product' );
+		}
+	}
+
+	woocommerce_product_loop_end();
+
+	/**
+	 * Hook: woocommerce_after_shop_loop.
+	 *
+	 * @hooked woocommerce_pagination - 10
+	 */
+	do_action( 'woocommerce_after_shop_loop' );
+} else {
+	/**
+	 * Hook: woocommerce_no_products_found.
+	 *
+	 * @hooked wc_no_products_found - 10
+	 */
+	do_action( 'woocommerce_no_products_found' );
+}
+
+/**
+ * Hook: woocommerce_after_main_content.
+ *
+ * @hooked woocommerce_output_content_wrapper_end - 10 (outputs closing divs for the content)
+ */
+do_action( 'woocommerce_after_main_content' );
+
+/**
+ * Hook: woocommerce_sidebar.
+ *
+ * @hooked woocommerce_get_sidebar - 10
+ */
+do_action( 'woocommerce_sidebar' );
+?>
 		</div>
 	</div>
-
 <?php
-get_sidebar();
 get_footer( 'shop' );

@@ -1,0 +1,54 @@
+.empty-cart{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top:30px;
+  padding:20px;
+  @include mq(sm){
+      margin-top:50px;
+  }
+  &__icon{
+    margin:0 0 32px;
+  }
+  &__text-top{
+    letter-spacing:-0.4px;
+    font-family:$futura;
+    font-size:24px;
+    line-height: 32px;
+    color:$black;
+    margin:0 0 7px;
+  }
+  &__text-bottom{
+    letter-spacing: .32pxpx;
+    font-family:$futuraLight;
+    font-size:16px;
+    line-height: 24px;
+    color:$darkGrey;
+    margin:0 0 48px;
+  }
+  &__link {
+    color: $gold;
+    border-radius: 8px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.2px;
+    font-size: 12px;
+    line-height: 24px;
+    font-family: $futuraLight;
+    width: 100%;
+    height: 48px;
+    background: $dark-red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition:all 0.3s;
+    &:hover{
+      background:$red;
+    }
+    &--wrapper {
+      max-width: 260px;
+      width:100%;
+    }
+  }
+}

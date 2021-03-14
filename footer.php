@@ -10,7 +10,7 @@
  */
 
 ?>
-
+	<?php get_template_part( 'template-parts/newsletter' ); ?>	
 	<footer id="colophon" class="footer">
 		<div class="container">
 			<div class="container--medium">
@@ -171,7 +171,7 @@
 		</div>
 	</footer>
 </div>
-
+<?php get_template_part( 'template-parts/cookies' ); ?>
 <?php wp_footer(); ?>
 
 </body>

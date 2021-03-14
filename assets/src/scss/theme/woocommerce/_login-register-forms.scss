@@ -15,26 +15,21 @@
             padding: 0;
             margin: 0;
             label {
-              letter-spacing: 0px;
-              color: $text-light;
-              font-size: 11px;
-              line-height: 14px;
-              font-family: $main-font;
-              position: relative;
-              left: 10px;
-              bottom: -5px;
-              z-index: 6001;
-              padding: 2px 10px;
-              background: $white;
+              letter-spacing: 0.32px;
+              color: $darkGrey;
+              font-size: 16px;
+              line-height: 24px;
+              font-family: $futuraLight;
+              padding: 5px 0px;
               max-width: 100%;
-              display: inline;
+              display: block;
             }
             .woocommerce-Input {
-              border-radius: 6px;
-              border: 1px solid $gray;
+              border-radius: 8px;
+              border: 1px solid #D6D6D6;
               padding: 10px;
-              font-family: $main-font;
-              color: $text-light;
+              font-family: $futura;
+              color: $darkGrey;
               width: 100%;
               z-index: 6000;
               margin-bottom: 20px;
@@ -44,11 +39,11 @@
             }
           }
           .woocommerce-privacy-policy-text {
-            letter-spacing: -0.13px;
-            color: $text-light;
-            font-size: 13px;
+            letter-spacing: 0.32px;
+            color: $darkGrey;
+            font-size: 16px;
             line-height: 24px;
-            font-family: $main-font;
+            font-family: $futuraLight;
             margin-bottom: 43px;
             a {
               color: $dark-red;
@@ -68,10 +63,10 @@
             }
             .woocommerce-form-login__rememberme {
               color: $text-light;
-              font-size: 15px;
-              letter-spacing: -0.16px;
+              font-size: 16px;
+              letter-spacing: 0.32px;
               line-height: 24px;
-              font-family: $main-font;
+              font-family: $futuraLight;
               display: flex;
               align-items: center;
               input {
@@ -85,42 +80,45 @@
               a {
                 color: $dark-red;
                 font-size: 16px;
-                letter-spacing: -0.16px;
+                letter-spacing: 0.32px;
                 line-height: 24px;
-                font-family: $main-font;
-                font-weight: 600;
+                font-family: $futuraLight;
               }
             }
           }
           .woocommerce-password-strength{
             padding:10px 0;
             margin-bottom:10px;
-            font-family: $text-font;
+            font-family: $futura;
             text-transform: uppercase;
           }
           .woocommerce-password-hint{
-            font-family:$main-font;
-            color:$text-light;
-            margin-bottom:10px;
+            letter-spacing: 0.32px;
+            color: $darkGrey;
+            font-size: 16px;
+            line-height: 24px;
+            font-family: $futuraLight;
+            border-bottom:1px solid $lightGrey;
+            padding-bottom:5px;
+            margin-bottom:5px;
           }
           .woocommerce-form-login__submit,
           .woocommerce-form-register__submit {
             text-align: center;
             width: 100%;
             background: $dark-red;
-            border-radius: 6px;
-            height: 47px;
-            color: $white;
-            font-family: $text-font;
+            border-radius: 8px;
+            height: 51px;
+            color: $gold;
+            font-family: $futuraLight;
             letter-spacing: 0.4px;
-            font-weight: 600;
-            font-size: 14px;
+            font-size: 12px;
+            line-height: 16px;
             text-transform: uppercase;
-            border: 1px solid $text-dark;
             cursor: pointer;
             transition: all 0.3s;
             &:hover {
-              background: $button-hover;
+              background: $red;
             }
           }
         }

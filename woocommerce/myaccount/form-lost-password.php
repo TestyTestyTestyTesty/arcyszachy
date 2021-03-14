@@ -19,8 +19,13 @@ defined( 'ABSPATH' ) || exit;
 
 do_action( 'woocommerce_before_lost_password_form' );
 ?>
-
 <form method="post" class="woocommerce-ResetPassword lost_reset_password">
+	<?php
+	$image = get_field( 'footer-logo', 'options' );
+	if ( ! empty( $image ) ) :
+		?>
+		<img class="woocommerce-account__logo" src="<?php echo esc_url( $image['url'] ); ?>" alt="<?php echo esc_attr( $image['alt'] ); ?>" />
+	<?php endif; ?>
 
 	<p><?php echo apply_filters( 'woocommerce_lost_password_message', esc_html__( 'Lost your password? Please enter your username or email address. You will receive a link to create a new password via email.', 'woocommerce' ) ); ?></p><?php // @codingStandardsIgnoreLine ?>
 

@@ -35,9 +35,9 @@ function var_template_include( $t ) {
 	return $t;
 }
 function remove_admin_login_header() {
-    remove_action('wp_head', '_admin_bar_bump_cb');
+	remove_action( 'wp_head', '_admin_bar_bump_cb' );
 }
-add_action('get_header', 'remove_admin_login_header');
+add_action( 'get_header', 'remove_admin_login_header' );
 add_action( 'init', 'move_related_products_before_tabs' );
 function move_related_products_before_tabs() {
 	remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
@@ -57,31 +57,47 @@ function usp_meta_box_custom_post_types( $post_types ) {
 	return $post_types;
 
 }
-//Hide Price Range for WooCommerce Variable Products
-add_filter( 'woocommerce_variable_sale_price_html', 
-'lw_variable_product_price', 10, 2 );
-add_filter( 'woocommerce_variable_price_html', 
-'lw_variable_product_price', 10, 2 );
+// Hide Price Range for WooCommerce Variable Products
+add_filter(
+	'woocommerce_variable_sale_price_html',
+	'lw_variable_product_price',
+	10,
+	2
+);
+add_filter(
+	'woocommerce_variable_price_html',
+	'lw_variable_product_price',
+	10,
+	2
+);
 
 function lw_variable_product_price( $v_price, $v_product ) {
 
-// Product Price
-$prod_prices = array( $v_product->get_variation_price( 'min', true ), 
-                            $v_product->get_variation_price( 'max', true ) );
-$prod_price = $prod_prices[0]!==$prod_prices[1] ? sprintf(__('<span class="price-from">Cena od</span> %1$s', 'woocommerce'), 
-                       wc_price( $prod_prices[0] ) ) : wc_price( $prod_prices[0] );
+	// Product Price
+	$prod_prices = array(
+		$v_product->get_variation_price( 'min', true ),
+		$v_product->get_variation_price( 'max', true ),
+	);
+	$prod_price  = $prod_prices[0] !== $prod_prices[1] ? sprintf(
+		__( '<span class="price-from">Cena od</span> %1$s', 'woocommerce' ),
+		wc_price( $prod_prices[0] )
+	) : wc_price( $prod_prices[0] );
 
-// Regular Price
-$regular_prices = array( $v_product->get_variation_regular_price( 'min', true ), 
-                          $v_product->get_variation_regular_price( 'max', true ) );
-sort( $regular_prices );
-$regular_price = $regular_prices[0]!==$regular_prices[1] ? sprintf(__('<span class="price-from">Cena od</span> %1$s','woocommerce')
-                      , wc_price( $regular_prices[0] ) ) : wc_price( $regular_prices[0] );
+	// Regular Price
+	$regular_prices = array(
+		$v_product->get_variation_regular_price( 'min', true ),
+		$v_product->get_variation_regular_price( 'max', true ),
+	);
+	sort( $regular_prices );
+	$regular_price = $regular_prices[0] !== $regular_prices[1] ? sprintf(
+		__( '<span class="price-from">Cena od</span> %1$s', 'woocommerce' ),
+		wc_price( $regular_prices[0] )
+	) : wc_price( $regular_prices[0] );
 
-if ( $prod_price !== $regular_price ) {
-$prod_price = $prod_price . $v_product->get_price_suffix() . '</ins>';
-}
-return $prod_price;
+	if ( $prod_price !== $regular_price ) {
+		$prod_price = $prod_price . $v_product->get_price_suffix() . '</ins>';
+	}
+	return $prod_price;
 }
 add_action( 'woocommerce_before_single_product', 'move_variations_single_price', 1 );
 function move_variations_single_price() {
@@ -261,6 +277,20 @@ if ( ! function_exists( 'solaris_setup' ) ) :
 					'parent_slug' => 'theme-general-settings',
 				)
 			);
+			acf_add_options_sub_page(
+				array(
+					'page_title'  => 'Cart',
+					'menu_title'  => 'Cart',
+					'parent_slug' => 'theme-general-settings',
+				)
+			);
+			acf_add_options_sub_page(
+				array(
+					'page_title'  => 'Cookies',
+					'menu_title'  => 'Cookies',
+					'parent_slug' => 'theme-general-settings',
+				)
+			);
 
 		}
 		/*
@@ -437,3 +467,4 @@ function new_excerpt_more( $more ) {
 	return '...';
 }
 add_filter( 'excerpt_more', 'new_excerpt_more' );
+

@@ -20,20 +20,28 @@ defined( 'ABSPATH' ) || exit;
 /*
  * @hooked wc_empty_cart_message - 10
  */
-do_action( 'woocommerce_cart_is_empty' );
-
-if ( wc_get_page_id( 'shop' ) > 0 ) : ?>
-	<p class="return-to-shop">
-		<a class="button wc-backward" href="<?php echo esc_url( apply_filters( 'woocommerce_return_to_shop_redirect', wc_get_page_permalink( 'shop' ) ) ); ?>">
-			<?php
-				/**
-				 * Filter "Return To Shop" text.
-				 *
-				 * @since 4.6.0
-				 * @param string $default_text Default text.
-				 */
-				echo esc_html( apply_filters( 'woocommerce_return_to_shop_text', __( 'Return to shop', 'woocommerce' ) ) );
+do_action( 'woocommerce_cart_is_empty' );?>
+<section class="empty-cart">
+		<?php 
+		$image = get_field('cart__icon','options');
+		if( !empty( $image ) ): ?>
+			<img class="empty-cart__icon" width="77px" height="70px" src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+		<?php endif; ?>
+		<?php if( get_field('cart__text-big','options') ): ?>
+			<h2 class="empty-cart__text-top"><?php the_field('cart__text-big','options'); ?></h2>
+		<?php endif; ?>
+		<?php if( get_field('cart__text-small','options') ): ?>
+			<p class="empty-cart__text-bottom"><?php the_field('cart__text-small','options'); ?></p>
+		<?php endif; ?>
+		<?php 
+		$link = get_field('cart__link','options');
+		if( $link ): 
+			$link_url = $link['url'];
+			$link_title = $link['title'];
+			$link_target = $link['target'] ? $link['target'] : '_self';
 			?>
-		</a>
-	</p>
-<?php endif; ?>
+			<div class="empty-cart__link--wrapper">
+				<a class="empty-cart__link" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
+			</div>
+		<?php endif; ?>
+	</section>

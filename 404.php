@@ -13,10 +13,11 @@ get_header();
 	<main id="primary" class="site-main">
 
 		<section class="error-404 not-found">
-			<h2 class="error-404__title">404</h2>
-			<h3 class="error-404__subtitle">Poszukiwania strona nie istnieje</h3>
+			<p class="error-404__text-top">Ups</p>
+			<h2 class="error-404__text-bottom">Strona o podanym adresie nie istnieje</h2>
+			<h3 class="error-404__number">404</h3>
 			<div class="error-404__link--wrapper">
-				<a class="error-404__link"href="<?php echo get_home_url(); ?>">Wróć na stronę główną</a>
+				<a class="error-404__link"href="<?php echo get_home_url(); ?>">Strona główna</a>
 			</div>
 		</section><!-- .error-404 -->
 

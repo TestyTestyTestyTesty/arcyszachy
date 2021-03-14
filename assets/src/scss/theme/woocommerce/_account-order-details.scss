@@ -4,11 +4,12 @@
       .woocommerce {
         .woocommerce-MyAccount-content {
           p {
-            letter-spacing: -0.16px;
-            color: $text-dark;
+            letter-spacing: 0.32px;
+            color: $darkGrey;
             font-size: 16px;
             line-height: 24px;
             margin:30px 0;
+            font-family:$futuraLight;
             @include mq(md){
               margin:unset;
             }
@@ -16,32 +17,44 @@
               background: none;
               text-decoration: underline;
               font-weight: 600;
+              color:$dark-red;
             }
           }
           .woocommerce-order-details {
-            margin-bottom:40px;
+            margin-bottom:45px;
             .woocommerce-order-details__title {
-              letter-spacing: -0.58px;
-              color: $text-dark;
-              font-family: $text-font;
-              font-weight: 500;
-              line-height: 50px;
-              font-size: 26px;
-              margin: 10px 0 30px;
+              letter-spacing: -0.4px;
+              color: $black;
+              font-family: $futura;
+              line-height: 32px;
+              font-size: 24px;
+              margin: 10px 0 38px;
             }
             .woocommerce-table {
               background: $white;
-              box-shadow: 0px 3px 6px #25252529;
+              box-shadow: 0px 3px 6px #00000014;
               border-radius: 8px;
               border: none;
+              position: relative;
+              &:after{
+                content:'';
+                position: absolute;
+                top:0;
+                left: 0;
+                right:0;
+                margin:auto;
+                height:8px;
+                width:100%;
+                background-color:$dark-red;
+                border-radius: 100px 100px 0 0;
+              }
               thead {
                 tr {
-                  color: $text-dark;
-                  font-size: 16px;
-                  line-height: 16px;
-                  letter-spacing: -0.16px;
-                  font-weight: 500;
-                  font-family: $text-font;
+                  color: $black;
+                  font-size: 17px;
+                  line-height: 22px;
+                  letter-spacing: -0.58px;
+                  font-family: $futuraLight;
                   th {
                     padding: 28px 35px 30px;
                     @include mq(md){
@@ -55,11 +68,11 @@
               tbody {
                 tr {
                   td {
-                    color: $text-dark;
-                    font-size: 14px;
-                    line-height: 26px;
-                    letter-spacing: -0.14px;
-                    font-family: $main-font;
+                    color: $darkGrey;
+                    font-size: 16px;
+                    line-height: 24px;
+                    letter-spacing: 0.32px;
+                    font-family: $futuraLight;
                     padding: 22px 35px 22px;
                     @include mq(md){
                       padding: 22px 35px 22px 125px;
@@ -75,13 +88,13 @@
               }
               tfoot {
                 tr {
-                  color: $text-dark;
-                  font-size: 16px;
-                  line-height: 16px;
-                  letter-spacing: -0.16px;
-                  font-weight: 500;
-                  font-family: $text-font;
+                  color: $black;
+                  font-size: 17px;
+                  line-height: 22px;
+                  font-family: $futura;
+                  font-weight: 400;
                   th,td {
+                    font-weight: 400;
                     padding: 22px 35px 22px;
                     @include mq(md){
                       padding: 22px 35px 22px 125px;
@@ -94,33 +107,29 @@
           }
           .woocommerce-customer-details{
             .woocommerce-column__title{
-              letter-spacing: -0.16px;
-              color: $text-dark;
-              font-family: $text-font;
-              font-weight: 500;
-              font-size: 16px;
+              letter-spacing: -0.2px;
+              color: $black;
+              font-family: $futura;
+              font-size: 20px;
               margin: 0 0 18px;
             }
             address{
               background: $white;
-              box-shadow: 0px 3px 6px #25252529;
+              border:3px solid $lightGrey !important;
               border-radius: 8px;
               border: none;
-              text-align: center;
-              padding:33px 0;
+              padding:33px 30px;
               color:$text-dark;
               font-size:16px;
-              letter-spacing: -0.16px;
-              line-height: 34px;
-              font-family: $text-font;
-              font-weight: 500;
-              
+              letter-spacing: 0.32px;
+              line-height: 24px;
+              font-family: $futuraLight;
               p{
                 color:$text-dark;
-                font-size:16px;
-                letter-spacing: -0.16px;
-                line-height: 34px;
-                font-family: $text-font;
+                font-size:16px !important;
+                letter-spacing: 0.32px !important;
+                line-height: 24px !important;
+                font-family: $futuraLight !important;
                 font-weight: 500;
                 padding:0;
                 margin:0;

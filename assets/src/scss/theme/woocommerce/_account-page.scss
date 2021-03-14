@@ -1,6 +1,7 @@
 .woocommerce-account {
   &.logged-in {
     .entry-header {
+      display: none;
       .entry-title {
         text-align: left;
         padding-top: 10px;
@@ -11,6 +12,7 @@
         .woocommerce-MyAccount-navigation {
           @include mq(md) {
             width: 20%;
+            border-right: 2px solid $textLight;
           }
           ul {
             display: flex;
@@ -27,6 +29,7 @@
               margin-bottom: 15px;
               margin: 20px;
               transition: all 0.3s;
+              color: $black;
               &:hover {
                 a {
                   color: $dark-red;
@@ -34,7 +37,11 @@
               }
               @include mq(600) {
                 margin: unset;
-                margin-bottom: 15px;
+                margin-bottom: 29px;
+                &:last-of-type {
+                  margin-top: 30px;
+                  margin-bottom: 0;
+                }
               }
               &:before {
                 content: "";
@@ -47,12 +54,12 @@
                 background-position: center;
               }
               a {
-                color: $text-dark;
+                color: $black;
                 text-transform: uppercase;
-                letter-spacing: -0.14px;
-                font-family: $text-font;
+                letter-spacing: 0.4px;
+                font-family: $futura;
                 font-size: 14px;
-                line-height: 23px;
+                line-height: 18px;
                 margin-left: 40px;
               }
               &.is-active {
@@ -93,17 +100,22 @@
             width: 78%;
           }
           p {
-            letter-spacing: -0.16px;
-            color: $text-dark;
+            letter-spacing: 0.32px;
+            color: $darkGrey;
             font-size: 16px;
             line-height: 24px;
-            font-family: $main-font;
+            font-family: $futuraLight;
             margin-bottom: 20px;
             &:last-of-type {
               margin-bottom: unset;
             }
             strong {
               font-weight: 600;
+              letter-spacing: -.2;
+              font-family:$futuraLight;
+              font-size:20px;
+              line-height: 26px;
+              color:$black;
             }
             a {
               color: $text-dark;

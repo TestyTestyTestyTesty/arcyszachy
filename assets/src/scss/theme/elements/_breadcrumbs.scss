@@ -1,20 +1,16 @@
-.breadcrumbs{
-  letter-spacing: -0.16px;
-  font-size:16px;
-  line-height:30px;
-  font-family: $main-font;
-  padding:30px 0;
-  background:$site-bg;
-  span{
-    a{
-      span{
-        
-        color:$text-light;
+.breadcrumbs {
+  letter-spacing: 0.2px;
+  font-size: 12px;
+  line-height: 14px;
+  font-family: $futuraLight;
+  padding: 30px 0;
+  background: $site-bg;
+  text-transform: uppercase;
+  span {
+    a {
+      span {
+        color: $black;
       }
-    }
-    &.current-item{
-      color:$text-dark;
-      font-weight: 600;
     }
   }
 }
