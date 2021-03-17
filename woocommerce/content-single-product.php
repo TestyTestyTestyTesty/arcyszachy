@@ -71,77 +71,74 @@ if ( post_password_required() ) {
 	 */
 	do_action( 'woocommerce_after_single_product_summary' );
 	?>
-	<ul class="product-details-switcher">
-	<?php if ( get_field( 'description_title' ) ) : ?>
-		<li data-tab="product-description" class="product-details-switcher__item product-details-switcher__item--active tab-description"><?php the_field( 'description_title' ); ?></li>
-	<?php endif; ?>
-	<?php if ( get_field( 'table_title' ) ) : ?>
-		<li data-tab="product-table" class="product-details-switcher__item tab-table"><?php the_field( 'table_title' ); ?></li>
-	<?php endif; ?>
-	</ul>
-	<div class="product-description product-tab product-tab__visible">
-	<?php
-	$image = get_field( 'wide_image' );
-	if ( ! empty( $image ) ) :
-		?>
-		<img class="product-description__wide-image" src="<?php echo esc_url( $image['url'] ); ?>" alt="<?php echo esc_attr( $image['alt'] ); ?>" />
-	<?php endif; ?>
-		<div class="product-description__rows">
-			<?php if ( have_rows( 'description_repeater' ) ) : ?>
+	<div class="product-details-intro">
+		<div class="product-shortcuts">
+			<?php if ( have_rows( 'product__links' ) ) : ?>
 				<?php
-				$i = 0;
-				while ( have_rows( 'description_repeater' ) ) :
+				while ( have_rows( 'product__links' ) ) :
 					the_row();
 					?>
-						<div class="product-description__row 
-						<?php
-						if ( $i % 2 != 0 ) {
-							echo 'product-description__row--odd';}
-						?>
-						">
-						<?php
-							$image = get_sub_field( 'image' );
-						if ( ! empty( $image ) ) :
-							?>
-									<img class="row__image" src="<?php echo esc_url( $image['url'] ); ?>" alt="<?php echo esc_attr( $image['alt'] ); ?>" />
-									<div class="row__texts">
-										<h2 class="row__title"><?php the_sub_field( 'title' ); ?></h2>
-										<p class="row__description"><?php the_sub_field( 'description' ); ?></p>
-									</div>
-								<?php endif; ?>
-							</div>
 					<?php
-					$i++;
-				endwhile;
-				?>
+					$link = get_sub_field( 'link' );
+					if ( $link ) :
+						$link_url    = $link['url'];
+						$link_title  = $link['title'];
+						$link_target = $link['target'] ? $link['target'] : '_self';
+						?>
+						<a class="product-shortcuts__link" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
+					<?php endif; ?>
+				<?php endwhile; ?>
 				<?php
 			else :
-	endif;
+endif;
 			?>
 		</div>
-	</div>
-	<div class="product-table product-tab">
-	<?php if ( get_field( 'table_title' ) ) : ?>
-		<h3 class="product-table__title"><?php the_field( 'table_title' ); ?></h3>
-	<?php endif; ?>
-	<?php if ( have_rows( 'table_repeater' ) ) : ?>
-	<table class="product-table__table">
 		<?php
-		while ( have_rows( 'table_repeater' ) ) :
-			the_row();
-			?>
-			<tr class="product-table__row">
-				<td class="product-table__data"><?php the_sub_field( 'left_column' ); ?></td>
-				<td class="product-table__data"><?php the_sub_field( 'right_column' ); ?></td>
-			</tr>
-			
-		<?php endwhile; ?>
-	</table>
-		<?php
-	else :
-endif;
-	?>
+		global $wp_query;
+			global $wp;
+		?>
+		<a class="addToCart-white" href="<?php echo home_url( $wp->request ); ?>/?add-to-cart=<?php echo $wp_query->post->ID; ?>">
+			<img src="<?php echo get_template_directory_uri(); ?>/assets/dist/images/svg/cart-grey.svg" alt="">	
+			<span>dodaj do koszyka</span>
+		</a>
 	</div>
+	<div class="product-description">
+		<div class="product-description-aside">
+			<div class="product-description-aside--wrapper">
+				<?php if ( get_field( 'product__aside-title' ) ) : ?>
+					<h2 class="product-description-aside__title"><?php the_field( 'product__aside-title' ); ?></h2>
+				<?php endif; ?>
+				<?php if ( have_rows( 'product__aside' ) ) : ?>
+					<?php
+					while ( have_rows( 'product__aside' ) ) :
+						the_row();
+						?>
+						<div class="aside-single">
+							<?php
+							$image = get_sub_field( 'icon' );
+							if ( ! empty( $image ) ) :
+								?>
+								<img class="aside-single__icon" width="60px" height="60px" src="<?php echo esc_url( $image['url'] ); ?>" alt="<?php echo esc_attr( $image['alt'] ); ?>" />
+							<?php endif; ?>
+							<?php if ( get_sub_field( 'title' ) ) : ?>
+								<h3 class="aside-single__title"><?php the_sub_field( 'title' ); ?></h3>
+							<?php endif; ?>
+							<?php if ( get_sub_field( 'description' ) ) : ?>
+								<h3 class="aside-single__description"><?php the_sub_field( 'description' ); ?></h3>
+							<?php endif; ?>
+						</div>
+					<?php endwhile; ?>
+					<?php
+				else :
+	endif;
+				?>
+			</div>
+		</div>
+		<?php if ( get_field( 'product__description' ) ) : ?>
+			<div class="product-description-main"><?php the_field( 'product__description' ); ?></div>
+		<?php endif; ?>
+	</div>
+
 </div>
 
 <?php do_action( 'woocommerce_after_single_product' ); ?>

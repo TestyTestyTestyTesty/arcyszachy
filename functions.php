@@ -165,6 +165,22 @@ if ( ! defined( '_S_VERSION' ) ) {
 remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20 );
 remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20 );
 remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );
+remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 20 );
+add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 35 );
+
+
+function addScrollToDescription() {
+	?>
+	<div id="#full-description" class="scrollToDescription">
+		<div class="scrollToDescription__img--wrapper">
+			<img class="scrollToDescription__img" width="5px" height="6px" src="<?php echo get_template_directory_uri(); ?>/assets/dist/images/svg/small-arrow.svg" alt="">
+		</div>
+		<span class="scrollToDescription__text">Zobacz pełny opis</span>
+	</div>
+	<?php
+}
+add_action( 'woocommerce_single_product_summary', 'addScrollToDescription', 37 );
+
 function cc_mime_types( $mimes ) {
 	$mimes['svg'] = 'image/svg+xml';
 	return $mimes;

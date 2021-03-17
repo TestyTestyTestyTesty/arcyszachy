@@ -13,10 +13,6 @@ global $product;
 ?>
 <div class="woocommerce-variation-add-to-cart variations_button">
 	<?php do_action( 'woocommerce_before_add_to_cart_button' ); ?>
-
-	<button type="submit" class="single_add_to_cart_button button alt">
-		<img src="<?php echo get_template_directory_uri(); ?>/assets/dist/images/svg/cart-white.svg" alt=""><?php echo esc_html( $product->single_add_to_cart_text() ); ?>
-	</button>
 	<?php
 	do_action( 'woocommerce_before_add_to_cart_quantity' );
 
@@ -27,7 +23,11 @@ global $product;
 			'input_value' => isset( $_POST['quantity'] ) ? wc_stock_amount( wp_unslash( $_POST['quantity'] ) ) : $product->get_min_purchase_quantity(), // WPCS: CSRF ok, input var ok.
 		)
 	);
-
+	?>
+	<button type="submit" class="single_add_to_cart_button button alt">
+		<img src="<?php echo get_template_directory_uri(); ?>/assets/dist/images/svg/cart-gold.svg" alt=""><?php echo esc_html( $product->single_add_to_cart_text() ); ?>
+	</button>
+	<?php
 	do_action( 'woocommerce_after_add_to_cart_quantity' );
 	?>
 

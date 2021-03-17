@@ -1,77 +1,127 @@
 .product-description {
-  &__wide-image {
-    max-height: 300px !important;
-    min-height: 150px;
-    border-radius: 4px;
-    object-fit: cover;
-    max-width: 100%;
-    @include mq(lq) {
-      width: 100%;
+  display: flex;
+  justify-content: space-between;
+  &-aside--wrapper{
+    border-radius:8px;
+    border:1px solid $lightGrey;
+  }
+  &-aside {
+    margin-right:30px;
+    max-width:255px;
+    width:100%;
+    &__title{
+      background:$dark-red;
+      font-size:20px;
+      line-height:26px;
+      font-family:$futuraLight;
+      color:$gold; 
+      padding:10px 0;
+      text-align: center;
+      border-radius:8px 8px 0 0;
+    }
+    .aside-single{
+      display:flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding:36px 0;
+      margin:0 20px;
+      text-align: center;
+      border-bottom:1px solid $lightGrey;
+      &:last-of-type{
+        border-bottom: none;
+      }
+      &__icon{
+        object-fit: contain;
+        margin: 0 0 7px;
+      }
+      &__title{
+        font-size:20px;
+        line-height: 30px;
+        font-family:$futuraLight;
+        color:$darkGrey;
+        margin:0 0 7px;
+        letter-spacing: 0.2px;
+      }
+      &__description{
+        font-size:16px;
+        line-height: 24px;
+        font-family:$futuraLight;
+        letter-spacing: 0.32px;
+        color:$darkGrey;
+        margin:0 0 7px;
+      }
     }
   }
-  &__rows {
-    margin: 30px 0;
-    display: flex;
-    flex-direction: column;
-    @include mq(lg) {
-      margin: 120px 0;
+  &-main{
+    width:100%;
+    h1,h2,h3,h4,h5,h6{
+      font-family:$futura;
+      color:$black;
     }
-  }
-  &__row {
-    display: flex;
-    margin-bottom: 30px;
-    align-items: center;
-    flex-direction: column;
-    @include mq(lg) {
-      margin-bottom: 120px;
-      flex-direction: row;
+    h1{
+      font-size:34px;
+      line-height: 46px;
+      letter-spacing: -.76px;
     }
-    .row {
-      &__image {
-        border-radius: 4px;
-        margin-bottom: 20px;
-        @include mq(lg) {
-          margin-bottom: unset;
-          border-radius: 4px 4px 132px 4px;
-          margin-right: 30px;
+    h2{
+      font-size:24px;
+      line-height: 32px;
+      letter-spacing: -.4px;
+    }
+    h3{
+      font-size:20px;
+      line-height: 26px;
+      letter-spacing: -.24px;
+    }
+    h4{
+      font-size:17px;
+      line-height: 22px;
+      letter-spacing: -.58px;
+    }
+    h5{
+      font-size:14px;
+      line-height: 18px;
+      letter-spacing: -.24px;
+    }
+    h6{
+      font-size:10px;
+      line-height: 15px;
+      letter-spacing: -.24px;
+    }
+    p{
+      font-family:$futuraLight;
+      color: $darkGrey;
+      font-size:16px;
+      line-height: 24px;
+      letter-spacing: .32px;
+      margin:12px 0 32px;
+    }
+    ul{
+      list-style-type: disc;
+    }
+    ol{
+      list-style-type: upper-roman;
+    }
+    ul,ol{
+      font-family:$futuraLight;
+      color: $darkGrey;
+      font-size:16px;
+      line-height: 24px;
+      letter-spacing: .32px;
+      margin:12px 0 32px;
+      li{
+        margin-left:20px;
+        ul,ol{
+          margin:0;
         }
       }
     }
-    &:last-of-type {
-      margin-bottom: 0;
+    img{
+      
     }
-    &--odd{
-        @include mq(lg) {
-            margin-bottom: 120px;
-            flex-direction: row-reverse;
-          }
-        .row {
-            &__image {
-              border-radius: 4px;
-              margin-bottom: 20px;
-              @include mq(lg) {
-                margin-bottom: unset;
-                border-radius: 4px 4px 4px 132px;
-                margin-left: 30px;
-              }
-            }
-          }
-    }
-  }
-  .row {
-    &__title {
-      font-size: 26px;
-      font-family: $text-font;
-      font-weight: 500;
-      letter-spacing: -0.58px;
-      color: $text-dark;
-      margin-bottom: 30px;
-    }
-    &__description {
-      letter-spacing: -0.16px;
-      color: $text-light;
-      font-family: $main-font;
-      line-height: 24px;
+    blockquote{
+      font-style:italic;
     }
   }
 }

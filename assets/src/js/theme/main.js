@@ -33,29 +33,32 @@ function updateCart() {
   });
 }
 function heroSlider() {
-  const numOfSlides = document.querySelector(".numberOfSlides").dataset.slides;
-  $(".hero-slider .slider-wrapper").slick({
-    infinite: true,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    arrows: false,
-    fade: true,
-    asNavFor: ".slider-titles",
-  });
-  $(".slider-titles").slick({
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    asNavFor: ".hero-slider .slider-wrapper",
-    focusOnSelect: true,
-    infinite: true,
-  });
-  $(".hero-slider .slider-arrow__wrapper--left").click(function () {
-    $(".hero-slider .slider-wrapper").slick("slickPrev");
-  });
-
-  $(".hero-slider .slider-arrow__wrapper--right").click(function () {
-    $(".hero-slider .slider-wrapper").slick("slickNext");
-  });
+  const slides = document.querySelector(".numberOfSlides");
+  if(slides){
+    const numOfSlides = slides.dataset.slides;
+    $(".hero-slider .slider-wrapper").slick({
+      infinite: true,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      arrows: false,
+      fade: true,
+      asNavFor: ".slider-titles",
+    });
+    $(".slider-titles").slick({
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      asNavFor: ".hero-slider .slider-wrapper",
+      focusOnSelect: true,
+      infinite: true,
+    });
+    $(".hero-slider .slider-arrow__wrapper--left").click(function () {
+      $(".hero-slider .slider-wrapper").slick("slickPrev");
+    });
+  
+    $(".hero-slider .slider-arrow__wrapper--right").click(function () {
+      $(".hero-slider .slider-wrapper").slick("slickNext");
+    });
+  }
 }
 function testimonialsSlider() {
   $(".testimonials-slider .slider-wrapper").slick({

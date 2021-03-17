@@ -18,7 +18,7 @@
 defined( 'ABSPATH' ) || exit;
 
 do_action( 'woocommerce_before_cart' ); ?>
-
+<div class="cart__wrapper">
 <form class="woocommerce-cart-form" action="<?php echo esc_url( wc_get_cart_url() ); ?>" method="post">
 	<?php do_action( 'woocommerce_before_cart_table' ); ?>
 
@@ -140,7 +140,11 @@ do_action( 'woocommerce_before_cart' ); ?>
 
 					<?php if ( wc_coupons_enabled() ) { ?>
 						<div class="coupon">
-							<label for="coupon_code"><?php esc_html_e( 'Coupon:', 'woocommerce' ); ?></label> <input type="text" name="coupon_code" class="input-text" id="coupon_code" value="" placeholder="<?php esc_attr_e( 'Coupon code', 'woocommerce' ); ?>" /> <button type="submit" class="button" name="apply_coupon" value="<?php esc_attr_e( 'Apply coupon', 'woocommerce' ); ?>"><?php esc_attr_e( 'Apply coupon', 'woocommerce' ); ?></button>
+							<div class="coupon__wrapper">
+								<label for="coupon_code"><?php esc_html_e( 'I have a coupon', 'woocommerce' ); ?></label> 
+								<input type="text" name="coupon_code" class="input-text" id="coupon_code" value="" placeholder="<?php esc_attr_e( 'Coupon code', 'woocommerce' ); ?>" /> 
+							</div>
+							<button type="submit" class="button" name="apply_coupon" value="<?php esc_attr_e( 'Add', 'woocommerce' ); ?>"><?php esc_attr_e( 'Add', 'woocommerce' ); ?></button>
 							<?php do_action( 'woocommerce_cart_coupon' ); ?>
 						</div>
 					<?php } ?>
@@ -172,5 +176,5 @@ do_action( 'woocommerce_before_cart' ); ?>
 		do_action( 'woocommerce_cart_collaterals' );
 	?>
 </div>
-
+</div>
 <?php do_action( 'woocommerce_after_cart' ); ?>
