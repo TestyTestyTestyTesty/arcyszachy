@@ -1,27 +1,30 @@
-.related {
-  border-top: 1px solid $lightGrey;
+.most-popular {
+  width: 100%;
+  .container {
+    &--medium {
+      padding: 36px 0 73px;
+      border-bottom: 2px solid $textLight;
+    }
+  }
   &__title {
-    font-size: 24px;
-    line-height: 32px;
+    font-size: 34px;
+    line-height: 46px;
     font-family: $futura;
-    letter-spacing: -0.4px;
+    letter-spacing: -0.76px;
     color: $black;
-    padding: 33px 0;
+    margin: 0 0 28px;
   }
   .products {
-    //grid for products start
+    height: 100%;
     &:before {
       content: none !important;
     }
     display: grid;
-    grid-gap: 30px;
+    grid-gap: 20px;
     margin-bottom: 60px !important;
     grid-template-columns: 1fr;
-    margin:0 !important;
+    margin: 0 !important;
     @include mq(sm) {
-      grid-template-columns: 1fr 1fr;
-    }
-    @include mq(md) {
       grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     }
     .product {
@@ -93,6 +96,8 @@
 
       .attachment-woocommerce_thumbnail {
         margin-bottom: 10px;
+        max-height: 150px;
+        object-fit: cover;
       }
       .woocommerce-loop-product__title {
         font-family: $futura;

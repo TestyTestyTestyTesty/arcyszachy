@@ -1,4 +1,16 @@
 .hot-offers {
+  .container{
+    &--medium{
+      padding:10px 0 63px;
+      border-top:2px solid $textLight;
+      border-bottom:2px solid $textLight;
+    }
+  }
+  &__wrapper{
+    display:flex;
+    justify-content: space-between;
+
+  }
   &__title {
     font-size: 34px;
     line-height: 46px;

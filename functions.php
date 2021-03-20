@@ -43,10 +43,35 @@ function move_related_products_before_tabs() {
 	remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
 	add_action( 'woocommerce_after_single_product', 'woocommerce_output_related_products', 5 );
 }
+add_filter(
+	'woocommerce_output_related_products_args',
+	function ( $args ) {
+		$args = array(
+			'posts_per_page' => 5,
+			'columns'        => 5,
+	'orderby'        => 'rand', // @codingStandardsIgnoreLine.
+		);
 
+		return $args;
+	},
+	20
+);
 function wpdocs_custom_excerpt_length( $length ) {
 	return 20;
 }
+
+add_filter( 'woocommerce_pagination_args', 'rocket_woo_pagination' );
+function rocket_woo_pagination( $args ) {
+
+	$args['prev_text'] = '<svg class="pagination-arrow-left" data-name="Icon" xmlns="http://www.w3.org/2000/svg" width="7.114" height="12"><g data-name="Group 6"><path data-name="Icon Color" d="M0 10.59L4.397 6l-4.4-4.59L1.354 0l5.76 6-5.76 6z" fill="#4e4e4e"/></g></svg>';
+	$args['next_text'] = '<svg class="pagination-arrow-right" data-name="Icon" xmlns="http://www.w3.org/2000/svg" width="7.114" height="12"><g data-name="Group 6"><path data-name="Icon Color" d="M0 10.59L4.397 6l-4.4-4.59L1.354 0l5.76 6-5.76 6z" fill="#4e4e4e"/></g></svg>';
+
+	return $args;
+}
+ // sorting
+ remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );
+ add_action( 'woo_custom_catalog_ordering', 'woocommerce_catalog_ordering', 30 );
+
 add_filter( 'excerpt_length', 'wpdocs_custom_excerpt_length', 999 );
 add_filter( 'acf/settings/remove_wp_meta_box', '__return_false' );
 // Add custom post type to USP Meta Box

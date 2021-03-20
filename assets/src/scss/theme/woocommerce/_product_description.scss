@@ -1,6 +1,7 @@
 .product-description {
   display: flex;
   justify-content: space-between;
+  margin: 0 0 110px;
   &-aside--wrapper{
     border-radius:8px;
     border:1px solid $lightGrey;

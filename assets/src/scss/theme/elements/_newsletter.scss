@@ -45,7 +45,7 @@
     input[type="email"] {
       font-size: 16px;
       line-height: 24px;
-      font-family: $futura;
+      font-family: $futuraLight;
       letter-spacing: 0.32px;
       color: $darkGrey;
       height: 100%;
@@ -65,8 +65,9 @@
       height: 100%;
       width: 120px;
       text-transform: uppercase;
+      font-family: $futuraLight;
       color: $white;
-      background: $dark-red;
+      background: $red;
       border: none;
       border-radius: 8px;
       cursor: pointer;
