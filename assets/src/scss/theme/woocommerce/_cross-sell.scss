@@ -1,0 +1,173 @@
+.cross-sells {
+  &__title {
+    font-size: 24px;
+    line-height: 32px;
+    font-family: $futura;
+    letter-spacing: -0.4px;
+    color: $black;
+    padding: 33px 0;
+  }
+  .products {
+    //grid for products start
+    &:before {
+      content: none !important;
+    }
+    display: grid;
+    grid-gap: 30px;
+    margin-bottom: 60px !important;
+    grid-template-columns: 1fr;
+    margin:0 !important;
+    @include mq(sm) {
+      grid-template-columns: 1fr 1fr;
+    }
+    @include mq(md) {
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    }
+    .product {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      float: unset !important;
+      margin: 0 !important;
+      width: unset !important;
+    }
+    .product {
+      background: $white;
+      box-shadow: none;
+      border-radius: 8px;
+      border: 1px solid $lightGrey;
+      transition: all 0.3s;
+      position: relative;
+      padding: 16px 16px 30px !important;
+      .onsale {
+        display: none;
+      }
+      &.sale {
+        background: $white;
+        border: 1px solid $lightGrey;
+        box-shadow: none;
+        border-radius: 8px;
+        &:after {
+          content: none;
+        }
+        .woocommerce-loop-product__title {
+          margin-bottom: 10px;
+          padding-bottom: 0;
+        }
+        .price {
+          font-size: 18px !important;
+          font-family: $futura;
+          letter-spacing: -0.58px;
+          color: $black !important;
+          text-align: left;
+          margin-bottom: 0 !important;
+          del {
+            text-decoration: line-through;
+            font-size: 13px;
+            font-family: $futuraLight;
+            letter-spacing: 0.26px;
+            font-weight: 400;
+            color: $darkGrey;
+            display: block;
+            text-align: left;
+          }
+          ins,
+          .woocommerce-price-suffix {
+            font-size: 17px;
+            line-height: 22px;
+            font-family: $futura;
+            letter-spacing: -0.58px;
+            color: $black;
+            text-decoration: none;
+          }
+        }
+      }
+      &:hover {
+        transition: all 0.3s;
+        .woocommerce-loop-product__title {
+          transition: all 0.3s;
+          color: $dark-red;
+        }
+      }
+
+      .attachment-woocommerce_thumbnail {
+        margin-bottom: 10px;
+      }
+      .woocommerce-loop-product__title {
+        font-family: $futura;
+        font-size: 17px !important;
+        line-height: 22px;
+        font-weight: 600;
+        color: $black;
+        margin-bottom: 15px !important;
+        padding: 0 !important;
+      }
+
+      .price {
+        font-size: 17px !important;
+        margin-bottom: 0;
+        flex-direction: column;
+        display: flex;
+        margin-bottom: 0px !important;
+        line-height: 22px;
+        font-family: $futura;
+        letter-spacing: -0.58px;
+        color: $black !important;
+        text-decoration: none;
+        font-weight: 600 !important;
+      }
+      .added_to_cart {
+        width: 80%;
+        background: $dark-red;
+        margin: 0 auto;
+        position: absolute;
+        top: 30%;
+        right: 0;
+        left: 0;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: $gold;
+        transition: all 0.3s;
+        font-family: $futuraLight;
+        border-radius: 8px;
+        font-size: 16px;
+      }
+      .add_to_cart_button {
+        position: absolute;
+        bottom: 30px;
+        right: 16px;
+        background: $dark-red;
+        color: $white;
+        width: 44px;
+        height: 44px;
+        border-radius: 5000px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s;
+        margin-top: 0 !important;
+        img {
+          margin: 0;
+        }
+        &:hover {
+          background: $red;
+        }
+        &.added,
+        &.loading {
+          padding: 0;
+          opacity: 1;
+          &:after {
+            margin: 0;
+            position: static;
+            color: $gold;
+          }
+          img {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}

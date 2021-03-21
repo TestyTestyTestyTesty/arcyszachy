@@ -57,14 +57,63 @@
     .cart__wrapper {
       display: flex;
       justify-content: space-between;
+      .cart-intro {
+        margin: 0 0 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .cart__title {
+        font-size: 24px;
+        line-height: 32px;
+        font-family: $futura;
+        letter-spacing: -0.4px;
+        color: $black;
+      }
+      .clear-cart {
+        font-size: 12px;
+        line-height: 14px;
+        font-family: $futuraLight;
+        letter-spacing: 0.2px;
+        color: $grey;
+        text-transform: uppercase;
+        transition: all 0.3s;
+        &:hover {
+          color: $red;
+        }
+      }
+      .cart-left-column {
+        max-width: 730px;
+        width: 100%;
+        margin-right: 30px;
+        @include mq(lg) {
+          margin-right: 30px;
+        }
+        .go-to-shop {
+          font-size: 12px;
+          line-height: 14px;
+          font-family: $futuraLight;
+          letter-spacing: 0.2px;
+          color: $darkGrey;
+          text-transform: uppercase;
+          border: 1px solid #D6D6D6;
+          border-radius: 8px;
+          padding:9px 36px;
+          transition: all 0.3s;
+          &:hover{
+            color:$gold;
+            background:$dark-red;
+          }
+        }
+      }
+      .cart-right-column {
+        max-width: 350px;
+        .cart__title {
+          margin: 0 0 30px;
+        }
+      }
     }
     .woocommerce-cart-form {
-      max-width: 730px;
-      width: 100%;
-      margin-right: 30px;
-      @include mq(lg) {
-        margin-right: 30px;
-      }
       .shop_table {
         background: $white 0% 0% no-repeat padding-box;
         box-shadow: 0px 3px 6px #25252529;
@@ -139,10 +188,13 @@
             }
             .product-quantity {
               font-family: $futuraLight;
-              input {
-                color: $darkGrey;
-                font-family: $futuraLight;
+              .qty {
+                height: 34px;
                 font-size: 16px;
+                font-family: $futuraLight;
+                border-radius: 30px;
+                border: 1px solid $grey;
+                border-radius: 101px;
               }
             }
             .product-subtotal {
@@ -199,10 +251,10 @@
     }
     .cart-collaterals {
       position: relative;
-      max-width: 350px;
       box-shadow: 0px 3px 6px #00000014;
       border: 1px solid #e5e5e5;
       border-radius: 8px;
+
       &:after {
         content: "";
         position: absolute;
@@ -216,23 +268,16 @@
         border-radius: 100px 100px 0 0;
       }
       .cart_totals__title {
-        font-size: 24px;
-        line-height: 32px;
-        font-family: $futura;
-        letter-spacing: -0.4px;
-        color: $black;
-        position: relative;
-        top: -60px;
+        display: none;
       }
       .cart_totals {
         background: $white 0% 0% no-repeat padding-box;
         width: 100%;
-        
-        
+        box-shadow: 0px 3px 6px #25252529;
         .shop_table {
           padding: 27px 10px 0;
           @include mq(sm) {
-            padding: 0px 30px 0;
+            padding: 27px 30px 0;
           }
           border: none;
           .cart-subtotal {
@@ -249,9 +294,9 @@
               font-family: $futura;
               letter-spacing: -0.4px;
               color: $black;
-              .tax_label{
+              .tax_label {
                 font-size: 17px;
-              line-height: 22px;
+                line-height: 22px;
               }
             }
           }
@@ -269,10 +314,11 @@
               font-family: $futura;
               letter-spacing: -0.4px;
               color: $black;
-              bdi{
+              bdi {
                 font-weight: 400;
               }
-              .tax_label,.woocommerce-shipping-destination{
+              .tax_label,
+              .woocommerce-shipping-destination {
                 font-size: 17px;
                 line-height: 22px;
               }
@@ -303,7 +349,7 @@
           }
         }
         .wc-proceed-to-checkout {
-          padding:0;
+          padding: 0;
           .checkout-button {
             background: $dark-red;
             border-radius: 8px;
@@ -313,12 +359,12 @@
             font-size: 12px;
             line-height: 14px;
             font-family: $futuraLight;
-            height:52px;
+            height: 52px;
             display: flex;
             justify-content: center;
             align-items: center;
             transition: all 0.3s;
-            margin:0;
+            margin: 0;
             &:hover {
               background: $red;
             }

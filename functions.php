@@ -38,6 +38,13 @@ function remove_admin_login_header() {
 	remove_action( 'wp_head', '_admin_bar_bump_cb' );
 }
 add_action( 'get_header', 'remove_admin_login_header' );
+add_action( 'init', 'woocommerce_clear_cart_url' );
+function woocommerce_clear_cart_url() {
+	if ( isset( $_GET['clear-cart'] ) ) {
+		global $woocommerce;
+		$woocommerce->cart->empty_cart();
+	}
+}
 add_action( 'init', 'move_related_products_before_tabs' );
 function move_related_products_before_tabs() {
 	remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
@@ -56,9 +63,7 @@ add_filter(
 	},
 	20
 );
-function wpdocs_custom_excerpt_length( $length ) {
-	return 20;
-}
+
 
 add_filter( 'woocommerce_pagination_args', 'rocket_woo_pagination' );
 function rocket_woo_pagination( $args ) {
@@ -72,117 +77,7 @@ function rocket_woo_pagination( $args ) {
  remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );
  add_action( 'woo_custom_catalog_ordering', 'woocommerce_catalog_ordering', 30 );
 
-add_filter( 'excerpt_length', 'wpdocs_custom_excerpt_length', 999 );
-add_filter( 'acf/settings/remove_wp_meta_box', '__return_false' );
-// Add custom post type to USP Meta Box
-function usp_meta_box_custom_post_types( $post_types ) {
 
-	array_push( $post_types, 'noticeboard' ); // change 'book' to your custom post type
-
-	return $post_types;
-
-}
-// Hide Price Range for WooCommerce Variable Products
-add_filter(
-	'woocommerce_variable_sale_price_html',
-	'lw_variable_product_price',
-	10,
-	2
-);
-add_filter(
-	'woocommerce_variable_price_html',
-	'lw_variable_product_price',
-	10,
-	2
-);
-
-function lw_variable_product_price( $v_price, $v_product ) {
-
-	// Product Price
-	$prod_prices = array(
-		$v_product->get_variation_price( 'min', true ),
-		$v_product->get_variation_price( 'max', true ),
-	);
-	$prod_price  = $prod_prices[0] !== $prod_prices[1] ? sprintf(
-		__( '<span class="price-from">Cena od</span> %1$s', 'woocommerce' ),
-		wc_price( $prod_prices[0] )
-	) : wc_price( $prod_prices[0] );
-
-	// Regular Price
-	$regular_prices = array(
-		$v_product->get_variation_regular_price( 'min', true ),
-		$v_product->get_variation_regular_price( 'max', true ),
-	);
-	sort( $regular_prices );
-	$regular_price = $regular_prices[0] !== $regular_prices[1] ? sprintf(
-		__( '<span class="price-from">Cena od</span> %1$s', 'woocommerce' ),
-		wc_price( $regular_prices[0] )
-	) : wc_price( $regular_prices[0] );
-
-	if ( $prod_price !== $regular_price ) {
-		$prod_price = $prod_price . $v_product->get_price_suffix() . '</ins>';
-	}
-	return $prod_price;
-}
-add_action( 'woocommerce_before_single_product', 'move_variations_single_price', 1 );
-function move_variations_single_price() {
-	global $product, $post;
-	if ( $product->is_type( 'variable' ) ) {
-		add_action( 'woocommerce_single_product_summary', 'replace_variation_single_price', 10 );
-	}
-}
-
-function replace_variation_single_price() {
-	?>
-	<style>
-	  .woocommerce-variation-price {
-		display: none;
-	  }
-	</style>
-	<script>
-	  jQuery(document).ready(function($) {
-		var priceselector = '.product p.price';
-		var originalprice = $(priceselector).html();
-
-		$( document ).on('show_variation', function() {
-		  $(priceselector).html($('.single_variation .woocommerce-variation-price').html());
-		});
-		$( document ).on('hide_variation', function() {
-		  $(priceselector).html(originalprice);
-		});
-	  });
-	</script>
-	<?php
-}
-
-
-function default_taxonomy_term( $post_id, $post ) {
-	if ( 'publish' === $post->post_status ) {
-		$defaults   = array(
-			'themes_categories' => array( 'other' ),
-		);
-		$taxonomies = get_object_taxonomies( $post->post_type );
-		foreach ( (array) $taxonomies as $taxonomy ) {
-			$terms = wp_get_post_terms( $post_id, $taxonomy );
-			if ( empty( $terms ) && array_key_exists( $taxonomy, $defaults ) ) {
-				wp_set_object_terms( $post_id, $defaults[ $taxonomy ], $taxonomy );
-			}
-		}
-	}
-}
-add_action( 'save_post', 'default_taxonomy_term', 100, 2 );
-
-add_filter( 'usp_meta_box_post_types', 'usp_meta_box_custom_post_types' );
-function get_current_template( $echo = false ) {
-	if ( ! isset( $GLOBALS['current_theme_template'] ) ) {
-		return false;
-	}
-	if ( $echo ) {
-		echo $GLOBALS['current_theme_template'];
-	} else {
-		return $GLOBALS['current_theme_template'];
-	}
-}
 if ( ! defined( '_S_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
 	define( '_S_VERSION', '1.0.0' );
@@ -191,7 +86,12 @@ remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20 )
 remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20 );
 remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );
 remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 20 );
+remove_action( 'woocommerce_cart_collaterals', 'woocommerce_cross_sell_display' );
 add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 35 );
+remove_action( 'woocommerce_before_checkout_form', 'woocommerce_checkout_coupon_form' ,10 );
+add_action( 'woocommerce_after_cart', 'woocommerce_cross_sell_display' );
+remove_action( 'woocommerce_checkout_order_review', 'woocommerce_checkout_payment', 20 );
+add_action( 'woocommerce_checkout_after_customer_details', 'woocommerce_checkout_payment', 20 );
 
 
 function addScrollToDescription() {
@@ -213,76 +113,6 @@ function cc_mime_types( $mimes ) {
 add_filter( 'upload_mimes', 'cc_mime_types' );
 
 
-// turn variation dropdowns into radios
-function variation_radio_buttons( $html, $args ) {
-	$args = wp_parse_args(
-		apply_filters( 'woocommerce_dropdown_variation_attribute_options_args', $args ),
-		array(
-			'options'          => false,
-			'attribute'        => false,
-			'product'          => false,
-			'selected'         => false,
-			'name'             => '',
-			'id'               => '',
-			'class'            => '',
-			'show_option_none' => __( 'Choose an option', 'woocommerce' ),
-		)
-	);
-	if ( false === $args['selected'] && $args['attribute'] && $args['product'] instanceof WC_Product ) {
-		$selected_key     = 'attribute_' . sanitize_title( $args['attribute'] );
-		$args['selected'] = isset( $_REQUEST[ $selected_key ] ) ? wc_clean( wp_unslash( $_REQUEST[ $selected_key ] ) ) : $args['product']->get_variation_default_attribute( $args['attribute'] );
-	}
-	$options               = $args['options'];
-	$product               = $args['product'];
-	$attribute             = $args['attribute'];
-	$name                  = $args['name'] ? $args['name'] : 'attribute_' . sanitize_title( $attribute );
-	$id                    = $args['id'] ? $args['id'] : sanitize_title( $attribute );
-	$class                 = $args['class'];
-	$show_option_none      = (bool) $args['show_option_none'];
-	$show_option_none_text = $args['show_option_none'] ? $args['show_option_none'] : __( 'Choose an option', 'woocommerce' );
-	if ( empty( $options ) && ! empty( $product ) && ! empty( $attribute ) ) {
-		$attributes = $product->get_variation_attributes();
-		$options    = $attributes[ $attribute ];
-	}
-	$radios = '
-  ';
-	if ( ! empty( $options ) ) {
-		if ( $product && taxonomy_exists( $attribute ) ) {
-			$terms = wc_get_product_terms(
-				$product->get_id(),
-				$attribute,
-				array(
-					'fields' => 'all',
-				)
-			);
-			foreach ( $terms as $term ) {
-				if ( in_array( $term->slug, $options, true ) ) {
-					$radios .= '
-  ' . esc_html( apply_filters( 'woocommerce_variation_option_name', $term->name ) ) . '
-  ';
-				}
-			}
-		} else {
-			foreach ( $options as $option ) {
-				$checked = sanitize_title( $args['selected'] ) === $args['selected'] ? checked( $args['selected'], sanitize_title( $option ), false ) : checked( $args['selected'], $option, false );
-				$radios .= '
-  ' . esc_html( apply_filters( 'woocommerce_variation_option_name', $option ) ) . '
-  ';
-			}
-		}
-	}
-	$radios .= '
-  ';
-	return $html . $radios;
-}
-  add_filter( 'woocommerce_dropdown_variation_attribute_options_html', 'variation_radio_buttons', 20, 2 );
-function variation_check( $active, $variation ) {
-	if ( ! $variation->is_in_stock() && ! $variation->backorders_allowed() ) {
-		return false;
-	}
-	return $active;
-}
-  add_filter( 'woocommerce_variation_is_active', 'variation_check', 10, 2 );
 if ( ! function_exists( 'solaris_setup' ) ) :
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
@@ -500,12 +330,4 @@ function svg( $icon, $class = '' ) {
 	return $icon;
 };
 
-/**
- *  Change excerpt.
- */
-
-function new_excerpt_more( $more ) {
-	return '...';
-}
-add_filter( 'excerpt_more', 'new_excerpt_more' );
 

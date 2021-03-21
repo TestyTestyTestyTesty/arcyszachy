@@ -4,12 +4,12 @@
         border:none;
         color:$white;
         font-size:16px;
-        letter-spacing: -0.16px;
-        font-family:$text-font;
+        letter-spacing: .32px;
+        font-family:$futuraLight;
         padding:15px 30px 15px 70px;
         line-height: 32px;
         @include mq(md) {
-            padding:15px 70px;
+            padding:26px 70px;
         }
         a{
             color:$white;

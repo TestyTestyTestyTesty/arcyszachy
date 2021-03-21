@@ -26,7 +26,7 @@ defined( 'ABSPATH' ) || exit;
 		do_action( 'woocommerce_before_thankyou', $order->get_id() );
 		?>
 		<div class="thank-you-page-tick--wrapper">
-			<img class="thank-you-page-tick" src="<?php echo get_template_directory_uri(); ?>/assets/dist/images/svg/tick.svg">
+			<img class="thank-you-page-tick" src="<?php echo get_template_directory_uri(); ?>/assets/dist/images/svg/thank-you-icon.svg" width="80px" height="83px">
 		</div>
 		<?php if ( $order->has_status( 'failed' ) ) : ?>
 
@@ -41,9 +41,13 @@ defined( 'ABSPATH' ) || exit;
 
 		<?php else : ?>
 
-			<p class="woocommerce-notice woocommerce-notice--success woocommerce-thankyou-order-received woocommerce-thankyou-order-received--big"><?php echo apply_filters( 'woocommerce_thankyou_order_received_text', esc_html__( 'Dziękujemy', 'ST_Theme' ), $order ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
-			<p class="woocommerce-notice woocommerce-notice--success woocommerce-thankyou-order-received"><?php echo apply_filters( 'woocommerce_thankyou_order_received_text', esc_html__( 'Przyjęliśmy twoje zamówienie', 'ST_Theme' ), $order ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
-
+			<p class="woocommerce-notice woocommerce-notice--success woocommerce-thankyou-order-received woocommerce-thankyou-order-received--big"><?php echo apply_filters( 'woocommerce_thankyou_order_received_text', esc_html__( 'Twoje zamówienie zostało przyjęte!', 'ST_Theme' ), $order ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
+			<p class="woocommerce-notice woocommerce-notice--success woocommerce-thankyou-order-received"><?php echo apply_filters( 'woocommerce_thankyou_order_received_text', esc_html__( 'Dziękujemy za złożenie zamówienia w sklepie Arcyszachy. Szczegóły zamówienia znajdziesz w skrzynce e-mail oraz 
+w panelu użytkownika na stronie. Możesz teraz bezpiecznie zamknąć kartę lub wróć na stronę główną. ', 'ST_Theme' ), $order ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
+			<?php $url = home_url();?>
+			<div class="thank-you-button__wrapper">
+				<a class="thank-you-button" href="<?php echo $url;?>">Wróć na stronę główną</a>
+			</div>
 			<ul class="woocommerce-order-overview woocommerce-thankyou-order-details order_details">
 
 				<li class="woocommerce-order-overview__order order">
@@ -77,10 +81,7 @@ defined( 'ABSPATH' ) || exit;
 
 			</ul>
 
-		<?php endif; ?>
-
-		<?php do_action( 'woocommerce_thankyou_' . $order->get_payment_method(), $order->get_id() ); ?>
-		<?php do_action( 'woocommerce_thankyou', $order->get_id() ); ?>
+		<?php endif; ?>	
 
 	<?php else : ?>
 
