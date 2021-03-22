@@ -4,6 +4,7 @@ jQuery(function () {
   heroSlider();
   testimonialsSlider();
   cookies();
+  accordion();
 });
 function hamburgerMenu() {
   const hamburger = document.querySelector(".hamburger");
@@ -114,4 +115,19 @@ function cookies() {
       }, 2000);
     }
   };
+}
+function accordion() {
+  var faqFields = document.querySelectorAll(".faq-fields__single");
+  if (faqFields.length > 0) {
+    faqFields[0].classList.add("faq-fields__single--active");
+    faqFields[0].firstElementChild.classList.toggle(
+      "faq-fields__toggler--close"
+    );
+    faqFields.forEach(function (field) {
+      field.addEventListener("click", function (el) {
+        this.classList.toggle("faq-fields__single--active");
+        this.firstElementChild.classList.toggle("faq-fields__toggler--close");
+      });
+    });
+  }
 }

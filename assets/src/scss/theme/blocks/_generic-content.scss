@@ -1,68 +1,84 @@
 .generic-content {
   padding: 80px 0;
   @include mq(lg) {
-    padding: 55px 0 150px;
+    padding: 20px 0;
   }
   &__title {
-    letter-spacing: -0.95px;
-    color: $text-dark;
-    font-weight: 500;
-    font-size: 38px;
-    line-height: 60px;
-    font-family: $text-font;
-    margin-bottom: 11px;
-    position: relative;
-    margin-bottom:86px;
-    &:after {
-      content: "";
-      position: absolute;
-      bottom: -30px;
-      left: 0;
-      margin:auto;
-      width: 100px;
-      height: 4px;
-      background: $dark_red;
-    }
+    letter-spacing: -0.4px;
+    color: $black;
+    font-size: 24px;
+    line-height: 32px;
+    font-family: $futura;
+    margin: 0 0 26px;
   }
   &__content{
     h1,h2,h3,h4,h5,h6{
-      color:$text-dark;
-      font-family:$text-font;
-      letter-spacing: -0.58px;
-      margin-bottom:20px;
-      font-weight: 500;
+      font-family:$futura;
+      color:$black;
     }
     h1{
-      font-size: 38px;
-      line-height: 60px;
+      font-size:34px;
+      line-height: 46px;
+      letter-spacing: -.76px;
     }
     h2{
-      font-size:26px;
-      line-height: 50px;
+      font-size:24px;
+      line-height: 32px;
+      letter-spacing: -.4px;
     }
     h3{
-      font-size:22px;
-      line-height: 40px;
+      font-size:20px;
+      line-height: 26px;
+      letter-spacing: -.24px;
     }
     h4{
-      font-size:20px;
-      line-height: 35px;
+      font-size:17px;
+      line-height: 22px;
+      letter-spacing: -.58px;
     }
     h5{
-      font-size:18px;
-      line-height: 30px;
+      font-size:14px;
+      line-height: 18px;
+      letter-spacing: -.24px;
     }
     h6{
-      font-size:16px;
-      line-height: 24px;
+      font-size:10px;
+      line-height: 15px;
+      letter-spacing: -.24px;
     }
     p{
-      letter-spacing: -0.16px;
-      color:$text-light;
+      font-family:$futuraLight;
+      color: $darkGrey;
       font-size:16px;
       line-height: 24px;
-      font-family:$main-font;
-      margin-bottom:20px;
+      letter-spacing: .32px;
+      margin:12px 0 32px;
+    }
+    ul{
+      list-style-type: disc;
+    }
+    ol{
+      list-style-type: upper-roman;
+    }
+    ul,ol{
+      font-family:$futuraLight;
+      color: $darkGrey;
+      font-size:16px;
+      line-height: 24px;
+      letter-spacing: .32px;
+      margin:12px 0 32px;
+      li{
+        margin-left:20px;
+        ul,ol{
+          margin:0;
+        }
+      }
+    }
+    img{
+      
+    }
+    blockquote{
+      font-style:italic;
     }
   }
 }

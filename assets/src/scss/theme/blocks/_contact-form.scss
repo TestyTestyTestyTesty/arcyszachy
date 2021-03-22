@@ -4,76 +4,70 @@
     justify-content: space-between;
     flex-direction: column;
     @include mq(sm) {
-        margin-bottom: 20px;
-        flex-direction: row;
+      margin-bottom: 20px;
+      flex-direction: row;
     }
     .wpcf7-form-control-wrap {
-        
       input {
-        border-radius: 6px;
-        border: 1px solid $gray;
+        border-radius: 8px;
+        border: 1px solid #d6d6d6;
         padding: 10px;
-        font-family: $main-font;
-        color: $text-light;
+        font-family: $futura;
+        color: $darkGrey;
         width: 100%;
         z-index: 6000;
-        margin-bottom:20px;
+        margin-bottom: 20px;
+        background: $white;
         @include mq(sm) {
-            margin-bottom:unset;
+          margin-bottom: unset;
         }
       }
       .wpcf7-not-valid-tip {
         padding: 10px 0;
         letter-spacing: 0px;
         color: $dark-red;
-        font-size: 11px;
+        font-size: 14px;
         line-height: 14px;
-        font-family: $main-font;
+        font-family: $futuraLight;
       }
     }
   }
   &__single-input {
     width: 100%;
     @include mq(sm) {
-        width: 48%;
-
+      width: 48%;
     }
     label {
-      letter-spacing: 0px;
-      color: $text-light;
-      font-size: 11px;
-      line-height: 14px;
-      font-family: $main-font;
-      position: relative;
-      left: 10px;
-      bottom: -5px;
-      z-index: 5000;
-      padding: 2px 10px;
-      background: $white;
+      letter-spacing: 0.32px;
+      color: $darkGrey;
+      font-size: 16px;
+      line-height: 24px;
+      font-family: $futuraLight;
+      padding: 5px 0px;
+      max-width: 100%;
+      display: block;
     }
   }
   &__textarea {
     width: 100%;
+    margin-bottom: 20px;
     label {
-      letter-spacing: 0px;
-      color: $text-light;
-      font-size: 11px;
-      line-height: 14px;
-      font-family: $main-font;
-      position: relative;
-      left: 10px;
-      bottom: -5px;
-      z-index: 5000;
-      padding: 2px 10px;
-      background: $white;
+      letter-spacing: 0.32px;
+      color: $darkGrey;
+      font-size: 16px;
+      line-height: 24px;
+      font-family: $futuraLight;
+      padding: 5px 0px;
+      max-width: 100%;
+      display: block;
     }
     .wpcf7-form-control-wrap {
       textarea {
         border-radius: 6px;
         border: 1px solid $gray;
         padding: 10px;
-        font-family: $main-font;
-        color: $text-light;
+        font-family: $futuraLight;
+        color: $darkGrey;
         width: 100%;
         z-index: 6000;
       }
@@ -88,19 +82,18 @@
       text-align: center;
       width: 100%;
       background: $dark-red;
-      border-radius: 6px;
-      height: 47px;
-      color: $white;
-      font-family: $text-font;
-      letter-spacing: 0.4px;
-      font-weight: 600;
-      font-size: 14px;
+      border-radius: 8px;
+      height: 48px;
+      color: $gold;
+      font-family: $futuraLight;
+      letter-spacing: 0.2px;
+      font-size: 12px;
       text-transform: uppercase;
       border: 1px solid $text-dark;
       cursor: pointer;
       transition: all 0.3s;
       &:hover {
-        background: $button-hover;
+        background: $red;
       }
     }
     .ajax-loader {
@@ -108,18 +101,19 @@
       right: -20px;
     }
   }
-
 }
-.contact__form{
-    .invalid, .failed{
-        .wpcf7-response-output{
-            padding:10px;
-            text-align: center;
-            letter-spacing: 0px;
-            color: $text-light;
-            font-size: 14px;
-            line-height: 14px;
-            font-family:$main-font;
-        }
+.contact__form {
+  .invalid,
+  .failed {
+    .wpcf7-response-output {
+      padding: 10px;
+      text-align: center;
+      letter-spacing: 0px;
+      color: $darkGrey;
+      font-size: 14px;
+      line-height: 14px;
+      font-family: $futuraLight;
+      margin: 20px 0;
     }
+  }
 }

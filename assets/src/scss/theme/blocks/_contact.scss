@@ -1,37 +1,15 @@
 .contact {
-  padding: 0 0 80px;
+  padding: 0 0 30px;
   @include mq(lg) {
-    padding: 0 0 100px;
-  }
-  &__title {
-    color: $text-dark;
-    text-transform: uppercase;
-    font-weight: bold;
-    font-size: 38px;
-    line-height: 60px;
-    font-family: $text-font;
-    margin-bottom: 36px;
-    letter-spacing: -0.95px;
-    text-align: center;
+    padding: 0 0 50px;
   }
   &__subtitle {
-    letter-spacing: -0.58px;
-    color: $dark-red;
-    font-family: $text-font;
-    line-height: 50px;
-    font-size: 26px;
-    font-weight: 600;
-    position: relative;
-    margin-bottom: 52px;
-    &:after {
-      content: "";
-      position: absolute;
-      height: 1px;
-      width: 100%;
-      background: #e8e8e8;
-      bottom: -20px;
-      left: 0;
-    }
+    letter-spacing: -0.4px;
+    color: $black;
+    font-family: $futura;
+    line-height: 32px;
+    font-size: 24px;
+    margin-bottom: 26px;
   }
   &__columns {
     display: flex;
@@ -43,83 +21,65 @@
   }
   &__form {
     width: 100%;
+    max-width: 540px;
   }
   &__details {
     width: 100%;
-    margin-bottom:30px;
+    margin-bottom: 30px;
     @include mq(lg) {
-      margin-bottom:unset;
-      margin-left: 94px;
-      max-width: 382px;
+      margin-bottom: unset;
+      margin-right: 47px;
     }
     .details {
       display: flex;
       flex-direction: column;
-      @include mq(sm){
+      @include mq(sm) {
         flex-direction: row;
         justify-content: flex-start;
       }
-      @include mq(lg){
+      @include mq(lg) {
         flex-direction: column;
       }
-      &-top {
+      &-block {
         margin-bottom: 65px;
         position: relative;
-        @include mq(sm){
-          margin-right:35px;
+        &:last-of-type{
+          margin-bottom: 0;
         }
-        @include mq(lg){
-          margin-right:unset;
+        @include mq(sm) {
+          margin-right: 35px;
         }
-        &:after {
-          content: "";
-          position: absolute;
-          height: 1px;
-          width: 100%;
-          background: #e8e8e8;
-          bottom: -35px;
-          left: 0;
-          @include mq(sm){
-            content:none
-          }
-          @include mq(lg){
-            content:"";
-          }
+        @include mq(lg) {
+          margin-right: unset;
+        }
+        &__title {
+          letter-spacing: -0.1px;
+          color: $black;
+          font-family: $futura;
+          line-height: 26px;
+          font-size: 20px;
+          margin-bottom: 19px;
         }
         .single {
-          letter-spacing: 0px;
-          font-size: 13px;
-          font-family: $main-font;
-          margin-bottom: 18px;
+          margin-bottom: 9px;
+          display:grid;
+          grid-template-columns: 160px 1fr;
           &:last-of-type {
             margin-bottom: unset;
           }
           &__left {
-            color: $text-dark;
-            margin-right: 17px;
+            color: $black;
+            font-family: $futura;
+            font-size:17px;
+            line-height: 22px;
+            letter-spacing: -0.58px;
           }
           &__right {
-            color: $text-light;
-          }
-        }
-      }
-      &-bottom {
-        .single {
-          letter-spacing: 0px;
-          font-size: 13px;
-          font-family: $main-font;
-          margin-bottom: 18px;
-          color: $text-light;
-          display: flex;
-          align-items: center;
-          &:last-of-type {
-            margin-bottom: unset;
-          }
-          &__left {
-            color: $text-dark;
-            width: 21px;
-            height: 21px;
-            margin-right: 17px;
+            font-family: $futuraLight;
+            color: $darkGrey;
+            font-size:16px;
+            line-height: 24px;
+            letter-spacing: 0.32px;
           }
         }
       }
