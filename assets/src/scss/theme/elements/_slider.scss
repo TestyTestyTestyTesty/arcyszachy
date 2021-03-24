@@ -2,51 +2,48 @@
   .slider {
     position: relative;
     width: 100%;
-    padding:30px 0 50px;
-    .slider-arrow__wrapper{
-      background:$textLight;
-      height:32px;
-      width:32px !important;
-      border-radius:500px;
+    padding: 30px 0 50px;
+    .slider-arrow__wrapper {
+      background: $textLight;
+      height: 32px;
+      width: 32px !important;
+      border-radius: 500px;
       box-shadow: 0px 3px 6px #00000029;
       position: absolute;
-      z-index:2;
-      top:0;
-      bottom:0;
-      margin:auto;
-      cursor:pointer;
+      z-index: 2;
+      top: 190px;
+      cursor: pointer;
       box-shadow: 0px 3px 6px #00000029;
       transition: all 0.3s;
 
-      &:hover{
-        background:$lightGrey;
+      &:hover {
+        background: $lightGrey;
       }
-      &--left{
-        left:-16px;
+      &--left {
+        left: -16px;
         display: flex;
         justify-content: center;
         align-items: center;
-        img{
-          width:7px;
+        img {
+          width: 7px;
           transform: rotate(180deg);
         }
       }
-      &--right{
-        right:-16px;
+      &--right {
+        right: -16px;
         display: flex;
         justify-content: center;
         align-items: center;
-        img{
-          width:7px;
+        img {
+          width: 7px;
         }
       }
     }
-    .slider-wrapper{
-      height:380px;
-      .slick-list{
-        border-radius:12px;
-        .slick-track{
-
+    .slider-wrapper {
+      height: 380px;
+      .slick-list {
+        border-radius: 12px;
+        .slick-track {
         }
       }
     }
@@ -99,6 +96,13 @@
         color: $textLight;
         margin: 0 0 24px;
       }
+      &__button--wrapper {
+        display: flex;
+        align-items: center;
+        display: flex;
+        max-width: 100%;
+        width: 100%;
+      }
       &__button {
         font-family: $futuraLight;
         border: 1px solid $gold;
@@ -106,49 +110,55 @@
         text-transform: uppercase;
         color: $textLight;
         background: $dark-red;
-        display: flex;
-        padding:16px 52px;
-        align-items: center;
-        justify-content: center;
+        padding: 16px 52px;
+        transition: all 0.3s;
+        &:hover{
+          background:$red;
+        }
       }
     }
-    &-titles{
-      .slick-list{
-        .slick-track{
+    &-titles {
+      .slick-list {
+        .slick-track {
           transform: translate3d(0px, 0px, 0px) !important;
-          .slick-slide{
+          .slick-slide {
             letter-spacing: 0.2px;
-            font-size:12px;
-            line-height:14px;
-            font-family:$futura;
+            font-size: 12px;
+            line-height: 14px;
+            font-family: $futura;
             text-transform: uppercase;
-            color:$dark-red;
-            padding:11px;
-            cursor:pointer;
+            color: $grey;
+            padding: 11px;
+            cursor: pointer;
             position: relative;
             text-align: center;
             position: relative;
-            &:before{
-              content:'';
+            &:before {
+              content: "";
               position: absolute;
-              top:0;
+              top: 0;
               left: 0;
-              right:0;
-              margin:auto;
-              height:4px;
-              width:90%;
+              right: 0;
+              margin: auto;
+              height: 4px;
+              width: 90%;
               transition: all 0.3s;
-              background-color:$white;
+              background-color: $white;
               border-radius: 0 0px 100px 100px;
             }
-            &:hover{
-              &:before{
-                background-color:$dark-red;
+            &:hover {
+              color:$dark-red;
+              &:before {
+                background-color: $dark-red;
               }
             }
-            &.slick-current{
-              &:before{
-                background-color:$dark-red;
+            &:focus {
+              outline: none;
+            }
+            &.slick-current {
+              color:$dark-red;
+              &:before {
+                background-color: $dark-red;
               }
             }
           }

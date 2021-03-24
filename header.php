@@ -35,7 +35,7 @@
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'in-device' ); ?></a>
 	<div id="pixel-to-watch"></div>
 	<header id="header-desktop" class="header-desktop">
-		<div class="container--medium">
+		<div class="container--medium header__top">
 			<?php
 				$custom_logo_id  = get_theme_mod( 'custom_logo' );
 				$custom_logo_url = wp_get_attachment_image_url( $custom_logo_id, 'full' );
@@ -57,16 +57,17 @@
 				</nav>
 			</div>
 		</div>
-		<div class="container--medium">
+		<div class="container--medium header__bottom">
 			<nav class="header-desktop__menu">
-							<?php
-								wp_nav_menu(
-									array(
-										'theme_location' => 'primary-menu',
-										'menu_class'     => 'menu',
-									)
-								);
-								?>
+				<?php
+					wp_nav_menu(
+						array(
+							'theme_location' => 'primary-menu',
+							'menu_class'     => 'menu',
+							'walker'         => new submenu_wrap(),
+						)
+					);
+					?>
 			</nav>
 		</div>
 	</header>

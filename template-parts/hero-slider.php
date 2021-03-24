@@ -38,7 +38,9 @@
 										$link_title  = $link['title'];
 										$link_target = $link['target'] ? $link['target'] : '_self';
 										?>
-										<a class="slide__button" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
+										<div class="slide__button--wrapper">
+											<a class="slide__button" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
+										</div>
 									<?php endif; ?>
 								</div>
 							</div>

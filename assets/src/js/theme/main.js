@@ -5,6 +5,7 @@ jQuery(function () {
   testimonialsSlider();
   cookies();
   accordion();
+  menuScroll();
 });
 function hamburgerMenu() {
   const hamburger = document.querySelector(".hamburger");
@@ -42,7 +43,7 @@ function heroSlider() {
       slidesToShow: 1,
       slidesToScroll: 1,
       arrows: false,
-      fade: true,
+      fade: false,
       asNavFor: ".slider-titles",
     });
     $(".slider-titles").slick({
@@ -130,4 +131,15 @@ function accordion() {
       });
     });
   }
+}
+function menuScroll(){
+  var headerDesktop = document.querySelector(".header-desktop");
+  let observer = new IntersectionObserver((entries) => {
+    if (entries[0].boundingClientRect.y < 0) {
+      headerDesktop.classList.add("header--scrolled");
+    } else {
+      headerDesktop.classList.remove("header--scrolled");
+    }
+  });
+  observer.observe(document.querySelector("#pixel-to-watch"));
 }

@@ -88,12 +88,21 @@ remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 3
 remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 20 );
 remove_action( 'woocommerce_cart_collaterals', 'woocommerce_cross_sell_display' );
 add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 35 );
-remove_action( 'woocommerce_before_checkout_form', 'woocommerce_checkout_coupon_form' ,10 );
+remove_action( 'woocommerce_before_checkout_form', 'woocommerce_checkout_coupon_form', 10 );
 add_action( 'woocommerce_after_cart', 'woocommerce_cross_sell_display' );
 remove_action( 'woocommerce_checkout_order_review', 'woocommerce_checkout_payment', 20 );
 add_action( 'woocommerce_checkout_after_customer_details', 'woocommerce_checkout_payment', 20 );
 
-
+class submenu_wrap extends Walker_Nav_Menu {
+	function start_lvl( &$output, $depth = 0, $args = array() ) {
+		$indent  = str_repeat( "\t", $depth );
+		$output .= "\n$indent<div class='sub-menu-wrap'><ul class='sub-menu'>\n";
+	}
+	function end_lvl( &$output, $depth = 0, $args = array() ) {
+		$indent  = str_repeat( "\t", $depth );
+		$output .= "$indent</ul></div>\n";
+	}
+}
 function addScrollToDescription() {
 	?>
 	<div id="#full-description" class="scrollToDescription">
