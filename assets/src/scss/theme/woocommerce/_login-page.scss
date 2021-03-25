@@ -17,19 +17,14 @@
     @include mq(lg) {
       padding-bottom: 113px;
     }
-    .u-columns {
-      .u-column1 {
-        margin-bottom: 30px;
-        @include mq(md) {
-          margin: unset;
-        }
-      }
-      .u-column1,
-      .u-column2 {
+
+      .form-login-register,.form-lost-password {
         border-radius: 8px;
         box-shadow: 0px 3px 6px #00000014;
         border: 1px solid $lightGrey;
         padding: 35px 65px 61px;
+        max-width:540px;
+        margin:0 auto;
         @include mq(sm) {
           padding: 35px 65px 61px;
         }
@@ -85,4 +80,3 @@
       }
     }
   }
-}

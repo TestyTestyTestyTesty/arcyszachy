@@ -19,6 +19,7 @@ defined( 'ABSPATH' ) || exit;
 
 do_action( 'woocommerce_before_lost_password_form' );
 ?>
+<div class="form-lost-password">
 <form method="post" class="woocommerce-ResetPassword lost_reset_password">
 	<?php
 	$image = get_field( 'footer-logo', 'options' );
@@ -44,7 +45,10 @@ do_action( 'woocommerce_before_lost_password_form' );
 	</p>
 
 	<?php wp_nonce_field( 'lost_password', 'woocommerce-lost-password-nonce' ); ?>
-
 </form>
+</div>
+	<div class="button-form-return__wrapper">
+		<a href="<?php echo get_permalink( get_option('woocommerce_myaccount_page_id') ); ?>" class="button-form-return">Wróć do logowania</a>
+	</div>
 <?php
 do_action( 'woocommerce_after_lost_password_form' );

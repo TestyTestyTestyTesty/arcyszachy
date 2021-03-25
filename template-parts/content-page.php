@@ -10,7 +10,7 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<?php if ( !is_cart() ) { ?>
+	<?php if ( (!is_cart()) && ( ! is_user_logged_in() && ! is_page( 'panel-uzytkownika' ) ) && ( ! is_page( 'rejestracja' ) )) { ?>
 		<header class="entry-header">
 			<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 		</header><!-- .entry-header -->

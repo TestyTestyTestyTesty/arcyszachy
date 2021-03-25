@@ -6,6 +6,7 @@ jQuery(function () {
   cookies();
   accordion();
   menuScroll();
+  //loginRegisterForm();
 });
 function hamburgerMenu() {
   const hamburger = document.querySelector(".hamburger");
@@ -36,7 +37,7 @@ function updateCart() {
 }
 function heroSlider() {
   const slides = document.querySelector(".numberOfSlides");
-  if(slides){
+  if (slides) {
     const numOfSlides = slides.dataset.slides;
     $(".hero-slider .slider-wrapper").slick({
       infinite: true,
@@ -56,7 +57,7 @@ function heroSlider() {
     $(".hero-slider .slider-arrow__wrapper--left").click(function () {
       $(".hero-slider .slider-wrapper").slick("slickPrev");
     });
-  
+
     $(".hero-slider .slider-arrow__wrapper--right").click(function () {
       $(".hero-slider .slider-wrapper").slick("slickNext");
     });
@@ -132,7 +133,7 @@ function accordion() {
     });
   }
 }
-function menuScroll(){
+function menuScroll() {
   var headerDesktop = document.querySelector(".header-desktop");
   let observer = new IntersectionObserver((entries) => {
     if (entries[0].boundingClientRect.y < 0) {
@@ -142,4 +143,26 @@ function menuScroll(){
     }
   });
   observer.observe(document.querySelector("#pixel-to-watch"));
+}
+function loginRegisterForm() {
+  const formSwitcher = document.querySelectorAll(
+    ".woocommerce-account .form-switcher h2"
+  );
+  const forms = document.querySelectorAll('.woocommerce-account .woocommerce-form')
+  formSwitcher.forEach((item) => {
+    item.addEventListener("click", function (e) {
+      if (!this.classList.contains("form-active")) {
+        formSwitcher.forEach((item) => {
+          item.classList.remove("form-active");
+        });
+        let activeFormData = this.dataset.formLink;
+        this.classList.add("form-active");
+        forms.forEach(form=> {
+          form.classList.remove('form-visible')
+        })
+        let activeForm = document.querySelector(`[data-form="${activeFormData}"]`);
+        activeForm.classList.add('form-visible')
+      }
+    });
+  });
 }

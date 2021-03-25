@@ -14,7 +14,12 @@
 
 get_header();
 ?>
-	<?php get_template_part( 'template-parts/breadcrumbs' ); ?>
+	
+	<?php
+	if ( ( ! is_user_logged_in() && ! is_page( 'panel-uzytkownika' ) ) && ( ! is_page( 'rejestracja' ) ) ) {
+		get_template_part( 'template-parts/breadcrumbs' );
+	}
+	?>
 	<main id="primary" class="site-main">
 		<div class="container">
 			<div class="container--medium">
@@ -37,4 +42,6 @@ get_header();
 	</main><!-- #main -->
 
 <?php
-get_footer();
+if ( ( ! is_user_logged_in() && ! is_page( 'panel-uzytkownika' ) ) && ( ! is_page( 'rejestracja' ) ) ) {
+	get_footer();
+}
