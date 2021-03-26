@@ -16,7 +16,7 @@ function hamburgerMenu() {
     this.classList.toggle("is-active");
     header.classList.toggle("header-mobile--visible");
     headerBottom.classList.toggle("header-mobile__bottom--visible");
-    bodyClass.classList.toggle("stop-scroll");
+    //bodyClass.classList.toggle("stop-scroll");
   });
 }
 
@@ -53,6 +53,15 @@ function heroSlider() {
       asNavFor: ".hero-slider .slider-wrapper",
       focusOnSelect: true,
       infinite: true,
+      responsive: [
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 1,
+            arrows:false,
+          },
+        }
+      ],
     });
     $(".hero-slider .slider-arrow__wrapper--left").click(function () {
       $(".hero-slider .slider-wrapper").slick("slickPrev");
@@ -148,7 +157,9 @@ function loginRegisterForm() {
   const formSwitcher = document.querySelectorAll(
     ".woocommerce-account .form-switcher h2"
   );
-  const forms = document.querySelectorAll('.woocommerce-account .woocommerce-form')
+  const forms = document.querySelectorAll(
+    ".woocommerce-account .woocommerce-form"
+  );
   formSwitcher.forEach((item) => {
     item.addEventListener("click", function (e) {
       if (!this.classList.contains("form-active")) {
@@ -157,11 +168,13 @@ function loginRegisterForm() {
         });
         let activeFormData = this.dataset.formLink;
         this.classList.add("form-active");
-        forms.forEach(form=> {
-          form.classList.remove('form-visible')
-        })
-        let activeForm = document.querySelector(`[data-form="${activeFormData}"]`);
-        activeForm.classList.add('form-visible')
+        forms.forEach((form) => {
+          form.classList.remove("form-visible");
+        });
+        let activeForm = document.querySelector(
+          `[data-form="${activeFormData}"]`
+        );
+        activeForm.classList.add("form-visible");
       }
     });
   });

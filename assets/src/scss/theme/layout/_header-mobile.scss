@@ -7,7 +7,7 @@
     top: 0;
     z-index: 10000;
     *{
-      outline:1px solid red;
+      //outline:1px solid red;
     }
     @include mq(md) {
       display: none;
@@ -18,9 +18,12 @@
       align-items: center;
       height: 61px;
     }
+    &__search{
+      padding:9px 0 12px;
+    }
     &__bottom {
       opacity: 0;
-      transform: translate(0px, -400px);
+      transform: translate(0px, -4000px);
       max-height: 0;
       transition: all 0.3s;
       &--visible {
@@ -42,7 +45,12 @@
         max-width: 150px;
         flex: 1;
       }
+      &__links{
+        display:flex;
+        justify-content: flex-start;
+      }
       &__link {
+        margin-right:15px;
         img {
           align-self: center;
           object-fit: contain;
@@ -57,14 +65,13 @@
           display: flex;
           justify-content: center;
           align-items: center;
-          width: 17px;
-          height: 17px;
+          width: 20px;
+          height: 20px;
           background: $dark-red;
-          color: $white;
-          font-family: $text-font;
+          color: $gold;
+          font-family: $futuraLight;
           font-size: 12px;
           line-height: 24px;
-          letter-spacing: -0.07px;
           border-radius: 500%;
         }
       }
@@ -72,18 +79,21 @@
     &__menu {
       display: flex;
       flex-direction: column;
-      align-items: center;
+      align-items: flex-start;
+      text-align: left;
       padding: 0 0 20px;
       .menu-item {
         margin: 15px 0;
         a {
           transition: all 0.3s;
-          color: $text-dark;
+          color: $darkGrey;
           letter-spacing: -0.2px;
-          font-family: $text-font;
-          font-weight: 600;
+          font-family: $futura;
           font-size: 21px;
           line-height: 22px;
+        }
+        .sub-menu{
+          margin-left:20px;
         }
         &.current-menu-item {
           a {

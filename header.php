@@ -83,13 +83,15 @@
 						<img src="<?php echo $custom_logo_url; ?>" alt="inDevice logo - home" />
 					</a>
 					<nav class="navigation__top">
-						<a class="navigation__link navigation__account" href="<?php echo get_permalink( get_option( 'woocommerce_myaccount_page_id' ) ); ?>" title="Konto użytkownika">
-							<img src="<?php echo get_template_directory_uri(); ?>/assets/dist/images/svg/myaccount.svg" alt="Strona konta klienta" width="22px" height="26px">
-						</a>
-						<a class="navigation__link navigation__cart" href="<?php echo $cartUrl; ?>" title="Koszyk">
-							<img src="<?php echo get_template_directory_uri(); ?>/assets/dist/images/svg/cart.svg" alt="Strona koszyka" width="22px" height="26px">
-							<span class="navigation__cart-number"><?php echo WC()->cart->get_cart_contents_count(); ?></span>
-						</a>
+						<div class="navigation__links">
+							<a class="navigation__link navigation__account" href="<?php echo get_permalink( get_option( 'woocommerce_myaccount_page_id' ) ); ?>" title="Konto użytkownika">
+								<img src="<?php echo get_template_directory_uri(); ?>/assets/dist/images/svg/myaccount.svg" alt="Strona konta klienta" width="22px" height="26px">
+							</a>
+							<a class="navigation__link navigation__cart" href="<?php echo $cartUrl; ?>" title="Koszyk">
+								<img src="<?php echo get_template_directory_uri(); ?>/assets/dist/images/svg/cart.svg" alt="Strona koszyka" width="22px" height="26px">
+								<span class="navigation__cart-number"><?php echo WC()->cart->get_cart_contents_count(); ?></span>
+							</a>
+						</div>
 						<button class="hamburger hamburger--slider" type="button">
 							<span class="hamburger-box">
 								<span class="hamburger-inner"></span>
@@ -97,8 +99,10 @@
 						</button>  
 					</nav>
 				</div>
-				
-				<!-- <div class="header-mobile__bottom">
+				<div class="header-mobile__search">
+					<?php get_search_form(); ?>
+				</div>
+				 <div class="header-mobile__bottom">
 					<?php
 						wp_nav_menu(
 							array(
@@ -107,7 +111,7 @@
 							)
 						);
 						?>
-				</div> -->
+				</div>
 			</div>
 		</div>
 	</header>
