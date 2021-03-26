@@ -1,8 +1,8 @@
 .logo {
   &--header {
-    max-width: 195px;
+    max-width: 159px;
     height: auto;
-    @include mq(sm) {
+    @include mq(md) {
       max-width: 195px;
     }
   }

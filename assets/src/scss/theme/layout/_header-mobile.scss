@@ -6,6 +6,9 @@
     width:100%;
     top: 0;
     z-index: 10000;
+    *{
+      outline:1px solid red;
+    }
     @include mq(md) {
       display: none;
     }
@@ -13,7 +16,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      height: 96px;
+      height: 61px;
     }
     &__bottom {
       opacity: 0;
@@ -42,6 +45,7 @@
       &__link {
         img {
           align-self: center;
+          object-fit: contain;
         }
       }
       &__cart {

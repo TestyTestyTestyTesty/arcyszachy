@@ -28,7 +28,7 @@ do_action( 'woocommerce_before_lost_password_form' );
 		<img class="woocommerce-account__logo" src="<?php echo esc_url( $image['url'] ); ?>" alt="<?php echo esc_attr( $image['alt'] ); ?>" />
 	<?php endif; ?>
 
-	<p><?php echo apply_filters( 'woocommerce_lost_password_message', esc_html__( 'Lost your password? Please enter your username or email address. You will receive a link to create a new password via email.', 'woocommerce' ) ); ?></p><?php // @codingStandardsIgnoreLine ?>
+	<p><?php echo apply_filters( 'woocommerce_lost_password_message', esc_html__( 'Podaj adres e-mail powiązany z Twoim kontem. Prześlemy na niego dalsze instrukcje.', 'woocommerce' ) ); ?></p><?php // @codingStandardsIgnoreLine ?>
 
 	<p class="woocommerce-form-row woocommerce-form-row--first form-row form-row-first">
 		<label for="user_login"><?php esc_html_e( 'Username or email', 'woocommerce' ); ?></label>
@@ -48,7 +48,7 @@ do_action( 'woocommerce_before_lost_password_form' );
 </form>
 </div>
 	<div class="button-form-return__wrapper">
-		<a href="<?php echo get_permalink( get_option('woocommerce_myaccount_page_id') ); ?>" class="button-form-return">Wróć do logowania</a>
+		<a href="<?php echo get_permalink( get_option( 'woocommerce_myaccount_page_id' ) ); ?>" class="button-form-return">Wróć do logowania</a>
 	</div>
 <?php
 do_action( 'woocommerce_after_lost_password_form' );

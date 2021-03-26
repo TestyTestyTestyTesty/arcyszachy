@@ -11,6 +11,7 @@
 					</div>
 					<div class="slider-wrapper">
 						<?php
+						$i = 0;
 						while ( have_rows( 'slide_repeater' ) ) :
 							the_row();
 							?>
@@ -23,13 +24,17 @@
 								<?php endif; ?>
 								<div class="slide__content">
 									<?php if ( get_sub_field( 'text_top' ) ) : ?>
-										<h2 class="slide__text-top"><?php the_sub_field( 'text_top' ); ?></h2>
+										<p class="slide__text-top"><?php the_sub_field( 'text_top' ); ?></p>
 									<?php endif; ?>
 									<?php if ( get_sub_field( 'text_middle' ) ) : ?>
-										<h3 class="slide__text-middle"><?php the_sub_field( 'text_middle' ); ?></h3>
+										<?php if ( $i == 0 ) { ?>
+											<h1 class="slide__text-middle"><?php the_sub_field( 'text_middle' ); ?></h1>
+											<?php } else { ?>
+											<h2 class="slide__text-middle"><?php the_sub_field( 'text_middle' ); ?></h2>
+										<?php }; ?>
 									<?php endif; ?>
 									<?php if ( get_sub_field( 'text_bottom' ) ) : ?>
-										<h3 class="slide__text-bottom"><?php the_sub_field( 'text_bottom' ); ?></h3>
+										<p class="slide__text-bottom"><?php the_sub_field( 'text_bottom' ); ?></p>
 									<?php endif; ?>
 									<?php
 									$link = get_sub_field( 'link' );
@@ -44,7 +49,10 @@
 									<?php endif; ?>
 								</div>
 							</div>
-						<?php endwhile; ?>
+							<?php
+							$i++;
+						endwhile;
+						?>
 					</div>
 					<?php $numOfSlides = count( get_field( 'slide_repeater' ) ); ?>
 					<div data-slides="<?php echo $numOfSlides; ?>" class="numberOfSlides"></div>

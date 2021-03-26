@@ -10,6 +10,12 @@
     padding:10px 16px;
     border-radius: 200px;
     height:40px;
+    @include mq(md){
+      width:400px;
+    }
+    @include mq(lg){
+      width:445px;
+    }
     &::placeholder{
       color:$grey;
     }

@@ -20,24 +20,25 @@ defined( 'ABSPATH' ) || exit;
 /*
  * @hooked wc_empty_cart_message - 10
  */
-do_action( 'woocommerce_cart_is_empty' );?>
+?>
 <section class="empty-cart">
-		<?php 
-		$image = get_field('cart__icon','options');
-		if( !empty( $image ) ): ?>
-			<img class="empty-cart__icon" width="77px" height="70px" src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+		<?php
+		$image = get_field( 'cart__icon', 'options' );
+		if ( ! empty( $image ) ) :
+			?>
+			<img class="empty-cart__icon" width="77px" height="70px" src="<?php echo esc_url( $image['url'] ); ?>" alt="<?php echo esc_attr( $image['alt'] ); ?>" />
 		<?php endif; ?>
-		<?php if( get_field('cart__text-big','options') ): ?>
-			<h2 class="empty-cart__text-top"><?php the_field('cart__text-big','options'); ?></h2>
+		<?php if ( get_field( 'cart__text-big', 'options' ) ) : ?>
+			<h2 class="empty-cart__text-top"><?php the_field( 'cart__text-big', 'options' ); ?></h2>
 		<?php endif; ?>
-		<?php if( get_field('cart__text-small','options') ): ?>
-			<p class="empty-cart__text-bottom"><?php the_field('cart__text-small','options'); ?></p>
+		<?php if ( get_field( 'cart__text-small', 'options' ) ) : ?>
+			<p class="empty-cart__text-bottom"><?php the_field( 'cart__text-small', 'options' ); ?></p>
 		<?php endif; ?>
-		<?php 
-		$link = get_field('cart__link','options');
-		if( $link ): 
-			$link_url = $link['url'];
-			$link_title = $link['title'];
+		<?php
+		$link = get_field( 'cart__link', 'options' );
+		if ( $link ) :
+			$link_url    = $link['url'];
+			$link_title  = $link['title'];
 			$link_target = $link['target'] ? $link['target'] : '_self';
 			?>
 			<div class="empty-cart__link--wrapper">

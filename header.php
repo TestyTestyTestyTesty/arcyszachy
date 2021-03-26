@@ -98,7 +98,7 @@
 					</nav>
 				</div>
 				
-				<div class="header-mobile__bottom">
+				<!-- <div class="header-mobile__bottom">
 					<?php
 						wp_nav_menu(
 							array(
@@ -107,7 +107,7 @@
 							)
 						);
 						?>
-				</div>
+				</div> -->
 			</div>
 		</div>
 	</header>
