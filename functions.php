@@ -105,7 +105,7 @@ class submenu_wrap extends Walker_Nav_Menu {
 }
 function addScrollToDescription() {
 	?>
-	<div id="#full-description" class="scrollToDescription">
+	<div id="full-description" class="scrollToDescription">
 		<div class="scrollToDescription__img--wrapper">
 			<img class="scrollToDescription__img" width="5px" height="6px" src="<?php echo get_template_directory_uri(); ?>/assets/dist/images/svg/small-arrow.svg" alt="">
 		</div>

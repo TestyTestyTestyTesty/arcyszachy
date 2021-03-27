@@ -6,6 +6,7 @@ jQuery(function () {
   cookies();
   accordion();
   menuScroll();
+  scrollToId();
 });
 function hamburgerMenu() {
   const hamburger = document.querySelector(".hamburger");
@@ -162,4 +163,12 @@ function menuScroll() {
   });
   observer.observe(document.querySelector("#pixel-to-watch"));
 }
-
+function scrollToId() {
+  const scrollToDescription = document.getElementById('full-description');
+  const description = document.querySelector('.product-description');
+  scrollToDescription.addEventListener('click', ()=> {
+    $('html, body').animate({
+      scrollTop: $('.product-description').offset().top -220
+  }, 500);
+  })
+}
