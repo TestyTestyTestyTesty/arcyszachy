@@ -9,7 +9,7 @@
   .slider {
     position: relative;
     width: 100%;
-    padding: 60px 0 50px;
+    padding: 60px 0 30px;
     @include mq(md) {
       padding: 30px 0 50px;
     }
@@ -26,6 +26,9 @@
       box-shadow: 0px 3px 6px #00000029;
       transition: all 0.3s;
       top: 197px;
+      @include mq(sm){
+        top:320px;
+      }
       @include mq(md){
         top: 190px;
       }
@@ -60,6 +63,9 @@
     }
     .slider-wrapper {
       height: 126px;
+      @include mq(sm){
+        height:250px;
+      }
       @include mq(md) {
         height: 380px;
       }
@@ -79,6 +85,9 @@
       justify-content: center;
       padding: 20px 13px;
       overflow: hidden;
+      @include mq(sm){
+        height:250px;
+      }
       @include mq(md) {
         padding: 20px 95px;
         height: 380px;

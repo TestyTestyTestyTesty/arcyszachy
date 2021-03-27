@@ -22,6 +22,9 @@
       grid-template-columns: 1fr 1fr;
     }
     @include mq(md) {
+      grid-template-columns: 1fr 1fr;
+    }
+    @include mq(lg) {
       grid-template-columns: 1fr 1fr 1fr;
     }
     .product {
@@ -31,15 +34,16 @@
       float: unset !important;
       margin: 0 !important;
       width: unset !important;
-    }
-    .product {
       background: $white;
       box-shadow: none;
       border-radius: 8px;
       border: 1px solid $lightGrey;
       transition: all 0.3s;
       position: relative;
-      padding: 16px 16px 30px !important;
+      padding: 16px 16px 20px !important;
+      @include mq(md) {
+        padding: 16px 16px 30px !important;
+      }
       .onsale {
         display: none;
       }
@@ -137,7 +141,7 @@
       }
       .add_to_cart_button {
         position: absolute;
-        bottom: 30px;
+        bottom: 20px;
         right: 16px;
         background: $dark-red;
         color: $white;
@@ -149,6 +153,9 @@
         justify-content: center;
         transition: all 0.3s;
         margin-top: 0 !important;
+        @include mq(md) {
+          bottom: 30px;
+        }
         img {
           margin: 0;
         }
@@ -173,10 +180,16 @@
   }
   .archive-columns {
     display: flex;
+    flex-direction: column;
+    @include mq(md) {
+      flex-direction: row;
+    }
     .archive-sidebar {
-      max-width: 290px;
-      margin-right: 27px;
       width: 100%;
+      @include mq(md) {
+        max-width: 290px;
+        margin-right: 27px;
+      }
       .widget-area {
         border: 1px solid $lightGrey;
         border-radius: 8px;
@@ -277,17 +290,61 @@
       }
     }
     .content-column {
-      .category-image {
-        max-height: 238px;
-        width: 100%;
-        object-fit: cover;
+      .category-intro {
+        position: relative;
         border-radius: 12px;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        height:170px;
+        margin:20px 0;
+        @include mq(md){
+          margin:0;
+          height: 238px;
+        }
+        &__image {
+          position: absolute;
+          max-width: 100%;
+          object-fit: cover;
+          z-index: -1;
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+          border-radius: 12px;
+        }
+        &__content {
+          padding: 20px 13px;
+          @include mq(md){
+            padding: 20px 57px;
+          }
+        }
+        &__title {
+          font-size: 12px;
+          line-height: 22px;
+          font-family: $futuraLight;
+          letter-spacing: -0.27px;
+          color: $gold;
+          color: $textLight;
+          margin: 0 0 5px;
+          @include mq(md) {
+            font-size: 34px;
+            line-height: 46px;
+            margin: 0 0 5px;
+          }
+        }
+      }
+      .category-image {
       }
       .woocommerce-products-header {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin: 45px 0 24px;
+        margin: 20px 0;
+        flex-direction: column;
+        @include mq(md) {
+          margin: 45px 0 24px;
+          flex-direction: row;
+        }
         .page-title {
           font-size: 24px;
           line-height: 32px;
@@ -295,17 +352,28 @@
           letter-spacing: -0.4px;
           color: $black;
           margin: 0;
+          display: none;
+          @include mq(md) {
+            display: block;
+          }
         }
         .woocoomerce-ordering-wrapper {
           display: flex;
           align-items: center;
+          flex-direction: column;
+          @include mq(md) {
+            flex-direction: row;
+          }
           .woocommerce-ordering-description {
             font-size: 16px;
             line-height: 24px;
             font-family: $futuraLight;
             letter-spacing: 0.32px;
             color: $grey;
-            margin: 0 7px 0 0;
+            margin: 0 0 10px;
+            @include mq(md) {
+              margin: 0 7px 0 0;
+            }
           }
         }
         .woocommerce-ordering {
@@ -325,7 +393,9 @@
         }
       }
       .woocommerce-pagination {
-        margin: 30px 0 50px;
+        @include mq(md) {
+          margin: 30px 0 50px;
+        }
         .page-numbers {
           border: none;
           display: flex;

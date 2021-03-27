@@ -8,7 +8,11 @@
   }
   &__wrapper{
     display:flex;
-    justify-content: space-between;
+    flex-direction: column;
+    @include mq(md){
+      flex-direction: row;
+      justify-content: space-between;
+    }
 
   }
   &__title {

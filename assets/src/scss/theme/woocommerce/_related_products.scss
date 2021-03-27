@@ -1,12 +1,19 @@
 .related {
   border-top: 1px solid $lightGrey;
+  border-bottom: 1px solid $lightGrey;
+  overflow: hidden;
   &__title {
-    font-size: 24px;
-    line-height: 32px;
+    font-size: 34px;
+    line-height: 46px;
+    letter-spacing: -0.76px;
     font-family: $futura;
-    letter-spacing: -0.4px;
     color: $black;
     padding: 33px 0;
+    @include mq(md) {
+      font-size: 34px;
+      line-height: 46px;
+      letter-spacing: -0.76px;
+    }
   }
   .products {
     //grid for products start
@@ -14,15 +21,14 @@
       content: none !important;
     }
     display: grid;
-    grid-gap: 30px;
-    margin-bottom: 60px !important;
-    grid-template-columns: 1fr;
-    margin:0 !important;
+    grid-gap: 20px;
+    margin-bottom: 53px !important;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    overflow-x: auto;
+    margin-right: -30px !important;
     @include mq(sm) {
-      grid-template-columns: 1fr 1fr;
-    }
-    @include mq(md) {
-      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+      margin: 0 !important;
+      margin-bottom: 60px !important;
     }
     .product {
       display: flex;
@@ -30,7 +36,10 @@
       justify-content: space-between;
       float: unset !important;
       margin: 0 !important;
-      width: unset !important;
+      width: 210px !important;
+      @include mq(lg) {
+        width: unset !important;
+      }
     }
     .product {
       background: $white;

@@ -54,6 +54,7 @@
 						<img src="<?php echo get_template_directory_uri(); ?>/assets/dist/images/svg/cart.svg" alt="Strona koszyka" width="22px" height="26px">
 						<span class="navigation__cart-number"><?php echo WC()->cart->get_cart_contents_count(); ?></span>
 					</a>
+					<span class="navigation__cart-value"><?php echo wc_price( WC()->cart->cart_contents_total); ?></span>
 				</nav>
 			</div>
 		</div>

@@ -14,7 +14,9 @@
     }
   }
   .entry-content {
-    padding-bottom: 80px;
+    @include mq(md) {
+      padding-bottom: 80px;
+    }
     @include mq(lg) {
       padding-bottom: 100px;
     }
@@ -96,13 +98,13 @@
           letter-spacing: 0.2px;
           color: $darkGrey;
           text-transform: uppercase;
-          border: 1px solid #D6D6D6;
+          border: 1px solid #d6d6d6;
           border-radius: 8px;
-          padding:9px 36px;
+          padding: 9px 36px;
           transition: all 0.3s;
-          &:hover{
-            color:$gold;
-            background:$dark-red;
+          &:hover {
+            color: $gold;
+            background: $dark-red;
           }
         }
       }

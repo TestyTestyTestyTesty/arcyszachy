@@ -106,7 +106,7 @@ endif;
 		<div class="product-description-aside">
 			<div class="product-description-aside--wrapper">
 				<?php if ( get_field( 'product__aside-title' ) ) : ?>
-					<h2 class="product-description-aside__title"><?php the_field( 'product__aside-title' ); ?></h2>
+					<p class="product-description-aside__title"><?php the_field( 'product__aside-title' ); ?></p>
 				<?php endif; ?>
 				<?php if ( have_rows( 'product__aside' ) ) : ?>
 					<?php
@@ -121,10 +121,10 @@ endif;
 								<img class="aside-single__icon" width="60px" height="60px" src="<?php echo esc_url( $image['url'] ); ?>" alt="<?php echo esc_attr( $image['alt'] ); ?>" />
 							<?php endif; ?>
 							<?php if ( get_sub_field( 'title' ) ) : ?>
-								<h3 class="aside-single__title"><?php the_sub_field( 'title' ); ?></h3>
+								<p class="aside-single__title"><?php the_sub_field( 'title' ); ?></p>
 							<?php endif; ?>
 							<?php if ( get_sub_field( 'description' ) ) : ?>
-								<h3 class="aside-single__description"><?php the_sub_field( 'description' ); ?></h3>
+								<p class="aside-single__description"><?php the_sub_field( 'description' ); ?></p>
 							<?php endif; ?>
 						</div>
 					<?php endwhile; ?>

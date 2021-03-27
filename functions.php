@@ -283,8 +283,8 @@ function solaris_widgets_init() {
 			'description'   => esc_html__( 'Add widgets here.', 'solaris' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>',
+			'before_title'  => '<p class="widget-title">',
+			'after_title'   => '</p>',
 		)
 	);
 }
@@ -340,18 +340,18 @@ function svg( $icon, $class = '' ) {
 };
 add_filter( 'body_class', 'custom_class' );
 function custom_class( $classes ) {
-    if ( is_page( 'rejestracja' ) ) {
-        $classes[] = 'woocommerce-account';
-    }
-    return $classes;
+	if ( is_page( 'rejestracja' ) ) {
+		$classes[] = 'woocommerce-account';
+	}
+	return $classes;
 }
 
 add_filter( 'body_class', 'custom_class_for_login' );
 function custom_class_for_login( $classes ) {
-    if ((  !is_user_logged_in() &&  is_page( 'panel-uzytkownika' ) ) || (  is_page( 'rejestracja' ) ) ) {
-        $classes[] = 'hide-menu';
-    }
-    return $classes;
+	if ( ( ! is_user_logged_in() && is_page( 'panel-uzytkownika' ) ) || ( is_page( 'rejestracja' ) ) ) {
+		$classes[] = 'hide-menu';
+	}
+	return $classes;
 }
 
 add_shortcode( 'wc_reg_form_bbloomer', 'bbloomer_separate_registration_form' );
@@ -365,7 +365,8 @@ function bbloomer_separate_registration_form() {
 	}
 	ob_start();
 
-	do_action( 'woocommerce_before_customer_login_form' );?>
+	do_action( 'woocommerce_before_customer_login_form' );
+	?>
 	<div class="form-login-register">
 		<?php
 		$image = get_field( 'footer-logo', 'options' );
@@ -375,8 +376,8 @@ function bbloomer_separate_registration_form() {
 		<?php endif; ?>
 	
 	<div class="form-switcher">
-		<a href="<?php echo get_permalink( get_option('woocommerce_myaccount_page_id') ); ?>" class="woocommerce-account__form-title woocommerce-account__login"><?php esc_html_e( 'Login', 'woocommerce' ); ?></a>
-		<a href="<?php echo get_permalink( get_page_by_path( 'rejestracja' ) )?>" class="woocommerce-account__form-title woocommerce-account__register form-active"><?php esc_html_e( 'Register', 'woocommerce' ); ?></a>
+		<a href="<?php echo get_permalink( get_option( 'woocommerce_myaccount_page_id' ) ); ?>" class="woocommerce-account__form-title woocommerce-account__login"><?php esc_html_e( 'Login', 'woocommerce' ); ?></a>
+		<a href="<?php echo get_permalink( get_page_by_path( 'rejestracja' ) ); ?>" class="woocommerce-account__form-title woocommerce-account__register form-active"><?php esc_html_e( 'Register', 'woocommerce' ); ?></a>
 	</div>
 	  <form method="post" class="woocommerce-form woocommerce-form-register register" <?php do_action( 'woocommerce_register_form_tag' ); ?> >
  

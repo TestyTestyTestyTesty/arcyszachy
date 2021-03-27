@@ -6,7 +6,6 @@ jQuery(function () {
   cookies();
   accordion();
   menuScroll();
-  //loginRegisterForm();
 });
 function hamburgerMenu() {
   const hamburger = document.querySelector(".hamburger");
@@ -83,6 +82,16 @@ function testimonialsSlider() {
     pauseOnHover: false,
     slidesToShow: 2,
     slidesToScroll: 1,
+    adaptiveHeight: true,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          arrows:false,
+        },
+      }
+    ],
   });
   $(".testimonials-slider .slider-arrow__wrapper--left").click(function () {
     $(".testimonials-slider .slider-wrapper").slick("slickPrev");
@@ -130,10 +139,10 @@ function cookies() {
 function accordion() {
   var faqFields = document.querySelectorAll(".faq-fields__single");
   if (faqFields.length > 0) {
-    faqFields[0].classList.add("faq-fields__single--active");
+    /* faqFields[0].classList.add("faq-fields__single--active");
     faqFields[0].firstElementChild.classList.toggle(
       "faq-fields__toggler--close"
-    );
+    ); */
     faqFields.forEach(function (field) {
       field.addEventListener("click", function (el) {
         this.classList.toggle("faq-fields__single--active");
@@ -153,29 +162,4 @@ function menuScroll() {
   });
   observer.observe(document.querySelector("#pixel-to-watch"));
 }
-function loginRegisterForm() {
-  const formSwitcher = document.querySelectorAll(
-    ".woocommerce-account .form-switcher h2"
-  );
-  const forms = document.querySelectorAll(
-    ".woocommerce-account .woocommerce-form"
-  );
-  formSwitcher.forEach((item) => {
-    item.addEventListener("click", function (e) {
-      if (!this.classList.contains("form-active")) {
-        formSwitcher.forEach((item) => {
-          item.classList.remove("form-active");
-        });
-        let activeFormData = this.dataset.formLink;
-        this.classList.add("form-active");
-        forms.forEach((form) => {
-          form.classList.remove("form-visible");
-        });
-        let activeForm = document.querySelector(
-          `[data-form="${activeFormData}"]`
-        );
-        activeForm.classList.add("form-visible");
-      }
-    });
-  });
-}
+

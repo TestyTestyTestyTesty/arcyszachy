@@ -60,14 +60,46 @@ do_action( 'woocommerce_before_main_content' );
 				$cat          = $wp_query->get_queried_object();
 				$thumbnail_id = get_term_meta( $cat->term_id, 'thumbnail_id', true );
 				$image        = wp_get_attachment_url( $thumbnail_id );
-				if ( $image ) {
-					echo '<img class="category-image"  src="' . $image . '" alt="' . $cat->name . '" />';
-				}
 				?>
 
+				<?php
+				if ( is_shop() ) {
+					$post_id = get_option( 'woocommerce_shop_page_id' );
+					if ( get_field( 'shop__image', $post_id ) ) :
+						?>
+						<div class="category-intro">
+						<?php
+						$image = get_field( 'shop__image', $post_id );
+						if ( ! empty( $image ) ) :
+							?>
+							<img class="category-intro__image" src="<?php echo esc_url( $image['url'] ); ?>" alt="<?php echo esc_attr( $image['alt'] ); ?>" />
+						<?php endif; ?>
+							<div class="category-intro__content">
+								<?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
+									<h1 class="category-intro__title"><?php woocommerce_page_title(); ?></h1>
+								<?php endif; ?>
+							</div>
+						</div>
+					<?php endif; ?>
+					<?php
+				} elseif ( is_product_category() ) {
+					?>
+			<div class="category-intro">
+							<?php
+							if ( $image ) {
+								echo '<img class="category-intro__image"  src="' . $image . '" alt="' . $cat->name . '" />';
+							}
+							?>
+					<div class="category-intro__content">
+								<?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
+							<h1 class="category-intro__title"><?php woocommerce_page_title(); ?></h1>
+						<?php endif; ?>
+					</div>
+			</div>
+				<?php }; ?>
 				<header class="woocommerce-products-header">
 					<?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
-						<h1 class="woocommerce-products-header__title page-title"><?php woocommerce_page_title(); ?></h1>
+						<h2 class="woocommerce-products-header__title page-title"><?php woocommerce_page_title(); ?></h2>
 					<?php endif; ?>
 					<div class="woocoomerce-ordering-wrapper">
 						<h2 class="woocommerce-ordering-description">Sortuj według:</h2>
@@ -110,15 +142,28 @@ do_action( 'woocommerce_before_main_content' );
 			</div>
 		</div>
 		<?php
-		$queriedObject = get_queried_object();
-		if ( get_field( 'product-cat-description', 'product_cat_' . $queriedObject->term_id ) ) :
-			?>
-			<div class="archive-cat-seo">
-				<?php
-				the_field( 'product-cat-description', 'product_cat_' . $queriedObject->term_id );
+		if ( is_shop() ) {
+			$post_id = get_option( 'woocommerce_shop_page_id' );
+			if ( get_field( 'shop_seo-description', $post_id ) ) :
 				?>
-			</div>
-		<?php endif; ?>
+				<div class="archive-cat-seo">
+					<?php the_field( 'shop_seo-description', $post_id ); ?>
+				</div>
+			<?php endif; ?>
+			<?php
+		} elseif ( is_product_category() ) {
+			$queriedObject = get_queried_object();
+			if ( get_field( 'product-cat-description', 'product_cat_' . $queriedObject->term_id ) ) :
+				?>
+				<div class="archive-cat-seo">
+					<?php
+					the_field( 'product-cat-description', 'product_cat_' . $queriedObject->term_id );
+					?>
+				</div>
+				<?php
+			endif;
+		};
+		?>
 <?php
 /**
  * Hook: woocommerce_after_main_content.

@@ -3,9 +3,12 @@
   font-size: 12px;
   line-height: 14px;
   font-family: $futuraLight;
-  padding: 30px 0;
+  padding: 50px 0 30px;
   background: $site-bg;
   text-transform: uppercase;
+  @include mq(md){
+    padding: 30px 0;
+  }
   span {
     a {
       span {
