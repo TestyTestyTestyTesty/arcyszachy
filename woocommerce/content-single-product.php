@@ -102,7 +102,7 @@ endif;
 			<span>dodaj do koszyka</span>
 		</a>
 	</div>
-	<div class="product-description">
+	<div id="product-description" class="product-description">
 		<div class="product-description-aside">
 			<div class="product-description-aside--wrapper">
 				<?php if ( get_field( 'product__aside-title' ) ) : ?>

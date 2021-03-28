@@ -35,19 +35,47 @@
       }
     }
     .onsale {
-      width: 87px;
-      height: 23px;
-      top: 23px;
-      left: 7px;
-      background: $dark-red;
-      border-radius: 8px;
-      font-size: 11px;
-      font-family: $futura;
-      letter-spacing: -0.28px;
-      color: $gold;
-      width: 87px;
-      height: 23px;
+      min-width: 82px;
+      height: 25px;
+      min-height: unset;
+      top: 16px;
+      left: 15px;
+      background: $white;
+      border: 1px solid $lightGrey;
+      border-radius: 6px;
+      font-size: 13px;
+      line-height: 18px;
+      font-family: $futuraLight;
+      letter-spacing: 0.26px;
+      color: $black;
       text-transform: uppercase;
+      padding: 0 15px;
+      display: flex;
+      align-items: center;
+      position: absolute;
+    }
+    .woocommerce-product-gallery {
+      .flex-control-thumbs {
+        display: flex;
+        justify-content: space-between;
+        li {
+          margin: 6px !important;
+          width: 100% !important;
+          display: flex;
+          justify-content: center;
+          img {
+            width: 80px;
+            height: 70px;
+            object-fit: cover;
+            border-radius: 4px;
+            border: 1px solid #d6d6d6;
+            &.flex-active {
+              border-color: $dark-red;
+              box-shadow: 0 0 0 1px $dark-red;
+            }
+          }
+        }
+      }
     }
     .summary {
       .product_title {

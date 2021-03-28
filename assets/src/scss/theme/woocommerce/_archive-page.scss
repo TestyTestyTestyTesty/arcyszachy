@@ -45,7 +45,24 @@
         padding: 16px 16px 30px !important;
       }
       .onsale {
-        display: none;
+        min-width: 82px;
+      height: 25px;
+      min-height:unset;
+      top: 16px;
+      left: 15px;
+      background: $white;
+      border:1px solid $lightGrey;
+      border-radius: 6px;
+      font-size: 13px;
+      line-height: 18px;
+      font-family: $futuraLight;
+      letter-spacing: 0.26px;
+      color: $black;
+      text-transform: uppercase;
+      padding:0 15px;
+      display: flex;
+      align-items: center;
+      position: absolute;
       }
       &.sale {
         background: $white;

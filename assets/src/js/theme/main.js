@@ -7,6 +7,7 @@ jQuery(function () {
   accordion();
   menuScroll();
   scrollToId();
+  productShortcutScroll();
 });
 function hamburgerMenu() {
   const hamburger = document.querySelector(".hamburger");
@@ -171,6 +172,18 @@ function scrollToId() {
       $('html, body').animate({
         scrollTop: $('.product-description').offset().top -220
     }, 500);
+    })
+  }
+}
+function productShortcutScroll() {
+  const shortcuts = document.querySelectorAll('.product-shortcuts a');
+  if(shortcuts != null){
+    shortcuts.forEach(link => {
+      link.addEventListener('click', function(e) {
+        $('html, body').animate({
+          scrollTop: $(e.target.hash).offset().top -220
+      }, 500);
+      })
     })
   }
 }
