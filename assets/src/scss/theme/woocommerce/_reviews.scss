@@ -1,0 +1,187 @@
+.woocommerce-Reviews {
+  padding: 30px 0;
+  .woocommerce-Reviews-title {
+    font-size: 24px;
+    line-height: 32px;
+    font-family: $futura;
+    letter-spacing: -0.4px;
+    color: $black;
+    margin: 0 0 47px;
+  }
+  .woocommerce-noreviews {
+    font-size: 20px;
+    line-height: 26px;
+    font-family: $futura;
+    letter-spacing: -0.2px;
+    color: $black;
+    margin: -20px 0 0;
+  }
+  .review {
+    padding: 30px 0 40px !important;
+    margin: 0 !important;
+    border-bottom: 1px solid $grey !important;
+    &:first-of-type {
+      padding-top: 0 !important;
+    }
+    .comment-text {
+      margin: 0 !important;
+      border: 0 !important;
+      padding: 0 !important;
+      display: flex;
+      position: relative;
+      align-items: baseline;
+      .star-rating {
+        position: absolute;
+        position: absolute;
+        top: 37px;
+        &:before {
+          color: $gold;
+        }
+        span {
+          color: $gold;
+        }
+      }
+      .meta {
+        font-size: 20px !important;
+        line-height: 26px !important;
+        font-family: $futura;
+        letter-spacing: -0.2px !important;
+        color: $black !important;
+        margin: 0 !important;
+        width: 160px;
+        .verified,
+        .woocommerce-review__dash,
+        .woocommerce-review__published-date {
+          display: none;
+        }
+      }
+      .description {
+        max-width: 855px;
+        font-size: 16px !important;
+        line-height: 24px !important;
+        font-family: $futuraLight;
+        letter-spacing: 0.32px !important;
+        color: $darkGrey !important;
+      }
+    }
+  }
+  .comment-respond {
+    padding: 30px 0 !important;
+    max-width: 730px !important;
+    margin: 0 auto !important;
+    .comment-reply-title {
+      font-size: 24px;
+      line-height: 32px;
+      font-family: $futura;
+      letter-spacing: -0.4px;
+      color: $black;
+      margin: 0 0 47px;
+    }
+    .comment-form {
+      position: relative;
+      padding: 50px 0 0;
+      .comment-form-rating {
+        position: absolute;
+        top: -23px;
+        right: 0;
+        display: flex;
+        align-items: center;
+        label {
+          font-size: 16px !important;
+          line-height: 24px !important;
+          font-family: $futuraLight;
+          letter-spacing: 0.32px !important;
+          color: $darkGrey !important;
+          display: block;
+          margin-right: 10px;
+          .required {
+            color: $red;
+          }
+        }
+        .stars {
+          margin: 0 !important;
+          a {
+            color: $gold;
+          }
+        }
+      }
+      .comment-form-comment {
+        label {
+          font-size: 20px !important;
+          line-height: 26px !important;
+          font-family: $futura;
+          letter-spacing: -0.2px !important;
+          color: $black !important;
+          margin: 10px 0 !important;
+          display: block;
+          .required {
+            color: $red;
+          }
+        }
+        textarea {
+          font-size: 20px !important;
+          line-height: 26px !important;
+          font-family: $futuraLight;
+          letter-spacing: -0.2px !important;
+          color: $black !important;
+          padding: 5px;
+          border: 1px solid $grey;
+          border-radius: 8px;
+        }
+      }
+      .form-submit {
+        display: flex;
+        justify-content: flex-end;
+        .submit {
+          background: $dark-red !important;
+          border-radius: 8px !important;
+          font-size: 12px !important;
+          line-height: 14px !important;
+          font-family: $futuraLight;
+          letter-spacing: 0.2px !important;
+          color: $gold !important;
+          text-transform: uppercase;
+          transition: all 0.3s;
+          padding: 12px 50px !important;
+          &:hover {
+            background: $red !important;
+          }
+        }
+      }
+    }
+  }
+  .review-verify__wrapper {
+    max-width: 730px;
+    margin: 30px auto 0;
+    padding: 20px 65px;
+    box-shadow: 0px 3px 6px #00000014;
+    border: 1px solid #e5e5e5;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .woocommerce-verification-required {
+      font-size: 17px;
+      line-height: 22px;
+      font-family: $futura;
+      letter-spacing: -0.58px;
+      color: $black;
+      max-width: 284px;
+    }
+    .review-verify__button {
+      background: $dark-red;
+      border-radius: 8px;
+      font-size: 12px;
+      line-height: 14px;
+      font-family: $futuraLight;
+      letter-spacing: 0.2px;
+      color: $gold;
+      text-transform: uppercase;
+      transition: all 0.3s;
+      padding: 12px 30px;
+      &:hover {
+        background: $red;
+      }
+    }
+  }
+}

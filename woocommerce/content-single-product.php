@@ -142,3 +142,4 @@ endif;
 </div>
 
 <?php do_action( 'woocommerce_after_single_product' ); ?>
+<?php echo comments_template(); ?>

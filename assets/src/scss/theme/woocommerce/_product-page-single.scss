@@ -25,7 +25,7 @@
             font-family: $futura;
             display: inline-block;
             text-decoration: none;
-            font-weight:normal;
+            font-weight: normal;
             letter-spacing: -0.4px;
             .amount {
               margin-right: 0;
@@ -56,8 +56,31 @@
         font-size: 34px;
         line-height: 34px;
         font-family: $futura;
-        margin-bottom: 13px;
+        margin-bottom: 5px;
         padding: 0 !important;
+      }
+      .woocommerce-product-rating {
+        margin: 0 0 10px;
+        .star-rating {
+          &:before {
+            color: $gold;
+          }
+          span {
+            color: $gold;
+          }
+        }
+        .woocommerce-review-link {
+          font-size: 16px;
+          line-height: 24px;
+          font-family: $futuraLight;
+          letter-spacing: 0.32px;
+          color: $darkGrey;
+          transition: all 0.3s;
+          &:hover {
+            color: $red;
+            text-decoration: underline;
+          }
+        }
       }
       .price {
         display: flex;
@@ -133,14 +156,14 @@
         cursor: pointer;
         align-items: center;
         margin: 0 0 30px;
-        &:hover{
-          .scrollToDescription{
+        &:hover {
+          .scrollToDescription {
             &__img--wrapper {
-              border-color:$red;
+              border-color: $red;
             }
-            &__text{
-              color:$red;
-              border-bottom:1px solid $red;
+            &__text {
+              color: $red;
+              border-bottom: 1px solid $red;
             }
           }
         }

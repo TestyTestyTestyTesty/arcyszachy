@@ -31,7 +31,7 @@ if ( ! comments_open() ) {
 			$count = $product->get_review_count();
 			if ( $count && wc_review_ratings_enabled() ) {
 				/* translators: 1: reviews count 2: product name */
-				$reviews_title = sprintf( esc_html( _n( '%1$s review for %2$s', '%1$s reviews for %2$s', $count, 'woocommerce' ) ), esc_html( $count ), '<span>' . get_the_title() . '</span>' );
+				$reviews_title = sprintf( esc_html( 'Opinie użytkowników (' . $count . ')', 'woocommerce' ) );
 				echo apply_filters( 'woocommerce_reviews_title', $reviews_title, $count, $product ); // WPCS: XSS ok.
 			} else {
 				esc_html_e( 'Reviews', 'woocommerce' );
@@ -138,7 +138,10 @@ if ( ! comments_open() ) {
 			</div>
 		</div>
 	<?php else : ?>
-		<p class="woocommerce-verification-required"><?php esc_html_e( 'Only logged in customers who have purchased this product may leave a review.', 'woocommerce' ); ?></p>
+		<div class="review-verify__wrapper">
+			<p class="woocommerce-verification-required"><?php esc_html_e( 'Only logged in customers who have purchased this product may leave a review.', 'woocommerce' ); ?></p>
+			<a class="review-verify__button" href="<?php echo get_permalink( get_option( 'woocommerce_myaccount_page_id' ) ); ?>">zaloguj/zarejestruj</a>
+		</div>
 	<?php endif; ?>
 
 	<div class="clear"></div>

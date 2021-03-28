@@ -1,4 +1,7 @@
 .woocommerce-account {
+  *{
+    outline:1px solid red;
+  }
   .entry-content {
     .form-switcher {
       display: flex;
@@ -61,6 +64,9 @@
           padding: 5px 0px;
           max-width: 100%;
           display: block;
+          .required{
+            color:$red;
+          }
         }
         .woocommerce-Input {
           border-radius: 8px;

@@ -166,9 +166,11 @@ function menuScroll() {
 function scrollToId() {
   const scrollToDescription = document.getElementById('full-description');
   const description = document.querySelector('.product-description');
-  scrollToDescription.addEventListener('click', ()=> {
-    $('html, body').animate({
-      scrollTop: $('.product-description').offset().top -220
-  }, 500);
-  })
+  if(scrollToDescription != null){
+    scrollToDescription.addEventListener('click', ()=> {
+      $('html, body').animate({
+        scrollTop: $('.product-description').offset().top -220
+    }, 500);
+    })
+  }
 }

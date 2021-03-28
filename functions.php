@@ -93,6 +93,15 @@ add_action( 'woocommerce_after_cart', 'woocommerce_cross_sell_display' );
 remove_action( 'woocommerce_checkout_order_review', 'woocommerce_checkout_payment', 20 );
 add_action( 'woocommerce_checkout_after_customer_details', 'woocommerce_checkout_payment', 20 );
 
+function add_product_wrapper_start() {
+	echo '<div class="product-content__wrapper">';
+}
+add_action( 'woocommerce_shop_loop_item_title', 'add_product_wrapper_start', 9 );
+function add_product_wrapper_end() {
+	echo '</div>';
+}
+add_action( 'woocommerce_after_shop_loop_item', 'add_product_wrapper_end', 9 );
+
 class submenu_wrap extends Walker_Nav_Menu {
 	function start_lvl( &$output, $depth = 0, $args = array() ) {
 		$indent  = str_repeat( "\t", $depth );
