@@ -129,7 +129,13 @@ function cc_mime_types( $mimes ) {
 	return $mimes;
 }
 add_filter( 'upload_mimes', 'cc_mime_types' );
-
+function disable_shipping_calc_on_cart( $show_shipping ) {
+	if ( is_cart() ) {
+		return false;
+	}
+	return $show_shipping;
+}
+add_filter( 'woocommerce_cart_ready_to_calc_shipping', 'disable_shipping_calc_on_cart', 99 );
 
 if ( ! function_exists( 'solaris_setup' ) ) :
 	/**
@@ -362,16 +368,14 @@ function custom_class_for_login( $classes ) {
 	}
 	return $classes;
 }
-
+remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
+remove_action( 'wp_print_styles', 'print_emoji_styles' );
+remove_action( 'admin_print_styles', 'print_emoji_styles' );
 add_shortcode( 'wc_reg_form_bbloomer', 'bbloomer_separate_registration_form' );
 
 function bbloomer_separate_registration_form() {
-	if ( is_admin() ) {
-		return;
-	}
-	if ( is_user_logged_in() ) {
-		return;
-	}
+
 	ob_start();
 
 	do_action( 'woocommerce_before_customer_login_form' );
@@ -381,60 +385,45 @@ function bbloomer_separate_registration_form() {
 		$image = get_field( 'footer-logo', 'options' );
 		if ( ! empty( $image ) ) :
 			?>
-			<img class="woocommerce-account__logo" src="<?php echo esc_url( $image['url'] ); ?>" alt="<?php echo esc_attr( $image['alt'] ); ?>" />
+			<a href="<?php echo get_home_url(); ?>">
+				<img class="woocommerce-account__logo" src="<?php echo esc_url( $image['url'] ); ?>" alt="<?php echo esc_attr( $image['alt'] ); ?>" />
+			</a>
 		<?php endif; ?>
-	
 	<div class="form-switcher">
 		<a href="<?php echo get_permalink( get_option( 'woocommerce_myaccount_page_id' ) ); ?>" class="woocommerce-account__form-title woocommerce-account__login"><?php esc_html_e( 'Login', 'woocommerce' ); ?></a>
 		<a href="<?php echo get_permalink( get_page_by_path( 'rejestracja' ) ); ?>" class="woocommerce-account__form-title woocommerce-account__register form-active"><?php esc_html_e( 'Register', 'woocommerce' ); ?></a>
 	</div>
 	  <form method="post" class="woocommerce-form woocommerce-form-register register" <?php do_action( 'woocommerce_register_form_tag' ); ?> >
- 
 		 <?php do_action( 'woocommerce_register_form_start' ); ?>
- 
 		 <?php if ( 'no' === get_option( 'woocommerce_registration_generate_username' ) ) : ?>
- 
 			<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
 			   <label for="reg_username"><?php esc_html_e( 'Username', 'woocommerce' ); ?> <span class="required">*</span></label>
                <input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="username" id="reg_username" autocomplete="username" value="<?php echo ( ! empty( $_POST['username'] ) ) ? esc_attr( wp_unslash( $_POST['username'] ) ) : ''; ?>" /><?php // @codingStandardsIgnoreLine ?>
 			</p>
- 
 		 <?php endif; ?>
- 
 		 <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
 			<label for="reg_email"><?php esc_html_e( 'Email address', 'woocommerce' ); ?> <span class="required">*</span></label>
             <input type="email" class="woocommerce-Input woocommerce-Input--text input-text" name="email" id="reg_email" autocomplete="email" value="<?php echo ( ! empty( $_POST['email'] ) ) ? esc_attr( wp_unslash( $_POST['email'] ) ) : ''; ?>" /><?php // @codingStandardsIgnoreLine ?>
 		 </p>
- 
 		 <?php if ( 'no' === get_option( 'woocommerce_registration_generate_password' ) ) : ?>
- 
 			<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
 			   <label for="reg_password"><?php esc_html_e( 'Password', 'woocommerce' ); ?> <span class="required">*</span></label>
 			   <input type="password" class="woocommerce-Input woocommerce-Input--text input-text" name="password" id="reg_password" autocomplete="new-password" />
 			</p>
- 
 		 <?php else : ?>
- 
 			<p><?php esc_html_e( 'A password will be sent to your email address.', 'woocommerce' ); ?></p>
- 
 		 <?php endif; ?>
- 
 		 <?php do_action( 'woocommerce_register_form' ); ?>
- 
 		 <p class="woocommerce-FormRow form-row">
 			<?php wp_nonce_field( 'woocommerce-register', 'woocommerce-register-nonce' ); ?>
 			<button type="submit" class="woocommerce-Button woocommerce-button button woocommerce-form-register__submit" name="register" value="<?php esc_attr_e( 'Register', 'woocommerce' ); ?>"><?php esc_html_e( 'Register', 'woocommerce' ); ?></button>
 		 </p>
- 
 		 <?php do_action( 'woocommerce_register_form_end' ); ?>
- 
 	  </form>
 	</div>
 	<div class="button-form-return__wrapper">
 		<a href="<?php echo get_home_url(); ?>" class="button-form-return">Wróć do strony głównej</a>
 	</div>
- 
 	<?php
-
 	return ob_get_clean();
 }

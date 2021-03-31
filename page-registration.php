@@ -1,27 +1,10 @@
 <?php
-/**
- * The template for displaying all pages
- *
- * This is the template that displays all pages by default.
- * Please note that this is the WordPress construct of pages
- * and that other 'pages' on your WordPress site may use a
- * different template.
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
- *
- * @package ProjectPeople
- */
+/* Template Name: Registration */
 
 get_header();
 ?>
-	
 	<?php
 	if ( ( ! is_user_logged_in() && ! is_page( 'panel-uzytkownika' ) ) && ( ! is_page( 'rejestracja' ) ) ) {
-		get_template_part( 'template-parts/breadcrumbs' );
-	}
-	?>
-	<?php
-	if ( is_user_logged_in() ) {
 		get_template_part( 'template-parts/breadcrumbs' );
 	}
 	?>
@@ -47,9 +30,6 @@ get_header();
 	</main><!-- #main -->
 
 <?php
-if ( ( ! is_user_logged_in() && ! is_page( 'panel-uzytkownika' ) ) && ( ! is_user_logged_in() && ! is_page( 'rejestracja' ) ) ) {
+// if ( ( ! is_user_logged_in() && ! is_page( 'panel-uzytkownika' ) ) && ( ! is_page( 'rejestracja' ) ) ) {
 	get_footer();
-}
-if ( is_user_logged_in() ) {
-	get_footer();
-}
+// }

@@ -38,8 +38,9 @@
       min-width: 82px;
       height: 25px;
       min-height: unset;
-      top: 16px;
-      left: 15px;
+      top: 16px !important;
+        left: 15px !important;
+        right:unset !important;
       background: $white;
       border: 1px solid $lightGrey;
       border-radius: 6px;
@@ -142,6 +143,15 @@
         display: flex;
         align-items: center;
         margin-top: 10px;
+        .qib-container{
+          justify-content: flex-start !important;
+          .qib-button{
+            cursor:pointer;
+          }
+          input{
+            font-family: $futuraLight;
+          }
+        }
         .single_add_to_cart_button {
           margin-left: 10px;
           background: $dark-red;
@@ -151,10 +161,11 @@
           letter-spacing: 0.2px;
           color: $gold;
           text-transform: uppercase;
-          padding: 14px 60px;
-          display: flex;
+          padding: 14px 14px !important;
+          display: flex !important;
           align-items: center;
           transition: all 0.3s;
+          height:unset  !important;
           @include mq(sm) {
             margin-right: 30px;
           }
@@ -162,10 +173,19 @@
             background: $red;
           }
           @include mq(sm) {
-            padding: 14px 60px;
+            padding: 14px 30px !important;
+          }
+          @include mq(md){
+            padding: 14px 40px !important;
+          }
+          @include mq(lg){
+            padding: 14px 60px !important;
           }
           img {
-            margin-right: 10px;
+            margin-right: 4px;
+            @include mq(sm) {
+              margin-right: 10px;
+            }
           }
         }
         .quantity {
@@ -223,13 +243,17 @@
       clear: both;
       display: flex;
       justify-content: space-between;
+      background:$white;
       border-top: 1px solid #e8e8e8;
       border-bottom: 1px solid #e8e8e8;
       margin-bottom: 40px;
       margin-top: 40px;
       padding: 10px 0;
+      top:122px;
+      position:sticky;
       @include mq(md) {
         margin-top: 110px;
+        top:90px;
       }
       .product-shortcuts {
         display: flex;

@@ -1,39 +1,57 @@
-.woocommerce-notices-wrapper{
-    .woocommerce-error{
-        background:$dark-red;
-        border:none;
-        color:$white;
-        font-size:16px;
-        letter-spacing: -0.16px;
-        font-family:$text-font;
-        padding:15px 70px 15px 70px;
-        line-height: 32px;
-        @include mq(md) {
-            padding:15px 70px;
-        }
+.woocommerce-notices-wrapper {
+  .woocommerce-error {
+    background: $dark-red;
+    border: none;
+    color: $white;
+    font-size: 16px;
+    letter-spacing: -0.32px;
+    font-family: $futuraLight;
+    padding: 30px 30px 30px 70px;
+    line-height: 32px;
+    border-radius: 16px;
+    @include mq(md) {
+      padding: 30px 30px 30px 155px;
+    }
+    li{
+        position: relative;
         a{
-            color:$white;
-            text-decoration: underline;
-            background:none;
-            border:2px solid $white;
-            border-radius:4px;
-            transition: all 0.3s;
-            text-decoration: underline;
-            &:hover,&:focus{
-                background:$white;
-                color:$green;
-                outline:$white;
-            }
-        }
-        &:before{
-            content:'';
-            background:url("../images/svg/error.svg");
-            height:26px;
-            width:26px;
-            top: 22%;
+            right: 0;
+            position: absolute;
             top: 0;
             bottom: 0;
             margin: auto;
+            display: flex;
+            align-items: center;
+            height:40px;
         }
     }
+    a {
+      color: $white;
+      background: none;
+      border: 1px solid $white;
+      border-radius: 8px;
+      transition: all 0.3s;
+      text-decoration: none;
+      font-size: 12px;
+      text-transform: uppercase;
+      font-family: $futuraLight;
+      padding: 12px 40px;
+      &:hover,
+      &:focus {
+        background: $white;
+        color: $dark-red;
+        outline: $white;
+      }
+    }
+    &:before {
+      content: "";
+      background: url("../images/svg/warning.svg");
+      height: 27px;
+      width: 30px;
+      top: 0;
+      bottom: 0;
+      left:59px;
+      margin: auto;
+    }
+  }
 }

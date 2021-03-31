@@ -25,7 +25,9 @@ do_action( 'woocommerce_before_lost_password_form' );
 	$image = get_field( 'footer-logo', 'options' );
 	if ( ! empty( $image ) ) :
 		?>
-		<img class="woocommerce-account__logo" src="<?php echo esc_url( $image['url'] ); ?>" alt="<?php echo esc_attr( $image['alt'] ); ?>" />
+		<a href="<?php echo get_home_url(); ?>">
+			<img class="woocommerce-account__logo" src="<?php echo esc_url( $image['url'] ); ?>" alt="<?php echo esc_attr( $image['alt'] ); ?>" />
+		</a>
 	<?php endif; ?>
 
 	<p><?php echo apply_filters( 'woocommerce_lost_password_message', esc_html__( 'Podaj adres e-mail powiązany z Twoim kontem. Prześlemy na niego dalsze instrukcje.', 'woocommerce' ) ); ?></p><?php // @codingStandardsIgnoreLine ?>

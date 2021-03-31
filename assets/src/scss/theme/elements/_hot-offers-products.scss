@@ -31,8 +31,9 @@
         min-width: 82px;
         height: 25px;
         min-height: unset;
-        top: 16px;
-        left: 15px;
+        top: 16px !important;
+        left: 15px !important;
+        right:unset !important;
         background: $white;
         border: 1px solid $lightGrey;
         border-radius: 6px;

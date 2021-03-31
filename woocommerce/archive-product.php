@@ -43,6 +43,7 @@ do_action( 'woocommerce_before_main_content' );
 					do_action( 'woocommerce_sidebar' );
 					?>
 				</div>
+			<div class="content-column">
 			<?php
 			if ( woocommerce_product_loop() ) {
 				/**
@@ -54,7 +55,6 @@ do_action( 'woocommerce_before_main_content' );
 					 */
 				do_action( 'woocommerce_before_shop_loop' );
 				?>
-			<div class="content-column">
 				<?php
 				global $wp_query;
 				$cat          = $wp_query->get_queried_object();

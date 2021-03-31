@@ -110,6 +110,7 @@
       }
       .cart-right-column {
         max-width: 350px;
+        width: 100%;
         .cart__title {
           margin: 0 0 30px;
         }
@@ -190,13 +191,14 @@
             }
             .product-quantity {
               font-family: $futuraLight;
-              .qty {
-                height: 34px;
-                font-size: 16px;
-                font-family: $futuraLight;
-                border-radius: 30px;
-                border: 1px solid $grey;
-                border-radius: 101px;
+              .qib-container{
+                justify-content: flex-start !important;
+                .qib-button{
+                  cursor:pointer;
+                }
+                input{
+                  font-family: $futuraLight;
+                }
               }
             }
             .product-subtotal {
@@ -277,9 +279,9 @@
         width: 100%;
         box-shadow: 0px 3px 6px #25252529;
         .shop_table {
-          padding: 27px 10px 0;
+          padding: 37px 10px 30px;
           @include mq(sm) {
-            padding: 27px 30px 0;
+            padding: 37px 30px 30px;
           }
           border: none;
           .cart-subtotal {
@@ -299,6 +301,22 @@
               .tax_label {
                 font-size: 17px;
                 line-height: 22px;
+              }
+            }
+          }
+          .order-total {
+            .woocommerce-Price-amount {
+              position: relative;
+              &:after {
+                position: absolute;
+                bottom: -20px;
+                right: 0;
+                content: "+ dostawa";
+                font-size: 13px;
+                line-height: 18px;
+                font-family: $futuraLight;
+                letter-spacing: 0.26px;
+                color: #458534;
               }
             }
           }

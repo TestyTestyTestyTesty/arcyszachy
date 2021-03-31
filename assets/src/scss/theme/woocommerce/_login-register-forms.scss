@@ -1,7 +1,4 @@
 .woocommerce-account {
-  *{
-    outline:1px solid red;
-  }
   .entry-content {
     .form-switcher {
       display: flex;
@@ -66,6 +63,7 @@
           display: block;
           .required{
             color:$red;
+            font-weighT:normal;
           }
         }
         .woocommerce-Input {

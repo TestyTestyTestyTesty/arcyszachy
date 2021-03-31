@@ -17,8 +17,7 @@
     font-family: $futura;
     color: $black;
     margin: 0 0 28px;
-    @include mq(md){
-      
+    @include mq(md) {
     }
   }
   .products {
@@ -57,23 +56,24 @@
       padding: 16px 16px 30px !important;
       .onsale {
         min-width: 82px;
-      height: 25px;
-      min-height:unset;
-      top: 16px;
-      left: 15px;
-      background: $white;
-      border:1px solid $lightGrey;
-      border-radius: 6px;
-      font-size: 13px;
-      line-height: 18px;
-      font-family: $futuraLight;
-      letter-spacing: 0.26px;
-      color: $black;
-      text-transform: uppercase;
-      padding:0 15px;
-      display: flex;
-      align-items: center;
-      position: absolute;
+        height: 25px;
+        min-height: unset;
+        top: 16px !important;
+        left: 15px !important;
+        right: unset !important;
+        background: $white;
+        border: 1px solid $lightGrey;
+        border-radius: 6px;
+        font-size: 13px;
+        line-height: 18px;
+        font-family: $futuraLight;
+        letter-spacing: 0.26px;
+        color: $black;
+        text-transform: uppercase;
+        padding: 0 15px;
+        display: flex;
+        align-items: center;
+        position: absolute;
       }
       &.sale {
         background: $white;
@@ -117,6 +117,7 @@
       }
       &:hover {
         transition: all 0.3s;
+        box-shadow: 0px 3px 6px #00000029;
         .woocommerce-loop-product__title {
           transition: all 0.3s;
           color: $dark-red;
@@ -204,7 +205,7 @@
         margin-top: 0 !important;
         img {
           margin: 0;
-          max-width:16px;
+          max-width: 16px;
         }
         &:hover {
           background: $red;

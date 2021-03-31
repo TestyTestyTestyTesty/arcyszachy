@@ -8,6 +8,8 @@ jQuery(function () {
   menuScroll();
   scrollToId();
   productShortcutScroll();
+  filtering();
+  afterRegisterRedirect();
 });
 function hamburgerMenu() {
   const hamburger = document.querySelector(".hamburger");
@@ -59,9 +61,9 @@ function heroSlider() {
           breakpoint: 768,
           settings: {
             slidesToShow: 1,
-            arrows:false,
+            arrows: false,
           },
-        }
+        },
       ],
     });
     $(".hero-slider .slider-arrow__wrapper--left").click(function () {
@@ -90,9 +92,9 @@ function testimonialsSlider() {
         breakpoint: 768,
         settings: {
           slidesToShow: 1,
-          arrows:false,
+          arrows: false,
         },
-      }
+      },
     ],
   });
   $(".testimonials-slider .slider-arrow__wrapper--left").click(function () {
@@ -165,25 +167,63 @@ function menuScroll() {
   observer.observe(document.querySelector("#pixel-to-watch"));
 }
 function scrollToId() {
-  const scrollToDescription = document.getElementById('full-description');
-  const description = document.querySelector('.product-description');
-  if(scrollToDescription != null){
-    scrollToDescription.addEventListener('click', ()=> {
-      $('html, body').animate({
-        scrollTop: $('.product-description').offset().top -220
-    }, 500);
-    })
+  const scrollToDescription = document.getElementById("full-description");
+  const description = document.querySelector(".product-description");
+  if (scrollToDescription != null) {
+    scrollToDescription.addEventListener("click", () => {
+      $("html, body").animate(
+        {
+          scrollTop: $(".product-description").offset().top - 220,
+        },
+        500
+      );
+    });
   }
 }
 function productShortcutScroll() {
-  const shortcuts = document.querySelectorAll('.product-shortcuts a');
-  if(shortcuts != null){
-    shortcuts.forEach(link => {
-      link.addEventListener('click', function(e) {
-        $('html, body').animate({
-          scrollTop: $(e.target.hash).offset().top -220
-      }, 500);
-      })
-    })
+  const shortcuts = document.querySelectorAll(".product-shortcuts a");
+  if (shortcuts != null) {
+    shortcuts.forEach((link) => {
+      link.addEventListener("click", function (e) {
+        $("html, body").animate(
+          {
+            scrollTop: $(e.target.hash).offset().top - 220,
+          },
+          500
+        );
+      });
+    });
+  }
+}
+function filtering() {
+  let filtering = document.querySelector(".archive-sidebar");
+  let widgetTitle = document.querySelector(".widget-area__title");
+  let widgets = document.querySelector(".widget-area__wrapper");
+  let close = document.querySelector(".close-filter");
+  if (filtering != null) {
+    widgetTitle.addEventListener("click", function (e) {
+      filtering.classList.add("archive-sidebar-visible");
+      widgets.classList.add("widgets-visible");
+    });
+    close.addEventListener("click", function (e) {
+      filtering.classList.remove("archive-sidebar-visible");
+      widgets.classList.remove("widgets-visible");
+    });
+  }
+}
+function afterRegisterRedirect() {
+  if (window.location.href.indexOf("rejestracja") > -1) {
+    const body = document.querySelector("body");
+    if (body.classList.contains("logged-in")) {
+      var getUrl = window.location;
+      var baseUrl =
+        getUrl.protocol +
+        "//" +
+        getUrl.host +
+        "/" +
+        getUrl.pathname.split("/")[1];
+      const accountUrl = `${baseUrl}/panel-uzytkownika/`;
+      window.location.replace(accountUrl);
+    }
   }
 }

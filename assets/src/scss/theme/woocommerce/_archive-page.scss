@@ -46,23 +46,24 @@
       }
       .onsale {
         min-width: 82px;
-      height: 25px;
-      min-height:unset;
-      top: 16px;
-      left: 15px;
-      background: $white;
-      border:1px solid $lightGrey;
-      border-radius: 6px;
-      font-size: 13px;
-      line-height: 18px;
-      font-family: $futuraLight;
-      letter-spacing: 0.26px;
-      color: $black;
-      text-transform: uppercase;
-      padding:0 15px;
-      display: flex;
-      align-items: center;
-      position: absolute;
+        height: 25px;
+        min-height: unset;
+        top: 16px !important;
+        left: 15px !important;
+        right: unset !important;
+        background: $white;
+        border: 1px solid $lightGrey;
+        border-radius: 6px;
+        font-size: 13px;
+        line-height: 18px;
+        font-family: $futuraLight;
+        letter-spacing: 0.26px;
+        color: $black;
+        text-transform: uppercase;
+        padding: 0 15px;
+        display: flex;
+        align-items: center;
+        position: absolute;
       }
       &.sale {
         background: $white;
@@ -106,6 +107,7 @@
       }
       &:hover {
         transition: all 0.3s;
+        box-shadow: 0px 3px 6px #00000029;
         .woocommerce-loop-product__title {
           transition: all 0.3s;
           color: $dark-red;
@@ -227,31 +229,115 @@
         max-width: 290px;
         margin-right: 27px;
       }
+      &-visible {
+        .widget-area__title {
+          opacity: 0;
+          max-height: 0;
+          visibility: hidden;
+        }
+        .close-filter {
+          opacity: 1 !important;
+          max-height: 100px !important;
+          visibility: visible !important;
+        }
+      }
       .widget-area {
         border: 1px solid $lightGrey;
         border-radius: 8px;
-        padding: 20px;
-        .widget {
+        padding: 12px;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        flex-direction: column;
+        @include mq(md) {
+          padding: 20px;
+        }
+        &__title {
+          font-size: 12px;
+          line-height: 14px;
+          font-family: $futuraLight;
+          letter-spacing: 0.2px;
+          color: $black;
+          text-transform: uppercase;
+          text-align: center;
+          @include mq(md) {
+            display: none;
+          }
+        }
+        .close-filter {
+          background: $textLight;
+          height: 32px;
+          width: 32px !important;
+          border-radius: 500px;
+          box-shadow: 0px 3px 6px #00000029;
+          z-index: 2;
+          top: 20px;
+          cursor: pointer;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          position: absolute;
+          visibility: hidden;
+          max-height: 0;
+          opacity: 0;
+          @include mq(md){
+            visibility: hidden !important;
+            max-height: 0 !important;
+            opacity: 0 !important;
+
+          }
+          &:hover {
+            background: $lightGrey;
+          }
+          img {
+            width: 7px;
+            transform: rotate(180deg);
+          }
+        }
+        &__wrapper {
+          max-height: 0;
+          visibility: hidden;
+          opacity: 0;
+          
+          @include mq(md) {
+            max-height: 10000px;
+            visibility: visible;
+            opacity: 1;
+          }
+          &.widgets-visible {
+            max-height: 10000px;
+            visibility: visible;
+            opacity: 1;
+          }
+        }
+        .widget_product_categories {
           margin: 0 0 20px;
-          &-title {
+          .widget-title {
             font-size: 24px;
             line-height: 32px;
             font-family: $futura;
             letter-spacing: -0.4px;
             color: $black;
-            margin: 0 0 23px;
+            margin: 10px 0 23px 50px;
+            @include mq(md) {
+              margin: 0 0 23px;
+            }
           }
           .product-categories {
             .cat-item {
               font-size: 20px;
               line-height: 26px;
               font-family: $futura;
-              letter-spacing: -0.2px;
+              letter-spacing: 0.4px;
               margin: 0 0 13px;
               transition: all 0.3s;
               &.current-cat {
                 a {
+                  letter-spacing: 0.4px;
                   color: $dark-red;
+                  text-shadow: 1px 0 0 $dark-red;
+                  font-weight:500;
                 }
               }
               a {
@@ -269,7 +355,7 @@
                   font-size: 16px;
                   line-height: 24px;
                   font-family: $futuraLight;
-                  letter-spacing: 0.32px;
+                  letter-spacing: 0.4px;
                   margin: 0 0 6px;
                   .count {
                     display: inline;
@@ -280,11 +366,29 @@
           }
         }
         .widget_search {
+          margin: 0 0 20px;
+          .widget-title {
+            font-size: 24px;
+            line-height: 32px;
+            font-family: $futura;
+            letter-spacing: -0.4px;
+            color: $black;
+            margin: 0 0 23px;
+          }
           input {
             width: 100%;
           }
         }
         .widget_price_filter {
+          margin: 0 0 20px;
+          .widget-title {
+            font-size: 24px;
+            line-height: 32px;
+            font-family: $futura;
+            letter-spacing: -0.4px;
+            color: $black;
+            margin: 0 0 23px;
+          }
           .price_slider {
             background-color: $lightGrey;
             height: 0.3em;
@@ -418,7 +522,10 @@
           border: 1px solid $lightGrey;
           border-radius: 17px;
           margin: 0;
-
+          &:focus{
+            box-shadow: 0 0 0 1px $red;
+            outline:none;
+          }
           .orderby {
             font-size: 16px;
             line-height: 24px;
@@ -426,6 +533,9 @@
             letter-spacing: 0.32px;
             color: $darkGrey;
             border: none;
+            &:focus{
+              outline:none;
+            }
           }
         }
       }

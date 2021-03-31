@@ -25,12 +25,14 @@ do_action( 'woocommerce_before_customer_login_form' ); ?>
 		$image = get_field( 'footer-logo', 'options' );
 		if ( ! empty( $image ) ) :
 			?>
-			<img class="woocommerce-account__logo" src="<?php echo esc_url( $image['url'] ); ?>" alt="<?php echo esc_attr( $image['alt'] ); ?>" />
+			<a href="<?php echo get_home_url(); ?>">
+				<img class="woocommerce-account__logo" src="<?php echo esc_url( $image['url'] ); ?>" alt="<?php echo esc_attr( $image['alt'] ); ?>" />
+			</a>
 		<?php endif; ?>
 	
 		<div class="form-switcher">
-			<a href="<?php echo get_permalink( get_option('woocommerce_myaccount_page_id') ); ?>" class="woocommerce-account__form-title woocommerce-account__login form-active"><?php esc_html_e( 'Login', 'woocommerce' ); ?></a>
-			<a href="<?php echo get_permalink( get_page_by_path( 'rejestracja' ) )?>" class="woocommerce-account__form-title woocommerce-account__register"><?php esc_html_e( 'Register', 'woocommerce' ); ?></a>
+			<a href="<?php echo get_permalink( get_option( 'woocommerce_myaccount_page_id' ) ); ?>" class="woocommerce-account__form-title woocommerce-account__login form-active"><?php esc_html_e( 'Login', 'woocommerce' ); ?></a>
+			<a href="<?php echo get_permalink( get_page_by_path( 'rejestracja' ) ); ?>" class="woocommerce-account__form-title woocommerce-account__register"><?php esc_html_e( 'Register', 'woocommerce' ); ?></a>
 		</div>
 	
 		<form  class="woocommerce-form woocommerce-form-login login form-visible" method="post">
