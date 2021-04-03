@@ -53,8 +53,8 @@ endif;
 					<?php endif; ?>
 				</div>
 			</div>
-			<?php get_template_part( 'template-parts/faq' ); ?>
 		</div>
 	</div>
+	<?php get_template_part( 'template-parts/faq' ); ?>
 
 </section>

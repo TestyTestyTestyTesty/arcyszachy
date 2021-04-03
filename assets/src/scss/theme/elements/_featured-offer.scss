@@ -4,6 +4,9 @@
   width: 100%;
   padding: 20px 20px 44px;
   margin: 0 0 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   @include mq(md) {
     margin:0;
     margin-right: 19px;
@@ -23,6 +26,11 @@
   }
   &__image {
     margin: 0 0 10px;
+    max-height: 350px;
+    object-fit: contain;
+    @include mq(md){
+      max-height: auto;
+    }
   }
   &__text-small {
     color: $black;

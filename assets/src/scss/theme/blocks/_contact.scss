@@ -21,7 +21,11 @@
   }
   &__form {
     width: 100%;
-    max-width: 540px;
+    margin:0 0 20px;
+    @include mq(lg) {
+      margin:0;
+      max-width: 540px;
+    }
   }
   &__details {
     width: 100%;
@@ -43,7 +47,7 @@
       &-block {
         margin-bottom: 65px;
         position: relative;
-        &:last-of-type{
+        &:last-of-type {
           margin-bottom: 0;
         }
         @include mq(sm) {
@@ -62,22 +66,24 @@
         }
         .single {
           margin-bottom: 9px;
-          display:grid;
-          grid-template-columns: 160px 1fr;
+          display: grid;
+          @include mq(lg) {
+            grid-template-columns: 160px 1fr;
+          }
           &:last-of-type {
             margin-bottom: unset;
           }
           &__left {
             color: $black;
             font-family: $futura;
-            font-size:17px;
+            font-size: 17px;
             line-height: 22px;
             letter-spacing: -0.58px;
           }
           &__right {
             font-family: $futuraLight;
             color: $darkGrey;
-            font-size:16px;
+            font-size: 16px;
             line-height: 24px;
             letter-spacing: 0.32px;
           }

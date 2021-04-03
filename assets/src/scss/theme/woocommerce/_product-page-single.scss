@@ -147,6 +147,12 @@
           justify-content: flex-start !important;
           .qib-button{
             cursor:pointer;
+            &.plus{
+              border-radius:0 6px 6px 0 !important;
+            }
+            &.minus{
+              border-radius:6px 0 0 6px !important;
+            }
           }
           input{
             font-family: $futuraLight;

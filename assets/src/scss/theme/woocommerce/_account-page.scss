@@ -16,31 +16,38 @@
           }
           ul {
             display: flex;
-            flex-wrap: wrap;
+            flex-direction: column;
+            margin: 0 0 20px;
             @include mq(600) {
-              flex-wrap: nowrap;
+              flex-direction: row;
               justify-content: space-between;
+              align-items: center;
             }
             @include mq(md) {
+              justify-content: flex-start;
+              align-items: flex-start;
+              margin: 0;
               flex-direction: column;
             }
             .woocommerce-MyAccount-navigation-link {
               position: relative;
               margin-bottom: 15px;
-              margin: 20px;
+              margin: 20px 0;
               transition: all 0.3s;
-              color: $black;
-              &:hover {
-                a {
-                  color: $dark-red;
-                }
-              }
+              color: $black;              
               @include mq(600) {
-                margin: unset;
-                margin-bottom: 29px;
+                margin: 20px 10px 20px 0;
+              }
+              @include mq(lg) {
+                margin: 20px 20px 20px 0;
                 &:last-of-type {
                   margin-top: 30px;
                   margin-bottom: 0;
+                }
+              }
+              &:hover {
+                a {
+                  color: $dark-red;
                 }
               }
               &:before {
@@ -61,6 +68,15 @@
                 font-size: 14px;
                 line-height: 18px;
                 margin-left: 40px;
+                display: block;
+                @include mq(600){
+                  font-size: 12px;
+                  margin-left:32px
+                }
+                @include mq(md){
+                  font-size: 14px;
+                  margin-left: 40px;
+                }
               }
               &.is-active {
                 a {

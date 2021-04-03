@@ -48,7 +48,12 @@ function woocommerce_clear_cart_url() {
 add_action( 'init', 'move_related_products_before_tabs' );
 function move_related_products_before_tabs() {
 	remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
-	add_action( 'woocommerce_after_single_product', 'woocommerce_output_related_products', 5 );
+	//add_action( 'woocommerce_after_single_product', 'woocommerce_output_related_products', 5 );
+}
+add_action( 'init', 'move_upsell_products_before_tabs' );
+function move_upsell_products_before_tabs() {
+	remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_upsell_display', 15 );
+	add_action( 'woocommerce_after_single_product', 'woocommerce_upsell_display', 5 );
 }
 add_filter(
 	'woocommerce_output_related_products_args',
@@ -418,7 +423,7 @@ function bbloomer_separate_registration_form() {
 			   <input type="password" class="woocommerce-Input woocommerce-Input--text input-text" name="password" id="reg_password" autocomplete="new-password" />
 			</p>
 		 <?php else : ?>
-			<p><?php esc_html_e( 'A password will be sent to your email address.', 'woocommerce' ); ?></p>
+			<p class="password-will-be-sent"><?php esc_html_e( 'A password will be sent to your email address.', 'woocommerce' ); ?></p>
 		 <?php endif; ?>
 		 <?php do_action( 'woocommerce_register_form' ); ?>
 		 <p class="woocommerce-FormRow form-row">
@@ -434,3 +439,11 @@ function bbloomer_separate_registration_form() {
 	<?php
 	return ob_get_clean();
 }
+function woocommerce_disable_shop_page() {
+	global $post;
+	if ( is_shop() ) :
+		wp_redirect( home_url() );
+		exit;
+	endif;
+}
+add_action( 'wp', 'woocommerce_disable_shop_page' );

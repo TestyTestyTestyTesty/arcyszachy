@@ -60,7 +60,7 @@
       .thank-you-button {
         border-radius: 8px;
         background: $dark-red;
-        padding: 20px 90px;
+        padding: 20px 40px;
         font-size: 12px;
         line-height: 14px;
         font-family: $futuraLight;
@@ -68,6 +68,10 @@
         color: $white;
         text-transform: uppercase;
         transition: all 0.3s;
+        text-align: center;
+        @include mq(600){
+          padding: 20px 90px;
+        }
         &:hover{
           background:$red;
         }
@@ -77,20 +81,21 @@
         border-top: 1px solid $light-gray;
         margin-top: 50px;
         display: flex;
-        padding: 32px 0 46px;
+        padding: 32px 0 0;
         margin-bottom: 0;
         flex-direction: column;
         align-items: center;
         text-align: center;
-
+        
         @include mq(md) {
+          padding: 32px 0 46px;
           text-align: left;
           flex-direction: row;
           justify-content: space-around;
         }
         li {
           font-size: 16px;
-          font-family: $text-font;
+          font-family: $futura;
           letter-spacing: -0.16px;
           color: #141414;
           text-transform: capitalize;
@@ -105,7 +110,7 @@
           strong {
             font-size: 14px;
             letter-spacing: -0.14px;
-            font-weight: 400;
+            font-family: $futuraLight;
             @include mq(md) {
               margin-top: 15px;
             }

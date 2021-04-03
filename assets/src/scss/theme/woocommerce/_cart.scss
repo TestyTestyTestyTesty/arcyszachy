@@ -26,7 +26,7 @@
       color: $white;
       font-size: 16px;
       letter-spacing: -0.16px;
-      font-family: $text-font;
+      font-family: $futura;
       padding: 15px 70px;
       line-height: 32px;
       &:before {
@@ -41,7 +41,7 @@
         border-radius: 6px;
         height: 47px;
         color: $white;
-        font-family: $text-font;
+        font-family: $futuraLight;
         letter-spacing: 0.4px;
         font-weight: 600;
         font-size: 14px;
@@ -58,7 +58,11 @@
     }
     .cart__wrapper {
       display: flex;
-      justify-content: space-between;
+      flex-direction: column;
+      @include mq(md) {
+        flex-direction: row;
+        justify-content: space-between;
+      }
       .cart-intro {
         margin: 0 0 30px;
         display: flex;
@@ -102,15 +106,21 @@
           border-radius: 8px;
           padding: 9px 36px;
           transition: all 0.3s;
+          display: none;
           &:hover {
             color: $gold;
             background: $dark-red;
           }
+          @include mq(md) {
+            display: block;
+          }
         }
       }
       .cart-right-column {
-        max-width: 350px;
         width: 100%;
+        @include mq(md) {
+          max-width: 350px;
+        }
         .cart__title {
           margin: 0 0 30px;
         }
@@ -124,6 +134,10 @@
         border: none;
         margin-bottom: 50px;
         position: relative;
+        padding: 20px;
+        @include mq(md) {
+          padding: 0;
+        }
         &:after {
           content: "";
           position: absolute;
@@ -172,6 +186,10 @@
             }
             .product-name {
               font-family: $futuraLight;
+              color: $darkGrey;
+              font-family: $futuraLight;
+              font-size: 16px;
+              line-height: 24px;
               a {
                 color: $darkGrey;
                 transition: all 0.3s;
@@ -190,13 +208,22 @@
               line-height: 24px;
             }
             .product-quantity {
+              color: $darkGrey;
               font-family: $futuraLight;
-              .qib-container{
+              font-size: 16px;
+              line-height: 24px;
+              .qib-container {
                 justify-content: flex-start !important;
-                .qib-button{
-                  cursor:pointer;
+                .qib-button {
+                  cursor: pointer;
+                  &.plus{
+                    border-radius:0 6px 6px 0 !important;
+                  }
+                  &.minus{
+                    border-radius:6px 0 0 6px !important;
+                  }
                 }
-                input{
+                input {
                   font-family: $futuraLight;
                 }
               }
@@ -208,10 +235,12 @@
             }
           }
           .actions {
-            padding: 18px 10px 32px;
-            @include mq(sm) {
+            background: none;
+            padding: 18px 0 32px;
+            @include mq(md) {
               padding: 18px 72px 32px;
             }
+
             .coupon {
               display: flex;
               align-items: flex-end;
@@ -228,11 +257,13 @@
                 color: $darkGrey;
               }
               input {
-                min-width: 284px;
                 width: 100%;
                 border: 1px solid #d6d6d6;
                 border-radius: 8px;
                 height: 40px;
+                @include mq(sm) {
+                  min-width: 284px;
+                }
               }
               button {
                 text-transform: uppercase;
@@ -246,7 +277,10 @@
 
                 border-radius: 8px;
                 position: relative;
-                left: -50px;
+                left: 0;
+                @include mq(md) {
+                  left: -50px;
+                }
               }
             }
           }

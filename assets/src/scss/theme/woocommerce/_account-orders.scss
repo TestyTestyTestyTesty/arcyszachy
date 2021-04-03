@@ -3,56 +3,76 @@
     .entry-content {
       .woocommerce {
         .woocommerce-MyAccount-content {
-          .woocommerce-message {
-            background: $blue;
+          .woocommerce-empty-order-list {
+            background: $dark-red;
             border: none;
             color: $white;
             font-size: 16px;
-            letter-spacing: -0.16px;
-            font-family: $text-font;
-            padding: 15px 30px 15px 70px;
+            letter-spacing: -0.32px;
+            font-family: $futuraLight;
+            padding: 30px 30px 30px 100px;
             line-height: 32px;
+            border-radius: 16px;
             display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            width: 100%;
-            flex-direction: column-reverse;
-            @include mq(600) {
-              flex-direction: row-reverse;
-            }
+            flex-direction: column;
             @include mq(md) {
-              padding: 15px 70px;
+              justify-content: space-between;
+              align-items: center;
+              flex-direction: row;
+            }
+            @include mq(lg) {
+              padding: 30px 30px 30px 155px;
+            }
+            span {
+              display: block;
+              margin:0 0 20px;
+              text-align: center;
+              @include mq(md){
+                text-align: left;
+                margin:0;
+
+              }
             }
             a {
               color: $white;
-              text-decoration: underline;
               background: none;
-              border: 2px solid $white;
-              border-radius: 4px;
+              border: 1px solid $white;
+              border-radius: 8px;
               transition: all 0.3s;
-              text-decoration: underline;
+              text-decoration: none;
+              font-size: 12px;
+              text-transform: uppercase;
+              font-family: $futuraLight;
+              padding: 12px 40px;
+              text-align: center;
+              @include mq(md) {
+                padding: 12px 20px;
+              }
+              @include mq(lg) {
+                padding: 12px 40px;
+              }
               &:hover,
               &:focus {
                 background: $white;
-                color: $blue;
+                color: $dark-red;
                 outline: $white;
               }
-              &.restore-item {
-                padding: 5px 20px;
-                margin: 10px 0;
-                @include mq(md) {
-                  margin: unset;
-                }
-              }
-            }
-            &:after {
-              content: none;
             }
             &:before {
-              content: none
+              content: "";
+              background: url("../images/svg/warning.svg");
+              height: 27px;
+              width: 30px;
+              top: 0;
+              bottom: 0;
+              left: 40px;
+              margin: auto;
+              @include mq(lg) {
+                left: 59px;
+              }
+            }
+            &::after {
+              content: none;
             }
           }
           .woocommerce-MyAccount-orders {
@@ -62,16 +82,16 @@
             border-radius: 8px;
             border: none;
             position: relative;
-            &:after{
-              content:'';
+            &:after {
+              content: "";
               position: absolute;
-              top:0;
+              top: 0;
               left: 0;
-              right:0;
-              margin:auto;
-              height:8px;
-              width:100%;
-              background-color:$dark-red;
+              right: 0;
+              margin: auto;
+              height: 8px;
+              width: 100%;
+              background-color: $dark-red;
               border-radius: 100px 100px 0 0;
             }
             thead {
@@ -106,20 +126,20 @@
                   a {
                     color: $text-dark;
                     transition: all 0.3s;
-                    &:hover{
-                      color:$dark-red;
+                    &:hover {
+                      color: $dark-red;
                     }
                     &.woocommerce-button {
                       border: 1px solid $white;
                       font-family: $futuraLight;
                       text-transform: uppercase;
                       background: $white;
-                      color:$black;
+                      color: $black;
                       letter-spacing: 0.2px;
-                      font-size:12px;
+                      font-size: 12px;
                       line-height: 14px;
                       padding: 12px 27px 12px 0;
-                      &:hover{
+                      &:hover {
                         color: $red;
                       }
                     }

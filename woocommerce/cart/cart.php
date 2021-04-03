@@ -141,7 +141,7 @@ do_action( 'woocommerce_before_cart' ); ?>
 
 				<?php do_action( 'woocommerce_cart_contents' ); ?>
 
-				<tr>
+				<tr class="coupon-tr__wrapper">
 					<td colspan="6" class="actions">
 
 						<?php if ( wc_coupons_enabled() ) { ?>
@@ -167,7 +167,7 @@ do_action( 'woocommerce_before_cart' ); ?>
 			</tbody>
 		</table>
 		<div class="after-cart-table">
-			<a href="<?php echo wc_get_cart_url(); ?>" class="go-to-shop">Wróć do zakupów</a>
+			<a href="<?php echo home_url(); ?>" class="go-to-shop">Wróć do zakupów</a>
 			<?php do_action( 'woocommerce_after_cart_table' ); ?>
 		</div>
 	</form>

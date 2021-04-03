@@ -80,6 +80,18 @@
           z-index: 7001;
         }
       }
+      .password-will-be-sent {
+        letter-spacing: 0.32px;
+        color: $darkGrey;
+        font-size: 16px;
+        line-height: 24px;
+        font-family: $futuraLight;
+        margin:0 0 10px;
+        a {
+          color: $dark-red;
+          font-weight: 600;
+        }
+      }
       .woocommerce-privacy-policy-text {
         letter-spacing: 0.32px;
         color: $darkGrey;
