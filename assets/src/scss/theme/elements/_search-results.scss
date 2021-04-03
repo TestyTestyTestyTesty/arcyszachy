@@ -104,10 +104,6 @@
       &:hover {
         transition: all 0.3s;
         box-shadow: 0px 3px 6px #00000029;
-        .woocommerce-loop-product__title {
-          transition: all 0.3s;
-          color: $dark-red;
-        }
       }
       .product-content__wrapper {
         display: flex;
@@ -135,6 +131,10 @@
         color: $black;
         margin-bottom: 15px !important;
         padding: 0 !important;
+        transition: all 0.3s;
+        &:hover{
+          color: $dark-red;
+        }
       }
       .star-rating {
         &:before {

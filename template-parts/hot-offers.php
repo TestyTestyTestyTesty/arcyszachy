@@ -32,11 +32,11 @@
 					<?php endif; ?>
 				</div>
 				<div class="hot-offers-products">
-				<?php 
-				$productsIds = get_field('hot-offers-products');
+				<?php
+				$productsIds = get_field( 'hot-offers-products' );
 				$productsIds;
 				?>
-				<?php 
+				<?php
 				$args = array(
 					'post_type'      => 'product',
 					'orderby'        => 'post__in',
@@ -49,7 +49,8 @@
 				while ( $loop->have_posts() ) :
 					$loop->the_post();
 					do_action( 'woocommerce_shop_loop' );
-					wc_get_template_part('content', 'product');
+					setup_postdata( $GLOBALS['post'] =& $post_object );
+					wc_get_template_part( 'content', 'product' );
 				endwhile;
 				woocommerce_product_loop_end();
 				do_action( 'woocommerce_after_shop_loop' );

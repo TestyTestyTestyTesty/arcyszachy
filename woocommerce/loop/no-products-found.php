@@ -18,4 +18,10 @@
 defined( 'ABSPATH' ) || exit;
 
 ?>
-<p class="woocommerce-info"><?php esc_html_e( 'No products were found matching your selection.', 'woocommerce' ); ?></p>
+<div class="empty-category">
+    <div class="empty-category__wrapper">
+        <img class="empty-category__icon" src="<?php echo get_template_directory_uri(); ?>/assets/dist/images/svg/warning.svg" alt="" width="30px" height="28px">
+        <p class="empty-category__text">Nie znaleziono produktów</p>
+    </div>
+    <a class="empty-category__link" href="<?php echo get_permalink( woocommerce_get_page_id( 'shop' ) ); ?>">Wróć do sklepu</a>
+</div>

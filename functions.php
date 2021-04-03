@@ -360,6 +360,13 @@ function custom_class( $classes ) {
 	}
 	return $classes;
 }
+add_filter( 'body_class', 'custom_home_class' );
+function custom_home_class( $classes ) {
+	if ( is_front_page() ) {
+		$classes[] = 'woocommerce';
+	}
+	return $classes;
+}
 
 add_filter( 'body_class', 'custom_class_for_login' );
 function custom_class_for_login( $classes ) {
