@@ -107,6 +107,8 @@
           padding: 9px 36px;
           transition: all 0.3s;
           display: none;
+          max-width:190px;
+          text-align: center;
           &:hover {
             color: $gold;
             background: $dark-red;

@@ -14,15 +14,26 @@
     }
     li{
         position: relative;
+        display:flex;
+        flex-direction: column;
+        text-align: center;
+        @include mq(md){
+          text-align: left;
+          display:block;
+        }
         a{
             right: 0;
-            position: absolute;
             top: 0;
             bottom: 0;
             margin: auto;
             display: flex;
             align-items: center;
             height:40px;
+            margin:20px auto 0;
+            @include mq(md){
+              margin:0;
+              position: absolute;
+            }
         }
     }
     a {
@@ -50,8 +61,11 @@
       width: 30px;
       top: 0;
       bottom: 0;
-      left:59px;
+      left:20px;
       margin: auto;
+      @include mq(md){
+        left:59px;
+      }
     }
   }
 }

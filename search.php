@@ -2,7 +2,7 @@
 get_header();
 global $wp_query;
 ?>
-<div class="search-results-custom">
+<div class="search-results-custom woocommerce">
 	<?php get_template_part( 'template-parts/breadcrumbs' ); ?>
   <div class="container">
 	<div class="container--medium">

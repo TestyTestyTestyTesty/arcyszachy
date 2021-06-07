@@ -48,7 +48,7 @@ function woocommerce_clear_cart_url() {
 add_action( 'init', 'move_related_products_before_tabs' );
 function move_related_products_before_tabs() {
 	remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
-	//add_action( 'woocommerce_after_single_product', 'woocommerce_output_related_products', 5 );
+	// add_action( 'woocommerce_after_single_product', 'woocommerce_output_related_products', 5 );
 }
 add_action( 'init', 'move_upsell_products_before_tabs' );
 function move_upsell_products_before_tabs() {
@@ -68,7 +68,13 @@ add_filter(
 	},
 	20
 );
+add_filter( 'woocommerce_registration_redirect', 'custom_redirection_after_registration', 10, 1 );
+function custom_redirection_after_registration( $redirection_url ) {
+	// Change the redirection Url
+	$redirection_url = get_permalink( get_option( 'woocommerce_myaccount_page_id' ) );
 
+	return $redirection_url; // Always return something
+}
 
 add_filter( 'woocommerce_pagination_args', 'rocket_woo_pagination' );
 function rocket_woo_pagination( $args ) {

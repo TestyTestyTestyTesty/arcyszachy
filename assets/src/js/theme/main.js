@@ -9,7 +9,7 @@ jQuery(function () {
   scrollToId();
   productShortcutScroll();
   filtering();
-  afterRegisterRedirect();
+  //afterRegisterRedirect();
 });
 function hamburgerMenu() {
   const hamburger = document.querySelector(".hamburger");
@@ -156,7 +156,7 @@ function accordion() {
   }
 }
 function menuScroll() {
-  var headerDesktop = document.querySelector(".header-desktop");
+  /*  var headerDesktop = document.querySelector(".header-desktop");
   let observer = new IntersectionObserver((entries) => {
     if (entries[0].boundingClientRect.y < 0) {
       headerDesktop.classList.add("header--scrolled");
@@ -164,7 +164,16 @@ function menuScroll() {
       headerDesktop.classList.remove("header--scrolled");
     }
   });
-  observer.observe(document.querySelector("#pixel-to-watch"));
+  observer.observe(document.querySelector("#pixel-to-watch")); */
+  var headerDesktop = document.querySelector(".header-desktop");
+  $(window).bind('mousewheel', function(event) {
+    if (event.originalEvent.wheelDelta >= 0) {
+      headerDesktop.classList.remove("header--scrolled");
+    }
+    else {
+      headerDesktop.classList.add("header--scrolled");
+    }
+});
 }
 function scrollToId() {
   const scrollToDescription = document.getElementById("full-description");

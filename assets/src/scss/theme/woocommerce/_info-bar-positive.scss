@@ -7,13 +7,13 @@
     font-size: 16px;
     letter-spacing: 0.32px;
     font-family: $futuraLight;
-    padding: 30px 30px 30px 100px;
+    padding: 30px 30px 30px 70px;
     line-height: 32px;
     display: flex;
     align-items: center;
     justify-content: flex-start;
     border-radius: 16px;
-    @include mq(md) {
+    @include mq(lg) {
       padding: 30px 30px 30px 155px;
     }
     &__text {
@@ -24,7 +24,7 @@
       flex-direction: column-reverse;
       text-align: center;
       @include mq(600) {
-        flex-direction: row;
+        flex-direction: row-reverse;
       }
     }
     a {
@@ -66,8 +66,12 @@
       width: 29px;
       top: 0;
       bottom: 0;
-      left:59px;
       margin: auto;
+      left:20px;
+      @include mq(lg){
+        left:59px;
+
+      }
     }
   }
 }

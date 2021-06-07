@@ -51,6 +51,9 @@
           letter-spacing: 0.32px;
           margin: 0 0 13px;
           font-family: $futuraLight;
+          &:hover{
+            color:$dark-red;
+          }
         }
       }
     }
@@ -85,6 +88,7 @@
   }
   &__icons {
     display: flex;
+    align-items:center;
     .list-item {
       &__link {
         margin-right: 24px;

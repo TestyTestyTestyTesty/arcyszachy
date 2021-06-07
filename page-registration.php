@@ -8,7 +8,7 @@ get_header();
 		get_template_part( 'template-parts/breadcrumbs' );
 	}
 	?>
-	<main id="primary" class="site-main">
+	<main id="primary" class="site-main woocommerce-page">
 		<div class="container">
 			<div class="container--medium">
 				<?php

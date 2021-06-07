@@ -133,7 +133,7 @@
         margin-bottom: 15px !important;
         padding: 0 !important;
         transition: all 0.3s;
-        &:hover{
+        &:hover {
           color: $dark-red;
         }
       }
@@ -225,7 +225,9 @@
     }
     .archive-sidebar {
       width: 100%;
+      margin: 0 0 20px;
       @include mq(md) {
+        margin:0;
         max-width: 290px;
         margin-right: 27px;
       }
@@ -281,11 +283,10 @@
           visibility: hidden;
           max-height: 0;
           opacity: 0;
-          @include mq(md){
+          @include mq(md) {
             visibility: hidden !important;
             max-height: 0 !important;
             opacity: 0 !important;
-
           }
           &:hover {
             background: $lightGrey;
@@ -299,7 +300,7 @@
           max-height: 0;
           visibility: hidden;
           opacity: 0;
-          
+
           @include mq(md) {
             max-height: 10000px;
             visibility: visible;
@@ -337,7 +338,7 @@
                   letter-spacing: 0.4px;
                   color: $dark-red;
                   text-shadow: 1px 0 0 $dark-red;
-                  font-weight:500;
+                  font-weight: 500;
                 }
               }
               a {
@@ -431,7 +432,7 @@
       }
     }
     .content-column {
-      width:100%;
+      width: 100%;
       .category-intro {
         position: relative;
         border-radius: 12px;
@@ -523,9 +524,10 @@
           border: 1px solid $lightGrey;
           border-radius: 17px;
           margin: 0;
-          &:focus{
+          background:$white;
+          &:focus {
             box-shadow: 0 0 0 1px $red;
-            outline:none;
+            outline: none;
           }
           .orderby {
             font-size: 16px;
@@ -534,8 +536,9 @@
             letter-spacing: 0.32px;
             color: $darkGrey;
             border: none;
-            &:focus{
-              outline:none;
+            background:$white;
+            &:focus {
+              outline: none;
             }
           }
         }
@@ -584,49 +587,70 @@
           }
         }
       }
-      .empty-category{
+      .empty-category {
         border-radius: 16px;
-    background: $dark-red;
-    width: 100%;
-    height: 80px;
-    padding: 26px 60px;
-    color: $white;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    &__wrapper{
-      display:flex;
-      align-items: center;
-    }
-    &__icon {
-      object-fit: contain;
-      margin-right: 66px;
-    }
-    &__text {
-      font-size: 16px;
-      line-height: 24px;
-      font-family: $futuraLight;
-      letter-spacing: 0.32px;
-      color: $white;
-    }
-    &__link{
-      font-family: $futura;
-      border-radius:8px;
-      background-color:$dark-red;
-      text-transform: uppercase;
-      color:$gold;
-      width:100%;
-      height:51px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border:1px solid $gold;
-      max-width:190px;
-      transition: all 0.3s;
-      &:hover{
-        background:$red;
-      }
-    }
+        background: $dark-red;
+        width: 100%;
+        padding: 26px 60px;
+        color: $white;
+        display: flex;
+        flex-direction: column;
+        margin:20px 0 0;
+        align-items: center;
+        @include mq(lg) {
+          margin:0;
+          height: 80px;
+          justify-content: space-between;
+          align-items: center;
+          flex-direction: row;
+        }
+        &__wrapper {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          @include mq(md){
+
+          }
+        }
+        &__icon {
+          object-fit: contain;
+          margin-right: 66px;
+          display: none;
+          @include mq(lg){
+            display: block;
+          }
+        }
+        &__text {
+          font-size: 16px;
+          line-height: 24px;
+          font-family: $futuraLight;
+          letter-spacing: 0.32px;
+          color: $white;
+          text-align: center;
+          margin: 0 0 20px;
+          @include mq(lg){
+            margin: 0;
+            text-align: left;
+          }
+        }
+        &__link {
+          font-family: $futura;
+          border-radius: 8px;
+          background-color: $dark-red;
+          text-transform: uppercase;
+          color: $gold;
+          width: 100%;
+          height: 51px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border: 1px solid $gold;
+          max-width: 190px;
+          transition: all 0.3s;
+          &:hover {
+            background: $red;
+          }
+        }
       }
     }
   }
